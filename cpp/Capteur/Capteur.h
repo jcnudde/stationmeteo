@@ -17,16 +17,19 @@
 #include <stdio.h>
 #include <string.h>
 #include "../CarteES/CarteE_S.h"
+#include "../CarteES/Carte_9111/Carte_9111.h"
 
 using namespace std;
 
 class Capteur
 {
     private:
-        int canal;
+        double channel;
         double PhysicalValue;
         CarteE_S *carte;  
     public:
+        Capteur(double channel);
+        ~Capteur();
         //methode abstraite pour lire une valeur et la retourne 
         virtual double readValue()=0;
         //recupere 

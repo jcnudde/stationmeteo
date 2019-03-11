@@ -1,17 +1,16 @@
- 
 /*
- * Anemometre
+ * Barometre
  * 
  * Classe qui herite de la class capteur
  * 
  * Copyright 7 mars 2019 (@author CNUDDE Joshua)
- * @version 1.0
+ * @version 0.0
  * 
  * 
  **/
 
-#ifndef ANEMOMETRE_H
-#define ANEMOMETRE_H
+#ifndef GIROUETTE_H
+#define BAROMETRE_H
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -20,7 +19,7 @@
 
 using namespace std;
 
-class Anemometre : public Capteur
+class Girouette : public Capteur
 {
     
     public: 
@@ -28,4 +27,4 @@ class Anemometre : public Capteur
            
 };
 
-#endif // CAPTEUR_H
+#endif // BAROMETRE_H

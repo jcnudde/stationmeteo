@@ -1,6 +1,5 @@
- 
 /*
- * Anemometre
+ * Barometre
  * 
  * Classe qui herite de la class capteur
  * 
@@ -10,8 +9,8 @@
  * 
  **/
 
-#ifndef ANEMOMETRE_H
-#define ANEMOMETRE_H
+#ifndef BAROMETRE_H
+#define BAROMETRE_H
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -20,7 +19,7 @@
 
 using namespace std;
 
-class Anemometre : public Capteur
+class Barometre : public Capteur
 {
     
     public: 
@@ -28,4 +27,4 @@ class Anemometre : public Capteur
            
 };
 
-#endif // CAPTEUR_H
+#endif // BAROMETRE_H

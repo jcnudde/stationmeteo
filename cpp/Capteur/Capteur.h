@@ -10,7 +10,7 @@
  * 
  **/
 
-#ifndef CAPTEUR_H0
+#ifndef CAPTEUR_H
 #define CAPTEUR_H
 
 #include <stdlib.h>

@@ -1,7 +1,11 @@
 <?php
-	class Bdd 
-	{
+	class Bdd 	{
 		private $_db; 
+		private $ip_bdd = "192.168.65.66";
+		private $name_bdd = "meteo";
+		private $user_bdd = "root";
+		private $mdp_bdd = "root";
+
 
 		/* constructeur qui permet la connection à la bdd */
 		public function __construct($ip_bdd,$name_bdd,$user_bdd,$mdp_bdd) 

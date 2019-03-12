@@ -1,7 +1,8 @@
 <?php
 	class Bdd 
 	{
-		private $_db; 
+		private $_db;
+		private $_ip; 
 
 		/* constructeur qui permet la connection à la bdd */
 		public function __construct($ip_bdd,$name_bdd,$user_bdd,$mdp_bdd) 

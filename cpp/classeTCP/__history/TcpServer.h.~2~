@@ -1,0 +1,13 @@
+//---------------------------------------------------------------------------
+
+#ifndef TcpServerH
+#define TcpServerH
+#include "Server.h"
+class TcpServer : public Server
+{
+	private :
+	public :
+
+};
+//---------------------------------------------------------------------------
+#endif

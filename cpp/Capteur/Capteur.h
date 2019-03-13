@@ -23,7 +23,7 @@ using namespace std;
 
 class Capteur
 {
-    private:
+    protected:
         double channel;
         double PhysicalValue;
         CarteE_S *carte;  
@@ -32,8 +32,10 @@ class Capteur
         ~Capteur();
         //methode abstraite pour lire une valeur et la retourne 
         virtual double readValue()=0;
-        //recupere 
-        double getLastValue();   
+        //recupere la dernier valeur
+        double getLastValue(); 
+
+        virtual char * getUnit()=0; 
 };
 
 #endif // CAPTEUR_H

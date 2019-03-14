@@ -23,5 +23,5 @@ bool Carte_9111::readTOR(double channel)
 }
 void Carte_9111::writeAnalog(double channel)
 {
-    
+        
 }

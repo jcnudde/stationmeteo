@@ -1,4 +1,4 @@
-#include "Pluie.h"
+#include "CapteurPluie.h"
 
 double pluie::readValue()
 {

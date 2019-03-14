@@ -21,16 +21,34 @@
 
 using namespace std;
 
+typedef struct tabCapteur
+{
+    Capteur *anemometre;
+    Capteur *thermometre;
+    Capteur *barometre;
+    Capteur *girouette;
+    Capteur *hygrometre;
+    Capteur *luxmetre;
+    Capteur *capteur_JourNuit;
+    Capteur *solarimetre;
+    Capteur *capteurPluie;
+};
+
 class RecupDonner
 {
     private:
-        static SqlMeteoManager* sqlMeteo;
-        map<std::string,Capteur*> Capteur;
-
+        SqlMeteoManager* sqlMeteo;
+        tabCapteur Capteur;
+        static ThreadRecupDonnee(RecupDonner*);
+        //constructeur
+        RecupDonner();
+        //destructeur
+        ~RecupDonner();
 
     public:
-        RecupDonner();
-        virtual ~RecupDonner();
+        
+        tabCapteur getDonner();
+
     
 
    

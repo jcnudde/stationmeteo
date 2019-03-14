@@ -13,6 +13,7 @@
 #include <iostream>
 #include <windows.h>
 #include <stdio.h>
+#include <string>
 
 #include "TcpServer.h"
 typedef int socklen_t;
@@ -59,34 +60,73 @@ using namespace std;
 		std::cout << "Erreur bind : " << WSAGetLastError();
 		return -3;
 	}
+
+	res = listen(server, SOMAXCONN);
+	if (res != 0)
+	{
+		std::cout << "Erreur listen : " << WSAGetLastError();
+		return -4;
+	}
+	fd_set master;
+
+	FD_ZERO(&master);
+
+	FD_SET(server, &master);
+
+
 	while(true)
 	{
-		res = listen(server, SOMAXCONN);
-		if (res != 0)
-		{
-			std::cout << "Erreur listen : " << WSAGetLastError();
-			return -4;
-		}
-		fd_set master;
+		fd_set copy = master;
 
-        FD_ZERO(master);
+		int socketCount = select(0,&copy,nullptr,nullptr,nullptr);
 
-        FD_SET(server, &master);
-
-		sockaddr_in from = { 0 };
-		socklen_t addrlen = sizeof(addr);
-		SOCKET newClient = accept(server, (SOCKADDR*)(&from), &addrlen);
-        char buffer[1500]={0};
-		if (newClient != INVALID_SOCKET)
-		{
-			std::cout<<"connecter"<<endl;
-			if (recvfrom(newClient,buffer,1500,0,(SOCKADDR*)(&from),&addrlen) != SOCKET_ERROR)
+		for (int i = 0; i < socketCount; i++) {
+			SOCKET sock = copy.fd_array[i];
+			if(sock == server)
 			{
-				cout<<buffer<<endl;
+				//accept a new connection
+				 SOCKET newClient = accept(server,nullptr,nullptr);
+
+				//add the new wonnection to the list of connected clients
+				FD_SET(client,&master);
+				//Send a welcome message to the connected client
+				string welcomeMsg = "Bienvenue sur le server";
+				send(client,welcomeMsg.c_str(),welcomeMsg.size()+1,0);
+				//TODO : Broadcat we have new connection
+
+
+
+			}
+			else
+			{
+				char buffer[1500];
+				ZeroMemory(buffer,1500);
+
+
+				//accept a new message
+				int bytesIn = recv(sock,buffer,1500,0);
+				if(bytesIn <=0)
+				{
+					//Drop the client
+					closesocket(sock);
+					FD_CLR(sock,&master);
+				}
+				else
+				{
+					//send message to other clients, and definiately NOT the listening socket
+					for (int j = 0; j < master.fd_count; j++) {
+
+					}
+
+				}
 			}
 
 		}
+
 	}
+
+
+
 	closesocket(server);
 	WSACleanup();
 

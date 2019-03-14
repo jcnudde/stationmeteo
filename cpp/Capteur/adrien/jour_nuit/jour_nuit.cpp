@@ -1,4 +1,4 @@
-#include "Lumiere.h"
+#include "jour_nuit.h"
 
 double lumiere::readValue()
 {

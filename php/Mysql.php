@@ -1,7 +1,9 @@
 <?php
 	class Bdd 	{
+
+		/* parametre pour se connecter a la BDD*/
 		private $_db; 
-		private $ip_bdd = "192.168.65.66";
+		private $ip_bdd = "127.0.0.1";
 		private $name_bdd = "meteo";
 		private $user_bdd = "root";
 		private $mdp_bdd = "root";

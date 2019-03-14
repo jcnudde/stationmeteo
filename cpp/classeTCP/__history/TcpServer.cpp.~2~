@@ -1,0 +1,24 @@
+//---------------------------------------------------------------------------
+
+#pragma hdrstop
+
+#include "TcpServer.h"
+//---------------------------------------------------------------------------
+#pragma package(smart_init)
+
+TcpServer::TcpServer()
+{
+
+}
+TcpServer::~TcpServer()
+{
+
+}
+TcpServer::start(int port)
+{
+
+}
+void TcpServer::stop()
+{
+
+}

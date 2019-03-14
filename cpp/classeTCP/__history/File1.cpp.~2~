@@ -14,16 +14,13 @@
 #include <windows.h>
 #include <stdio.h>
 
-
 typedef int socklen_t;
 
 
-
+using namespace std;
 
  int _tmain(int argc, _TCHAR* argv[])
 {
-
-
      WSAData wsaData;
 	if (WSAStartup(MAKEWORD(2, 2), &wsaData) != 0)
 	{
@@ -75,12 +72,11 @@ typedef int socklen_t;
 				if (recvfrom(newClient,buffer,1500,0,(SOCKADDR*)(&from),&addrlen) != SOCKET_ERROR)
 				{
 					cout<<buffer<<endl;
-                    buffer[0]='\0';
 				}
 			}
 
 		}
-
+}
 	closesocket(server);
 	WSACleanup();
 

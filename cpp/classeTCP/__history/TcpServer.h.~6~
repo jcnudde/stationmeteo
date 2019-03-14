@@ -1,0 +1,21 @@
+//---------------------------------------------------------------------------
+
+#ifndef TcpServerH
+#define TcpServerH
+#include "Server.h"
+#include <stdio.h>    .
+#include <iostream>
+#include <windows.h>
+#include <stdio.h>
+class TcpServer : public Server
+{
+	private:
+		SOCKET server;
+		sockaddr_in addrServer;
+		sockaddr_in addrClient;
+		socklen_t addrlen;
+	public:
+
+};
+//---------------------------------------------------------------------------
+#endif

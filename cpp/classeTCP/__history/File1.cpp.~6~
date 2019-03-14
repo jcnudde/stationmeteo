@@ -1,0 +1,94 @@
+#pragma hdrstop
+#pragma argsused
+
+
+#ifdef _WIN32
+#include <tchar.h>
+#else
+  typedef char _TCHAR;
+  #define _tmain main
+#endif
+
+#include <stdio.h>    .
+#include <iostream>
+#include <windows.h>
+#include <stdio.h>
+#include <conio.h>
+
+typedef int socklen_t;
+
+
+
+
+ int _tmain(int argc, _TCHAR* argv[])
+{
+      if (__cplusplus == 201703L) std::cout << "C++17\n";
+    else if (__cplusplus == 201402L) std::cout << "C++14\n";
+    else if (__cplusplus == 201103L) std::cout << "C++11\n";
+    else if (__cplusplus == 199711L) std::cout << "C++98\n";
+	else std::cout << "pre-standard C++\n";
+    getch();
+
+//     WSAData wsaData;
+//	if (WSAStartup(MAKEWORD(2, 2), &wsaData) != 0)
+//	{
+//		std::cout << "Erreur initialisation WinSock : " << WSAGetLastError();
+//		return -1;
+//	}
+//
+//	SOCKET server = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
+//	if (server == INVALID_SOCKET)
+//	{
+//		std::cout << "Erreur initialisation socket : " << WSAGetLastError();
+//		return -2;
+//	}
+//
+//	const unsigned short port = 9999;
+//	sockaddr_in addr;
+//	addr.sin_addr.s_addr = INADDR_ANY;
+//	addr.sin_port = htons(port);
+//	addr.sin_family = AF_INET;
+//
+//	int res = bind(server, (sockaddr*)&addr, sizeof(addr));
+//	if (res != 0)
+//	{
+//		std::cout << "Erreur bind : " << WSAGetLastError();
+//		return -3;
+//	}
+//
+//		res = listen(server, SOMAXCONN);
+//		if (res != 0)
+//		{
+//			std::cout << "Erreur listen : " << WSAGetLastError();
+//			return -4;
+//		}
+//
+//		std::cout << "Serveur demarre sur le port " << port << std::endl;
+//
+//		sockaddr_in from = { 0 };
+//		socklen_t addrlen = sizeof(addr);
+//		SOCKET newClient = accept(server, (SOCKADDR*)(&from), &addrlen);
+//        char buffer[1500]={0};
+//		if (newClient != INVALID_SOCKET)
+//		{
+////				char buff[1024] = { 0 };
+////				std::string clientAddress = inet_ntop(addr.sin_family, (void*)&(addr.sin_addr), buff, 1024);
+////				std::cout << "Connexion de " << clientAddress.c_str() << ":" << addr.sin_port << std::endl;
+//			std::cout<<"connecter"<<endl;
+//			while (1)
+//			{
+//				if (recvfrom(newClient,buffer,1500,0,(SOCKADDR*)(&from),&addrlen) != SOCKET_ERROR)
+//				{
+//					cout<<buffer<<endl;
+//                    buffer[0]='\0';
+//				}
+//			}
+//
+//		}
+//
+//	closesocket(server);
+//	WSACleanup();
+
+
+	return 0;
+}

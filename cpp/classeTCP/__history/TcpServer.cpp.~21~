@@ -6,6 +6,11 @@
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 
+
+TcpServer::~TcpServer()
+{
+
+}
 bool TcpServer::start(int port)
 {
     //variable de retour
@@ -16,7 +21,6 @@ bool TcpServer::start(int port)
 			//teste si la socket est créé
 			if (this->server != INVALID_SOCKET)
 			{
-                //on remplie les info pour le server
 				this->addrServer.sin_addr.s_addr = INADDR_ANY;
 				this->addrServer.sin_port = htons(port);
 				this->addrServer.sin_family = AF_INET;
@@ -26,8 +30,12 @@ bool TcpServer::start(int port)
 					//test si le listen a fonctionné
 					if(listen(server, SOMAXCONN) == 0)
 					{
-							retour=true;
+		//                this->addrClient={0};
+
+                            retour=true;
+
 					}
+
 				}
 
 			}
@@ -38,15 +46,16 @@ bool TcpServer::start(int port)
 void TcpServer::stop()
 {
 	closesocket(this->server);
-	WSACleanup();
+	WSACleanup()
 }
 vector<char> TcpServer::recevoir()
 {
 	std::vector<char> test;
-	memset(this->buffer,'\0',1500);
+
 	if (recvfrom(this->client,buffer,1500,0,(SOCKADDR*)(&this->addrClient),&addrlen) != SOCKET_ERROR)
 	{
 					cout<<buffer<<endl;
+					buffer[0]='\0';
 	}
     return test;
 }
@@ -60,13 +69,10 @@ bool TcpServer::clientAccept()
 	this->client=accept(this->server, //socket server
 						(SOCKADDR*)(&this->addrClient), //variable qui stock les info du client
 						&this->addrlen);
+	this->client=accept(server, (SOCKADDR*)(&this->client),&addrlen);
 	if (this->client != INVALID_SOCKET)
 	{
 		retour=true;
 	}
     return retour;
-}
-TcpServer::~TcpServer()
-{
-    this->stop();
 }

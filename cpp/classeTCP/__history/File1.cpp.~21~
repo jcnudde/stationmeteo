@@ -14,6 +14,7 @@
 #include <windows.h>
 #include <stdio.h>
 
+#include "TcpServer.h"
 typedef int socklen_t;
 
 
@@ -21,13 +22,24 @@ using namespace std;
 
  int _tmain(int argc, _TCHAR* argv[])
 {
-     WSAData wsaData;
+//	 TcpServer test;
+//
+//	 if(test.start(9013))
+//	 {
+//		 if(test.clientAccept())
+//		 {
+//			test.recevoir();
+//         }
+//	 }
+//	 test.stop();
+//
+	 WSAData wsaData;
 	if (WSAStartup(MAKEWORD(2, 2), &wsaData) != 0)
 	{
 		std::cout << "Erreur initialisation WinSock : " << WSAGetLastError();
 		return -1;
 	}
-
+//
 	SOCKET server = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
 	if (server == INVALID_SOCKET)
 	{
@@ -48,35 +60,50 @@ using namespace std;
 		return -3;
 	}
 
-		res = listen(server, SOMAXCONN);
-		if (res != 0)
-		{
-			std::cout << "Erreur listen : " << WSAGetLastError();
-			return -4;
-		}
+	res = listen(server, SOMAXCONN);
+	if (res != 0)
+	{
+		std::cout << "Erreur listen : " << WSAGetLastError();
+		return -4;
+	}
+	fd_set master;
 
-		std::cout << "Serveur demarre sur le port " << port << std::endl;
+	FD_ZERO(&master);
 
-		sockaddr_in from = { 0 };
-		socklen_t addrlen = sizeof(addr);
-		SOCKET newClient = accept(server, (SOCKADDR*)(&from), &addrlen);
-        char buffer[1500]={0};
-		if (newClient != INVALID_SOCKET)
-		{
-//				char buff[1024] = { 0 };
-//				std::string clientAddress = inet_ntop(addr.sin_family, (void*)&(addr.sin_addr), buff, 1024);
-//				std::cout << "Connexion de " << clientAddress.c_str() << ":" << addr.sin_port << std::endl;
-			std::cout<<"connecter"<<endl;
-			while (1)
+	FD_SET(server, &master);
+
+
+	while(true)
+	{
+		fd_set copy = master;
+
+		int socketCount = select(0,&copy,nullptr,nullptr,nullptr);
+
+		for (int i = 0; i < socketCount; i++) {
+			SOCKET sock = copy.fd_array[i];
+			if(	sock== listening)
 			{
-				if (recvfrom(newClient,buffer,1500,0,(SOCKADDR*)(&from),&addrlen) != SOCKET_ERROR)
-				{
-					cout<<buffer<<endl;
-				}
+				//accept a new connection
+
+
+				//add the new wonnection to the list of connected clients
+				//Send a welcome message to the connected client
+				//TODO : Broadcat we have new connection
+
+
 			}
+			else
+			{
+				//accept a new message
+                //send message to other clients, and definiately NOT the listening socket
+            }
 
 		}
-}
+
+	}
+
+
+
 	closesocket(server);
 	WSACleanup();
 

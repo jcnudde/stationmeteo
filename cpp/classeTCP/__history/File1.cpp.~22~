@@ -90,8 +90,8 @@ using namespace std;
 				//add the new wonnection to the list of connected clients
 				FD_SET(client,&master);
 				//Send a welcome message to the connected client
-				string welcomeMsg = "Bienvenue sur le server";
-				send(client,welcomeMsg.c_str(),welcomeMsg.size()+1,0);
+
+
 				//TODO : Broadcat we have new connection
 
 

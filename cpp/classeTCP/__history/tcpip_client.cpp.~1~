@@ -13,7 +13,10 @@
 #include <iostream>
 #include <windows.h>
 #include <stdio.h>
-#include <conio.h>
+#include "TcpServer.h"
+
+using namespace std;
+
 
 typedef int socklen_t;
 
@@ -22,20 +25,15 @@ typedef int socklen_t;
 
  int _tmain(int argc, _TCHAR* argv[])
 {
-      if (__cplusplus == 201703L) std::cout << "C++17\n";
-    else if (__cplusplus == 201402L) std::cout << "C++14\n";
-    else if (__cplusplus == 201103L) std::cout << "C++11\n";
-    else if (__cplusplus == 199711L) std::cout << "C++98\n";
-	else std::cout << "pre-standard C++\n";
-    getch();
 
-//     WSAData wsaData;
+//
+//	 WSAData wsaData;
 //	if (WSAStartup(MAKEWORD(2, 2), &wsaData) != 0)
 //	{
 //		std::cout << "Erreur initialisation WinSock : " << WSAGetLastError();
 //		return -1;
 //	}
-//
+////
 //	SOCKET server = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
 //	if (server == INVALID_SOCKET)
 //	{

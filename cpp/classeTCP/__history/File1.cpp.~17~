@@ -13,7 +13,6 @@
 #include <iostream>
 #include <windows.h>
 #include <stdio.h>
-#include <string>
 
 #include "TcpServer.h"
 typedef int socklen_t;
@@ -77,32 +76,6 @@ using namespace std;
 	while(true)
 	{
 		fd_set copy = master;
-
-		int socketCount = select(0,&copy,nullptr,nullptr,nullptr);
-
-		for (int i = 0; i < socketCount; i++) {
-			SOCKET sock = copy.fd_array[i];
-			if(sock == server)
-			{
-				//accept a new connection
-				 SOCKET newClient = accept(server,nullptr,nullptr);
-
-				//add the new wonnection to the list of connected clients
-				FD_SET(client,&master);
-				//Send a welcome message to the connected client
-				string welcomeMsg = "Bienvenue sur le server";
-				send(client,welcomeMsg.c_str(),welcomeMsg.size()+1,0);
-				//TODO : Broadcat we have new connection
-
-
-			}
-			else
-			{
-				//accept a new message
-                //send message to other clients, and definiately NOT the listening socket
-            }
-
-		}
 
 	}
 

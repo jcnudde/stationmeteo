@@ -14,27 +14,34 @@
 #include <windows.h>
 #include <stdio.h>
 
-
+#include "TcpServer.h"
 typedef int socklen_t;
 
 
-
+using namespace std;
 
  int _tmain(int argc, _TCHAR* argv[])
 {
-      if (__cplusplus == 201703L) std::cout << "C++17\n";
-    else if (__cplusplus == 201402L) std::cout << "C++14\n";
-    else if (__cplusplus == 201103L) std::cout << "C++11\n";
-    else if (__cplusplus == 199711L) std::cout << "C++98\n";
-	else std::cout << "pre-standard C++\n";
+	 TcpServer test;
 
-//     WSAData wsaData;
+	 if(test.start(9013))
+	 {
+		 if(test.clientAccept())
+		 {
+			test.recevoir();
+         }
+	 }
+
+
+
+	 test.stop();
+//	 WSAData wsaData;
 //	if (WSAStartup(MAKEWORD(2, 2), &wsaData) != 0)
 //	{
 //		std::cout << "Erreur initialisation WinSock : " << WSAGetLastError();
 //		return -1;
 //	}
-//
+
 //	SOCKET server = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
 //	if (server == INVALID_SOCKET)
 //	{
@@ -54,7 +61,8 @@ typedef int socklen_t;
 //		std::cout << "Erreur bind : " << WSAGetLastError();
 //		return -3;
 //	}
-//
+//	while(true)
+//	{
 //		res = listen(server, SOMAXCONN);
 //		if (res != 0)
 //		{
@@ -74,17 +82,13 @@ typedef int socklen_t;
 ////				std::string clientAddress = inet_ntop(addr.sin_family, (void*)&(addr.sin_addr), buff, 1024);
 ////				std::cout << "Connexion de " << clientAddress.c_str() << ":" << addr.sin_port << std::endl;
 //			std::cout<<"connecter"<<endl;
-//			while (1)
+//			if (recvfrom(newClient,buffer,1500,0,(SOCKADDR*)(&from),&addrlen) != SOCKET_ERROR)
 //			{
-//				if (recvfrom(newClient,buffer,1500,0,(SOCKADDR*)(&from),&addrlen) != SOCKET_ERROR)
-//				{
-//					cout<<buffer<<endl;
-//                    buffer[0]='\0';
-//				}
+//                cout<<buffer<<endl;
 //			}
 //
 //		}
-//
+//	}
 //	closesocket(server);
 //	WSACleanup();
 

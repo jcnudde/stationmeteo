@@ -17,12 +17,12 @@
 #include <stdio.h>
 #include <string.h>
 #include <map>
-#include "../Capteur/Capteur.h"
 #include "../Capteur/Anemometre.h"
 #include "../Capteur/Girouette.h"
-#include "../../adrien/Capteur/adrien/CapteurJour_Nuit/CapteurJour_Nuit.h"
-#include "../../adrien/Capteur/adrien/CapteurPluie/CapteurPluie.h"
-#include "../../adrien/Capteur/adrien/pluiviometre/Pluiviometre.h"
+#include "../Capteur/Barometre.h"
+#include "../../adrien/Capteur/CapteurJour_Nuit.h"
+#include "../../adrien/Capteur/CapteurPluie.h"
+#include "../../adrien/Capteur/Pluiviometre.h"
 
 
 using namespace std;
@@ -30,9 +30,9 @@ using namespace std;
 typedef struct tabCapteur
 {
     Capteur *anemometre;
-    Capteur *thermometre;
-    Capteur *barometre;
     Capteur *girouette;
+    Capteur *barometre;
+    Capteur *thermometre;
     Capteur *hygrometre;
     Capteur *luxmetre;
     Capteur *capteur_JourNuit;
@@ -55,7 +55,7 @@ class RecupDonnerMeteo
 {
     private:
         SqlMeteoManager* sqlMeteo;
-        tabCapteur Capteur;
+        tabCapteur capteur;
         static ThreadRecupDonnee(RecupDonner*);
         //constructeur
         RecupDonner();

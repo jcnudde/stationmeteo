@@ -1,6 +1,6 @@
 
 /*
- * Pluiviométre
+ * Pluiviomï¿½tre
  *
  * Classe qui herite de la class capteur
  *

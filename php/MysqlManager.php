@@ -15,11 +15,11 @@ class MysqlManager
 
         public function addUser()
     {
-          if(isset($_GET["nom"]))
+          if(isset($_POST["nom"]))
         {
-        $id_user = $_GET["id_user"];
-        $user = $_GET["user"];
-        $password = $_GET["password"]; 
+        $id_user = $_POST["id_user"];
+        $user = $_POST["user"];
+        $password = $_POST["password"]; 
         
         $this->User= new requete ("INSERT INTO `User`(`id_user`, `user`, `password`) values('$id_user','$user','$password')"); 
         echo "Utilisateur enregistrer";
@@ -33,14 +33,14 @@ class MysqlManager
         echo "utilisateur supprimer";        
         }
 
-        public function delete_historique()
+        public function deleteHistorique()
         {
 
 
         echo "historique supprimer";
         }
 
-        public function afficher_historique()
+        public function afficherHistorique()
         {
 
 

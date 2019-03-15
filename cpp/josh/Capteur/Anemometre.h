@@ -24,7 +24,8 @@ class Anemometre : public Capteur
 {
     
     public: 
-        virtual double readValue();
+        Anemometre(double channel)
+        double readValue();
            
 };
 

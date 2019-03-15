@@ -2,7 +2,8 @@
 
 RecupDonner::RecupDonner()
 {
-    //ctor
+    Capteur.anemometre = new Anemometre()
+        
 }
 
 RecupDonner::~RecupDonner()
@@ -13,6 +14,8 @@ tabDonnerCapteur RecupDonner::getDonner()
 {
     tabDonnerCapteur donneeMeteo;
 
-    donneMeteo.
+    donneMeteo.vitesseVent=
+
+    
     
 }

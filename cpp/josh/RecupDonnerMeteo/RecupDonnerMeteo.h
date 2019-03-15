@@ -18,6 +18,12 @@
 #include <string.h>
 #include <map>
 #include "../Capteur/Capteur.h"
+#include "../Capteur/Anemometre.h"
+#include "../Capteur/Girouette.h"
+#include "../../adrien/Capteur/adrien/CapteurJour_Nuit/CapteurJour_Nuit.h"
+#include "../../adrien/Capteur/adrien/CapteurPluie/CapteurPluie.h"
+#include "../../adrien/Capteur/adrien/pluiviometre/Pluiviometre.h"
+
 
 using namespace std;
 

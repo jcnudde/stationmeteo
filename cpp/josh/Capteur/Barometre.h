@@ -23,6 +23,7 @@ class Barometre : public Capteur
 {
     
     public: 
+        Barometre(double channel);
         virtual double readValue();
            
 };

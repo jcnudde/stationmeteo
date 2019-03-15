@@ -1,5 +1,5 @@
 /*
- * Lumiére
+ * Lumiï¿½re
  *
  * Classe qui herite de la class capteur
  *

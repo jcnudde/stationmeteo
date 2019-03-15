@@ -29,7 +29,7 @@ class MysqlManager
         public function deleteUser()
         {
 
-
+            
         echo "utilisateur supprimer";        
         }
 
@@ -44,9 +44,7 @@ class MysqlManager
         {
 
 
-      echo "voici l'historique de la date demander";  
+        echo "voici l'historique de la date demander";  
         }    
 }
-
-
 ?>

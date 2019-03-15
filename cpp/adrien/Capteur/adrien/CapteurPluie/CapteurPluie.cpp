@@ -1,6 +1,6 @@
 #include "CapteurPluie.h"
 
-double pluie::readValue()
+double CapteurPluie::readValue()
 {
     return 1 ;
 }

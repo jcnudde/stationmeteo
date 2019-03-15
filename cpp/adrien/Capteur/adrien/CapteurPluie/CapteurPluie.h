@@ -20,7 +20,7 @@
 
 using namespace std;
 
-class Pluie : public Capteur
+class CapteurPluie : public Capteur
 {
 
     public:

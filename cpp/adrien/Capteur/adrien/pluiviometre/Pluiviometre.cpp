@@ -1,6 +1,6 @@
 #include "Pluiviometre.h"
 
-double pluiviometre::readValue()
+double Pluiviometre::readValue()
 {
     return 1 ;
 }

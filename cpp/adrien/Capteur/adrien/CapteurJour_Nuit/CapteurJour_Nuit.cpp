@@ -1,6 +1,6 @@
 #include "CapteurJour_Nuit.h"
 
-double lumiere::readValue()
+double CapteurJour_Nuit::readValue()
 {
     return 1 ;
 }

@@ -19,7 +19,7 @@
 
 using namespace std;
 
-class Lumiere : public Capteur
+class CapteurJour_Nuit : public Capteur
 {
 
     public:

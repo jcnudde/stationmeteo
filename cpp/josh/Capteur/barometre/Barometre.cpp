@@ -1,4 +1,7 @@
+#include "Barometre.h"
+
 double Barometre::readValue()
 {
-    return 20;
+    this->PhysicalValue=2000;    
+    return 2000;
 }

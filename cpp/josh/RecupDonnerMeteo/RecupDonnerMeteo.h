@@ -10,8 +10,8 @@
  * 
  **/
 
-#ifndef RECUPDONNER_H
-#define RECUPDONNER_H
+#ifndef RECUPDONNERMETEO_H
+#define RECUPDONNERMETEO_H
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -30,11 +30,22 @@ typedef struct tabCapteur
     Capteur *hygrometre;
     Capteur *luxmetre;
     Capteur *capteur_JourNuit;
-    Capteur *solarimetre;
     Capteur *capteurPluie;
+    Capteur *pluviometre;
 };
-
-class RecupDonner
+typedef struct tabDonnerCapteur
+{
+    double vitesseVent;
+    double temperature;
+    double pressionAtmospherique;
+    double direction;
+    double hummiditeRelative;
+    double luminosite;
+    bool jour;      //0 pour nuit et 1 pour jour
+    bool pluie; //0 pour pas de pluie et 1 pour pluie
+    double surfaceDePluie;
+};
+class RecupDonnerMeteo
 {
     private:
         SqlMeteoManager* sqlMeteo;
@@ -47,7 +58,8 @@ class RecupDonner
 
     public:
         
-        tabCapteur getDonner();
+        tabDonnerCapteur getDonner();
+        RecupDonner* getInstance();
 
     
 

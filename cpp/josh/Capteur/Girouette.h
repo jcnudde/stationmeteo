@@ -22,8 +22,9 @@ using namespace std;
 class Girouette : public Capteur
 {
     
-    public: 
-        virtual double readValue();
+    public:
+        Girouette(double channel); 
+        double readValue();
            
 };
 

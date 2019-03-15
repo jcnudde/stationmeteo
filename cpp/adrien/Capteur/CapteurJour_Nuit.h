@@ -1,5 +1,5 @@
 /*
- * Lumi�re
+ * CapteurJour_Nuit
  *
  * Classe qui herite de la class capteur
  *
@@ -23,6 +23,7 @@ class CapteurJour_Nuit : public Capteur
 {
 
     public:
+        CapteurJour_Nuit(double channel);
         virtual double readValue();
 
 };

@@ -1,6 +1,6 @@
 
 /*
- * Pluie
+ * CapteurPluie
  *
  * Classe qui herite de la class capteur
  *
@@ -24,6 +24,7 @@ class CapteurPluie : public Capteur
 {
 
     public:
+        CapteurPluie(double channel);
         virtual double readValue();
 
 };

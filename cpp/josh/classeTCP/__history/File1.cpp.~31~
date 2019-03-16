@@ -72,20 +72,18 @@ using namespace std;
 	FD_ZERO(&master);
 
 	FD_SET(server, &master);
-
-
 	while(true)
 	{
 		fd_set copy = master;
 
-		int socketCount = select(0,&copy,null,null,null);
+		int socketCount = select(0,&copy,NULL,NULL,NULL);
 
 		for (int i = 0; i < socketCount; i++) {
 			SOCKET sock = copy.fd_array[i];
 			if(sock == server)
 			{
 				//accept a new connection
-				 SOCKET newClient = accept(server,null,null);
+				SOCKET newClient = accept(server,NULL,NULL);
 
 				//add the new wonnection to the list of connected clients
 				FD_SET(newClient,&master);
@@ -93,16 +91,11 @@ using namespace std;
 				string welcomeMsg = "Bienvenue sur le server";
 				send(newClient,welcomeMsg.c_str(),welcomeMsg.size()+1,0);
 				//TODO : Broadcat we have new connection
-
-
-
 			}
 			else
 			{
 				char buffer[1500];
 				ZeroMemory(buffer,1500);
-
-
 				//accept a new message
 				int bytesIn = recv(sock,buffer,1500,0);
 				if(bytesIn <=0)
@@ -119,7 +112,7 @@ using namespace std;
 						if(outSock != server && outSock !=sock)
 						{
                             send(outSock,buffer,bytesIn,0);
-                        }
+						}
 					}
 
 				}
@@ -128,12 +121,7 @@ using namespace std;
 		}
 
 	}
-
-
-
 	closesocket(server);
 	WSACleanup();
-
-
 	return 0;
 }

@@ -26,7 +26,16 @@ bool TcpServer::start(int port)
 					//test si le listen a fonctionné
 					if(listen(server, SOMAXCONN) == 0)
 					{
-							retour=true;
+
+                        this->boucleThread=true;
+						this->Thread=CreateThread(
+						NULL,
+						0,
+						threadServer,
+						this,
+						0,
+						&dwThreadIdArray);
+						retour=true;
 					}
 				}
 
@@ -37,35 +46,60 @@ bool TcpServer::start(int port)
 }
 void TcpServer::stop()
 {
+
+    this->boucleThread=false;
 	closesocket(this->server);
 	WSACleanup();
 }
-vector<char> TcpServer::recevoir()
+
+DWORD WINAPI TcpServer::threadServer(LPVOID params)
 {
-	std::vector<char> test;
-	memset(this->buffer,'\0',1500);
-	if (recvfrom(this->client,buffer,1500,0,(SOCKADDR*)(&this->addrClient),&addrlen) != SOCKET_ERROR)
+	TcpServer *thisThread = (TcpServer*) params;
+
+	fd_set master;
+
+	FD_ZERO(&master);
+
+	FD_SET(thisThread->server, &master);
+
+	while(thisThread->boucleThread)
 	{
-					cout<<buffer<<endl;
+		fd_set copy = master;
+
+		int socketCount = select(0,&copy,NULL,NULL,NULL);
+
+		for (int i = 0; i < socketCount; i++) {
+			SOCKET sock = copy.fd_array[i];
+			if(sock == thisThread->server)
+			{
+				//accept a new connection
+				SOCKET newClient = accept(thisThread->server,NULL,NULL);
+
+				//add the new wonnection to the list of connected clients
+				FD_SET(newClient,&master);
+
+			}
+			else
+			{
+
+				ZeroMemory(thisThread->buffer,1500);
+				//accept a new message
+				int bytesIn = recv(sock,buffer,1500,0);
+				if(bytesIn <=0)
+				{
+					//Drop the client
+					closesocket(sock);
+					FD_CLR(sock,&master);
+				}
+			}
+
+		}
+
+
+
 	}
-    return test;
 }
-void TcpServer::envoi(string message)
-{
-}
-bool TcpServer::clientAccept()
-{
-	bool retour=false;
-	this->addrlen= sizeof(this->addrServer);
-	this->client=accept(this->server, //socket server
-						(SOCKADDR*)(&this->addrClient), //variable qui stock les info du client
-						&this->addrlen);
-	if (this->client != INVALID_SOCKET)
-	{
-		retour=true;
-	}
-    return retour;
-}
+
 TcpServer::~TcpServer()
 {
     this->stop();

@@ -15,19 +15,24 @@ class TcpServer : public Server
 {
 	private:
 		SOCKET server;
-        SOCKET client;
+		SOCKET client;
 		sockaddr_in addrServer;
 		sockaddr_in addrClient;
 		socklen_t addrlen;
 		char buffer[1500];
 		WSAData wsaData;
+		HANDLE Thread;
+		DWORD dwThreadIdArray;
+		static DWORD WINAPI threadServer(LPVOID params);
+
+
 	public:
 		//TcpServer();
 		~TcpServer();
+
 		bool start(int port);
-		void stop()=0;
-		vector<char> recevoir();
-		void envoi(string message);
+		void stop();
+
 
 };
 //---------------------------------------------------------------------------

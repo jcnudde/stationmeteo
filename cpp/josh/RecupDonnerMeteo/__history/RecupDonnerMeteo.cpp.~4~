@@ -21,7 +21,7 @@ RecupDonnerMeteo::RecupDonnerMeteo()
     this->Thread=CreateThread(
 	NULL,
 	0,
-	ThreadRecupDonnee,
+	MonThread,
 	this,
 	0,
 	&dwThreadIdArray); 

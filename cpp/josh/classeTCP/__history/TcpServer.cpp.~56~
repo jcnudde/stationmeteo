@@ -94,6 +94,7 @@ DWORD WINAPI TcpServer::threadServer(LPVOID params)
 				else
 				{
 					cout<<thisThread->buffer<<endl;
+                    send(sock,"yo",2,0);
                 }
 			}
 

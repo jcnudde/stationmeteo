@@ -14,13 +14,18 @@ typedef int socklen_t;
 class TcpServer : public Server
 {
 	private:
+		bool boucleThread;
+		WSAData wsaData;
 		SOCKET server;
 		SOCKET client;
 		sockaddr_in addrServer;
 		sockaddr_in addrClient;
 		socklen_t addrlen;
 		char buffer[1500];
-		WSAData wsaData;
+		HANDLE Thread;
+		DWORD dwThreadIdArray;
+		static DWORD WINAPI threadServer(LPVOID params);
+
 
 	public:
 		//TcpServer();
@@ -28,10 +33,7 @@ class TcpServer : public Server
 
 		bool start(int port);
 		void stop();
-		vector<char> recevoir();
-		void envoi(string message);
 
-		void clientAccept();
 
 };
 //---------------------------------------------------------------------------

@@ -18,10 +18,10 @@ RecupDonnerMeteo::RecupDonnerMeteo()
 
     this->boucleThread = true;
 
-    this->Thread=CreateThread(
+    Thread=CreateThread(
 	NULL,
 	0,
-	ThreadRecupDonnee,
+	MonThread,
 	this,
 	0,
 	&dwThreadIdArray); 

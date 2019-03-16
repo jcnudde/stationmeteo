@@ -2,15 +2,17 @@
 
 RecupDonnerMeteo::RecupDonnerMeteo()
 {
-    capteur.anemometre = new Anemometre(0);
-    capteur.girouette = new Girouette(1);
-    capteur.barometre = new Barometre(2);
-    capteur.thermometre = new Thermometre(); //  manque le constructeur
-    capteur.hygrometre = new Hygrometre(); //  manque le constructeur
-    capteur.solarimetre = new Solarimetre(); //  manque le constructeur
-    capteur.capteur_JourNuit = new CapteurJour_Nuit(8);
-    capteur.capteurPluie = new CapteurPluie(7);
-    capteur.pluviometre = new Pluiviometre(9); 
+    this->capteur.anemometre = new Anemometre(0);
+    this->capteur.girouette = new Girouette(1);
+    this->capteur.barometre = new Barometre(2);
+    this->capteur.thermometre = new Thermometre(); //  manque le constructeur
+    this->capteur.hygrometre = new Hygrometre(); //  manque le constructeur
+    this->capteur.solarimetre = new Solarimetre(); //  manque le constructeur
+    this->capteur.capteur_JourNuit = new CapteurJour_Nuit(8);
+    this->capteur.capteurPluie = new CapteurPluie(7);
+    this->capteur.pluviometre = new Pluiviometre(9); 
+
+    this->boucleThread = true;
 
     Thread=CreateThread(
 	NULL,
@@ -22,7 +24,8 @@ RecupDonnerMeteo::RecupDonnerMeteo()
 }
 RecupDonnerMeteo::~RecupDonnerMeteo()
 {
-    //dtor
+    this->boucleThread = false;
+    
 }
 DWORD WINAPI RecupDonnerMeteo::ThreadRecupDonnee(LPVOID params)
 {
@@ -44,6 +47,8 @@ DWORD WINAPI RecupDonnerMeteo::ThreadRecupDonnee(LPVOID params)
 
         //attentte classe sqlMeteoManager pour insert les donnée meteo   
     }
+
+    return 0;
 
 }
 tabDonnerCapteur RecupDonnerMeteo::getDonner()

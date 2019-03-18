@@ -4,6 +4,8 @@
 #define MysqlManagerH
 #include "MysqlMeteoManager.h"
 #include "../classeBDD/Bdd.h"
+#include "../classeMysql/Mysql.h"
+
 //---------------------------------------------------------------------------
 #endif
 
@@ -18,8 +20,8 @@ class MysqlMeteoManager {
 
    public:
    
-       MysqlMeteoManager * getInstance();
-       bool connect();
-       bool InsertDonnéeCapteur();  
-
+       static MysqlMeteoManager * getInstance();
+    //    MysqlMeteoManager * operator=(MysqlMeteoManager* o1);
+    //    bool connect();
+    //    bool InsertDonnéeCapteur();  
 }

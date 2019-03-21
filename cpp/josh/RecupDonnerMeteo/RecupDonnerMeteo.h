@@ -31,7 +31,7 @@
 
 using namespace std;
 
-typedef struct tabCapteur
+typedef struct 
 {
     Capteur *anemometre;
     Capteur *girouette;
@@ -42,8 +42,8 @@ typedef struct tabCapteur
     Capteur *capteur_JourNuit;
     Capteur *capteurPluie;
     Capteur *pluviometre;
-};
-typedef struct tabDonnerCapteur
+} tabCapteur;
+typedef struct 
 {
     double vitesseVent;
     double temperature;
@@ -54,7 +54,7 @@ typedef struct tabDonnerCapteur
     bool jour;      //0 pour nuit et 1 pour jour
     bool pluie; //0 pour pas de pluie et 1 pour pluie
     double surfaceDePluie;
-};
+}tabDonnerCapteur;
 class RecupDonnerMeteo
 {
     private:

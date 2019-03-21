@@ -1,7 +1,7 @@
 <?php
 include 'Mysql.php';
 
-
+// classe MysqlMeteoManager pour gerer les utilisateur et les données dnas la BDD
 class MysqlManager
 {
 
@@ -21,7 +21,8 @@ class MysqlManager
             $user = $_POST["user"];
             $password = $_POST["password"]; 
         
-        $this->User= new requete ("INSERT INTO `User`(`id_user`, `user`, `password`) values('','$user','$password')"); 
+            $this->User= new requete ("INSERT INTO `User`(`id_user`, `user`, `password`) values('NULL','$user','$password')"); 
+
         echo "Utilisateur enregistrer";
         }
     }
@@ -34,6 +35,7 @@ class MysqlManager
             $user = $_POST["user"];
 
             $this->User= new requete ("DELETE FROM `User` WHERE `user` values '$user'");
+
         echo "utilisateur supprimer";    
         }    
     }
@@ -41,7 +43,7 @@ class MysqlManager
         public function deleteHistorique()
     {
         
-        $this->historique= new requete ("DELETE FROM `donnees_meteo`") ;
+          $this->historique= new requete ("DELETE FROM `donnees_meteo`") ;
 
         echo "historique supprimer";
     }

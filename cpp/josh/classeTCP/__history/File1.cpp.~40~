@@ -17,8 +17,6 @@
 #include <conio.h>
 
 #include "TcpServer.h"
-#include "MeteoParser.h"
-
 typedef int socklen_t;
 
 
@@ -26,8 +24,7 @@ using namespace std;
 
  int _tmain(int argc, _TCHAR* argv[])
 {
-	AbstractParser * parser = new MeteoParser();
-	 TcpServer test(parser);
+	 TcpServer test;
 
 	 if(test.start(9013))
 	 {

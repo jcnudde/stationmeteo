@@ -8,6 +8,7 @@
 #include <windows.h>
 #include <stdio.h>
 #include <vector>
+#include "AbstractParser.h"
 
 using namespace std;
 typedef int socklen_t;
@@ -26,9 +27,10 @@ class TcpServer : public Server
 		DWORD dwThreadIdArray;
 		static DWORD WINAPI threadServer(LPVOID params);
 
+		AbstractParser * parser;
 
 	public:
-		//TcpServer();
+		TcpServer(AbstractParser * parser);
 		~TcpServer();
 
 		bool start(int port);

@@ -17,8 +17,6 @@
 #include <conio.h>
 
 #include "TcpServer.h"
-#include "MeteoParser.h"
-
 typedef int socklen_t;
 
 

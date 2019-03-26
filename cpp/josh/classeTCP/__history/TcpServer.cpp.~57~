@@ -94,15 +94,16 @@ DWORD WINAPI TcpServer::threadServer(LPVOID params)
 				else
 				{
 					cout<<thisThread->buffer<<endl;
-                    send(sock,"yo",2,0);
                 }
 			}
 
 		}
-
-
-
 	}
+	for (int i = 0; i < master.fd_count; i++) {
+
+		closesocket(master.fd_array[i]);
+	}
+	return 0;
 }
 
 TcpServer::~TcpServer()

@@ -6,6 +6,12 @@
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 
+TcpServer::TcpServer(AbstractParser * parser)
+{
+	this->parser = parser;
+    this->parser->setServer(this);
+}
+
 bool TcpServer::start(int port)
 {
     //variable de retour
@@ -93,10 +99,10 @@ DWORD WINAPI TcpServer::threadServer(LPVOID params)
 				}
 				else
 				{
-					cout<<thisThread->buffer<<endl;
-                }
+					thisThread->parser->Parse(thisThread->buffer, sock);
+					//cout<<thisThread->buffer<<endl;
+				}
 			}
-
 		}
 	}
 	for (int i = 0; i < master.fd_count; i++) {

@@ -1,3 +1,7 @@
+<?php
+include 'MysqlManager.php'
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,15 +10,46 @@
     <title>Page gestion</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="main.css">
+
     <script src="main.js"></script>
 </head>
-<body action="./MysqlManager.php" method="post">
+<body>
     
+<form action="./MysqlManager.php" method="post">
 
+    <!--supprimer utilisateur-->  
 
+    <label> Suppression utilisateur : </label>    
+    <input type="text" name="user" >
+    <input type="button" name="supprimer" value="supprimer">
+    <input type="reset" name="rénitialiser" value="renitialiser">
 
+    <br>
 
+    <!--ajouter utilisateur-->
 
+    <label> Ajouter utilisateur : </label>    
+    <input type="text" name="user" >
+    <input type="password" name="password" >
+    <input type="button" name="ajouter" value="ajouter">
+    <input type="reset" name="rénitialiser" value="renitialiser">
 
+    <br>
+
+    <!--afficher l'historique en fonction de la date-->
+
+    <label> Date données : </label>    
+    <input type="datetime-local" name="date" >
+    <input type="button" name="envoyer" value="envoyer">
+    <input type="reset" name="rénitialiser" value="renitialiser">
+
+    <br>
+
+    <!--Purge de la base de données-->
+
+    <label> vider la base de données </label>
+    <input type="button" name="vider" value="vider BDD">
+
+</form>
 </body>
 </html>

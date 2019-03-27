@@ -14,6 +14,8 @@
 #define ThermometreH
 //---------------------------------------------------------------------------
 #endif
+
+
 #ifndef THERMOMETRE_H
 #define THERMOMETRE_H
 

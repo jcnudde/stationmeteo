@@ -5,7 +5,6 @@
 #include "Thermometre.h"
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
-
 Thermometre::Thermometre(double channel):Capteur(channel)
 {
 

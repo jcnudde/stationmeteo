@@ -1,0 +1,43 @@
+//---------------------------------------------------------------------------
+
+#ifndef MysqlMeteoManagerH
+#define MysqlMeteoManagerH
+#include "Bdd.h"
+#include "Mysql.h"
+#include <ustring.h>
+#include <vcl.h>
+#include <iostream>
+#include <sstream>
+
+
+typedef struct
+{
+    double vitesseVent;
+    double temperature;
+    double pressionAtmospherique;
+    double direction;
+    double hummiditeRelative;
+    double luminosite;
+    bool jour;      //0 pour nuit et 1 pour jour
+    bool pluie; //0 pour pas de pluie et 1 pour pluie
+    double surfaceDePluie;
+}tabDonnerCapteur;
+using namespace std;
+
+class MysqlMeteoManager {
+   private:
+	  static Bdd* bdd;
+	  static MysqlMeteoManager *m_instance;
+	  MysqlMeteoManager();
+	  ~MysqlMeteoManager();
+
+   public:
+
+		static MysqlMeteoManager * getInstance();
+		static void stopInstance();
+        MysqlMeteoManager * operator=(MysqlMeteoManager* o1);
+        bool connect();
+		bool InsertDonnerCapteur(tabDonnerCapteur donneeMeteo);
+};
+//---------------------------------------------------------------------------
+#endif

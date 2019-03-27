@@ -1,3 +1,4 @@
+//---------------------------------------------------------------------------
 
 /*
  * CapteurPluie
@@ -9,10 +10,9 @@
  *
  *
  **/
-
-#ifndef PLUIE_H0
-#define PLUIE_H
-
+#ifndef CapteurPluieH
+#define CapteurPluieH
+//---------------------------------------------------------------------------
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
@@ -28,6 +28,4 @@ class CapteurPluie : public Capteur
         virtual double readValue();
 
 };
-
-#endif // CAPTEUR_H
-
+#endif

@@ -1,3 +1,5 @@
+//---------------------------------------------------------------------------
+//---------------------------------------------------------------------------
 /*
  * CapteurJour_Nuit
  *
@@ -8,9 +10,9 @@
  *
  *
  **/
-
-#ifndef LUMIERE_H0
-#define LUMIERE_H
+#ifndef CapteurJour_NuitH
+#define CapteurJour_NuitH
+//---------------------------------------------------------------------------
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -27,6 +29,4 @@ class CapteurJour_Nuit : public Capteur
         virtual double readValue();
 
 };
-
-#endif // CAPTEUR_H
-
+#endif

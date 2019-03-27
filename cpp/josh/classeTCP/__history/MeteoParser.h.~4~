@@ -1,0 +1,18 @@
+//---------------------------------------------------------------------------
+
+#ifndef MeteoParserH
+#define MeteoParserH
+
+#include "AbstractParser.h"
+#include <cstring>
+
+using namespace std;
+
+class MeteoParser : public AbstractParser
+{
+	public:
+		virtual void Parse(char * buf, SOCKET sock);
+};
+
+//---------------------------------------------------------------------------
+#endif

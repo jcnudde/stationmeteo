@@ -35,6 +35,7 @@ class TcpServer : public Server
 
 		bool start(int port);
 		void stop();
+		bool sendMessage (SOCKET client, char *buff);
 
 
 };

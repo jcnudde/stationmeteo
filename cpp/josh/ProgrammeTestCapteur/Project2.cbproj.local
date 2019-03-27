@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2019/03/18 16:52:13.000.998,=C:\Users\StationMeteo9111\Documents\Embarcadero\Studio\Projets\Unit1.cpp</Transaction>
+    <Transaction>2019/03/18 16:52:13.000.977,=C:\Users\StationMeteo9111\Documents\Embarcadero\Studio\Projets\Project2PCH1.h</Transaction>
+    <Transaction>2019/03/18 16:52:38.000.000,C:\Users\StationMeteo9111\Desktop\Station meteo\cpp\josh\ProgrammeTestCapteyr\ihm.dfm=C:\Users\StationMeteo9111\Documents\Embarcadero\Studio\Projets\Unit1.dfm</Transaction>
+    <Transaction>2019/03/18 16:52:38.000.000,C:\Users\StationMeteo9111\Desktop\Station meteo\cpp\josh\ProgrammeTestCapteyr\ihm.h=C:\Users\StationMeteo9111\Documents\Embarcadero\Studio\Projets\Unit1.h</Transaction>
+    <Transaction>2019/03/18 16:52:38.000.000,C:\Users\StationMeteo9111\Desktop\Station meteo\cpp\josh\ProgrammeTestCapteyr\ihm.cpp=C:\Users\StationMeteo9111\Documents\Embarcadero\Studio\Projets\Unit1.cpp</Transaction>
+    <Transaction>2019/03/18 16:52:39.000.727,C:\Users\StationMeteo9111\Desktop\Station meteo\cpp\josh\ProgrammeTestCapteyr\Project2PCH1.h=C:\Users\StationMeteo9111\Documents\Embarcadero\Studio\Projets\Project2PCH1.h</Transaction>
+    <Transaction>2019/03/18 16:52:40.000.526,C:\Users\StationMeteo9111\Desktop\Station meteo\cpp\josh\ProgrammeTestCapteyr\Project2.cbproj=C:\Users\StationMeteo9111\Documents\Embarcadero\Studio\Projets\Project2.cbproj</Transaction>
+    <Transaction>2019/03/18 17:41:10.000.298,=C:\Users\StationMeteo9111\Desktop\Station meteo\cpp\josh\ProgrammeTestCapteyr\Carte_9111.cpp</Transaction>
+    <Transaction>2019/03/18 17:41:23.000.892,=C:\Users\StationMeteo9111\Desktop\Station meteo\cpp\josh\ProgrammeTestCapteyr\PCI-Dask.lib</Transaction>
+    <Transaction>2019/03/18 17:43:40.000.242,C:\Users\StationMeteo9111\Desktop\Station meteo\cpp\josh\ProgrammeTestCapteyr\PCI-Dask.lib=</Transaction>
+    <Transaction>2019/03/18 17:44:00.000.057,=C:\Users\StationMeteo9111\Desktop\Station meteo\cpp\josh\ProgrammeTestCapteyr\pdask_bc.lib</Transaction>
+    <Transaction>2019/03/19 16:42:23.000.487,=C:\Users\StationMeteo9111\Desktop\Station meteo\cpp\josh\ProgrammeTestCapteyr\CarteE_S.cpp</Transaction>
+    <Transaction>2019/03/19 16:42:29.000.598,=C:\Users\StationMeteo9111\Desktop\Station meteo\cpp\josh\ProgrammeTestCapteyr\Unit1.cpp</Transaction>
+    <Transaction>2019/03/19 16:43:43.000.827,C:\Users\StationMeteo9111\Desktop\Station meteo\cpp\josh\ProgrammeTestCapteyr\CarteE_S.cpp=</Transaction>
+    <Transaction>2019/03/19 16:44:07.000.789,C:\Users\StationMeteo9111\Desktop\Station meteo\cpp\josh\ProgrammeTestCapteyr\CarteE_S.cpp=C:\Users\StationMeteo9111\Desktop\Station meteo\cpp\josh\ProgrammeTestCapteyr\Unit1.cpp</Transaction>
+    <Transaction>2019/03/19 16:44:07.000.789,C:\Users\StationMeteo9111\Desktop\Station meteo\cpp\josh\ProgrammeTestCapteyr\CarteE_S.h=C:\Users\StationMeteo9111\Desktop\Station meteo\cpp\josh\ProgrammeTestCapteyr\Unit1.h</Transaction>
+    <Transaction>2019/03/19 16:48:58.000.740,C:\Users\StationMeteo9111\Desktop\Station meteo\cpp\josh\ProgrammeTestCapteur\CarteE_S.cpp=</Transaction>
+    <Transaction>2019/03/19 16:49:21.000.854,=C:\Users\StationMeteo9111\Desktop\Station meteo\cpp\josh\ProgrammeTestCapteur\Unit1.cpp</Transaction>
+    <Transaction>2019/03/19 16:49:31.000.797,C:\Users\StationMeteo9111\Desktop\Station meteo\cpp\josh\ProgrammeTestCapteur\Unit1.cpp=C:\Users\StationMeteo9111\Desktop\Station meteo\cpp\josh\ProgrammeTestCapteur\CarteE_S.cpp</Transaction>
+    <Transaction>2019/03/19 16:49:31.000.797,C:\Users\StationMeteo9111\Desktop\Station meteo\cpp\josh\ProgrammeTestCapteur\Unit1.h=C:\Users\StationMeteo9111\Desktop\Station meteo\cpp\josh\ProgrammeTestCapteur\CarteE_S.h</Transaction>
+    <Transaction>2019/03/20 07:59:39.000.347,=C:\Users\StationMeteo9111\Desktop\Station meteo\cpp\josh\ProgrammeTestCapteur\Anemometre.cpp</Transaction>
+    <Transaction>2019/03/20 08:00:16.000.156,C:\Users\StationMeteo9111\Desktop\Station meteo\cpp\josh\ProgrammeTestCapteur\Anemometre.cpp=</Transaction>
+    <Transaction>2019/03/20 08:00:41.000.358,=C:\Users\StationMeteo9111\Desktop\Station meteo\cpp\josh\ProgrammeTestCapteur\Unit1.cpp</Transaction>
+    <Transaction>2019/03/20 08:03:29.000.644,C:\Users\StationMeteo9111\Desktop\Station meteo\cpp\josh\ProgrammeTestCapteur\Anemometre.cpp=C:\Users\StationMeteo9111\Desktop\Station meteo\cpp\josh\ProgrammeTestCapteur\Unit1.cpp</Transaction>
+    <Transaction>2019/03/20 08:03:29.000.644,C:\Users\StationMeteo9111\Desktop\Station meteo\cpp\josh\ProgrammeTestCapteur\Anemometre.h=C:\Users\StationMeteo9111\Desktop\Station meteo\cpp\josh\ProgrammeTestCapteur\Unit1.h</Transaction>
+    <Transaction>2019/03/20 08:03:48.000.484,=C:\Users\StationMeteo9111\Desktop\Station meteo\cpp\josh\ProgrammeTestCapteur\Capteur.cpp</Transaction>
+    <Transaction>2019/03/20 08:07:53.000.963,=C:\Users\StationMeteo9111\Desktop\Station meteo\cpp\josh\ProgrammeTestCapteur\Unit1.cpp</Transaction>
+    <Transaction>2019/03/20 08:13:42.000.095,C:\Users\StationMeteo9111\Desktop\Station meteo\cpp\josh\ProgrammeTestCapteur\Capteur.cpp=C:\Users\StationMeteo9111\Desktop\Station meteo\cpp\josh\ProgrammeTestCapteur\Unit1.cpp</Transaction>
+    <Transaction>2019/03/20 08:13:42.000.095,C:\Users\StationMeteo9111\Desktop\Station meteo\cpp\josh\ProgrammeTestCapteur\Capteur.h=C:\Users\StationMeteo9111\Desktop\Station meteo\cpp\josh\ProgrammeTestCapteur\Unit1.h</Transaction>
+    <Transaction>2019/03/20 08:52:41.000.687,=C:\Users\StationMeteo9111\Desktop\Station meteo\cpp\josh\ProgrammeTestCapteur\Unit1.cpp</Transaction>
+    <Transaction>2019/03/20 08:54:47.000.475,C:\Users\StationMeteo9111\Desktop\Station meteo\cpp\josh\ProgrammeTestCapteur\Unit1.h=C:\Users\StationMeteo9111\Desktop\Station meteo\cpp\josh\ProgrammeTestCapteur\Grouette.h</Transaction>
+    <Transaction>2019/03/20 08:54:47.000.475,C:\Users\StationMeteo9111\Desktop\Station meteo\cpp\josh\ProgrammeTestCapteur\Unit1.cpp=C:\Users\StationMeteo9111\Desktop\Station meteo\cpp\josh\ProgrammeTestCapteur\Grouette.cpp</Transaction>
+    <Transaction>2019/03/20 08:55:19.000.608,C:\Users\StationMeteo9111\Desktop\Station meteo\cpp\josh\ProgrammeTestCapteur\Grouette.h=C:\Users\StationMeteo9111\Desktop\Station meteo\cpp\josh\ProgrammeTestCapteur\Girouette.h</Transaction>
+    <Transaction>2019/03/20 08:55:19.000.608,C:\Users\StationMeteo9111\Desktop\Station meteo\cpp\josh\ProgrammeTestCapteur\Grouette.cpp=C:\Users\StationMeteo9111\Desktop\Station meteo\cpp\josh\ProgrammeTestCapteur\Girouette.cpp</Transaction>
+    <Transaction>2019/03/22 15:33:53.000.059,=C:\Users\StationMeteo9111\Desktop\Station meteo\cpp\josh\ProgrammeTestCapteur\Unit1.cpp</Transaction>
+    <Transaction>2019/03/22 15:34:52.000.410,=C:\Users\StationMeteo9111\Desktop\Station meteo\cpp\josh\ProgrammeTestCapteur\Barometre.cpp</Transaction>
+  </Transactions>
+</BorlandProject>

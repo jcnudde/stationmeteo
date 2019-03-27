@@ -1,0 +1,24 @@
+//---------------------------------------------------------------------------
+#include <vcl.h>
+#ifndef Carte_9111H
+#define Carte_9111H
+//---------------------------------------------------------------------------
+#endif
+#include "include/Dask.h"
+#include "CarteE_S.h"
+#include <iostream>
+
+using namespace std;
+
+class Carte_9111
+{
+	I16 card;
+	public:
+
+	Carte_9111(I16 num_carte);
+	~Carte_9111();
+	double readAnalog(double channel);
+	double readVoltage(double channel);
+	bool readTOR(double channel);
+	void writeAnalog(double channel);
+};

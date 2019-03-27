@@ -1,0 +1,31 @@
+//---------------------------------------------------------------------------
+
+#pragma hdrstop
+
+#include "Carte_9111.h"
+//---------------------------------------------------------------------------
+#pragma package(smart_init)
+
+Carte_9111::Carte_9111(U16 num_carte)
+{
+
+	this->card = Register_Card(PCI_9111DG, num_carte);
+	this->card =AO_9111_Config(PCI_9111DG,0);
+	this->card =AI_9111_Config(PCI_9111DG,TRIG_INT_PACER,0x00,0);
+}
+Carte_9111::~Carte_9111()
+{
+	Release_Card(this->card);
+}
+int  Carte_9111::readAnalog(double channel)
+{
+    return 10;
+}
+bool Carte_9111::readTOR(double channel)
+{
+    return true;
+}
+void Carte_9111::writeAnalog(double channel)
+{
+
+}

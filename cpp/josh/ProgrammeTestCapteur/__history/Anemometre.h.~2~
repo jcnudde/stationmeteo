@@ -1,0 +1,17 @@
+//---------------------------------------------------------------------------
+
+#ifndef AnemometreH
+#define AnemometreH
+
+class Anemometre : public Capteur
+{
+
+    public:
+        Anemometre(double channel);
+        double readValue();
+
+};
+
+//---------------------------------------------------------------------------
+#endif
+

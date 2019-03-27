@@ -1,0 +1,21 @@
+//---------------------------------------------------------------------------
+
+#pragma hdrstop
+
+#include "MeteoParser.h"
+//---------------------------------------------------------------------------
+#pragma package(smart_init)
+
+#include "TcpServer.h"
+
+void MeteoParser::Parse(char * buf, SOCKET sock)
+{
+
+	TcpServer * serv = this->getServer();
+
+	if (strcmp(buf,"METEO") == 0 ) {
+
+	 serv->sendMessage(sock,"je t'enverrer un jour la previson");
+
+	}
+}

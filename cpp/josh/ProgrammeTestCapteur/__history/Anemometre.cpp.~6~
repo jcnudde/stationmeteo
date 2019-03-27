@@ -1,0 +1,25 @@
+//---------------------------------------------------------------------------
+
+#pragma hdrstop
+
+#include "Anemometre.h"
+//---------------------------------------------------------------------------
+#pragma package(smart_init)
+
+Anemometre::Anemometre(double channel):Capteur(channel)
+{
+
+}
+
+double Anemometre::readValue()
+{
+	this->PhysicalValue=this->carte->readVoltage(this->channel);
+	//premier calcul aproximatif
+	this->PhysicalValue*=4;
+	return this->PhysicalValue;
+}
+string Anemometre::getUnit()
+{
+    return "m/s";
+}
+

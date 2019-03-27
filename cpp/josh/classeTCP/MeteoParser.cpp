@@ -7,9 +7,16 @@
 #pragma package(smart_init)
 
 #include "TcpServer.h"
-#include <iostream>
 
 void MeteoParser::Parse(char * buf, SOCKET sock)
 {
-	std::cout << buf << std::endl;
+
+	TcpServer * serv = this->getServer();
+
+	if (strcmp(buf,"METEO\n") == 0 ) {
+
+	 serv->sendMessage(sock,"123456789");
+
+
+	}
 }

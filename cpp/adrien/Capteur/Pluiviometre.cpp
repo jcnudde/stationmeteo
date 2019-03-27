@@ -1,4 +1,9 @@
+//---------------------------------------------------------------------------
+
+#pragma hdrstop
 #include "Pluiviometre.h"
+//---------------------------------------------------------------------------
+#pragma package(smart_init)
 
 Pluiviometre::Pluiviometre(double channel):Capteur(channel)
 {
@@ -7,5 +12,5 @@ Pluiviometre::Pluiviometre(double channel):Capteur(channel)
 
 double Pluiviometre::readValue()
 {
-    return 1 ;
+	return 1 ;
 }

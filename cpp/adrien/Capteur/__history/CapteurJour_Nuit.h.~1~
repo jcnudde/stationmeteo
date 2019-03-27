@@ -1,6 +1,5 @@
-
 /*
- * CapteurPluie
+ * CapteurJour_Nuit
  *
  * Classe qui herite de la class capteur
  *
@@ -10,8 +9,8 @@
  *
  **/
 
-#ifndef PLUIE_H0
-#define PLUIE_H
+#ifndef LUMIERE_H0
+#define LUMIERE_H
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -20,14 +19,13 @@
 
 using namespace std;
 
-class CapteurPluie : public Capteur
+class CapteurJour_Nuit : public Capteur
 {
 
     public:
-        CapteurPluie(double channel);
+        CapteurJour_Nuit(double channel);
         virtual double readValue();
 
 };
 
 #endif // CAPTEUR_H
-

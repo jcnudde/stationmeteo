@@ -30,4 +30,3 @@ class CapteurPluie : public Capteur
 };
 
 #endif // CAPTEUR_H
-

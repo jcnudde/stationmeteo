@@ -1,6 +1,6 @@
 
 /*
- * CapteurPluie
+ * Pluiviom�tre
  *
  * Classe qui herite de la class capteur
  *
@@ -10,8 +10,8 @@
  *
  **/
 
-#ifndef PLUIE_H0
-#define PLUIE_H
+#ifndef PLUIVIOMETRE_H0
+#define PLUIVIOMETRE_H
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -20,14 +20,13 @@
 
 using namespace std;
 
-class CapteurPluie : public Capteur
+class Pluiviometre : public Capteur
 {
 
     public:
-        CapteurPluie(double channel);
+        Pluiviometre(double channel);
         virtual double readValue();
 
 };
 
 #endif // CAPTEUR_H
-

@@ -1,4 +1,4 @@
-
+﻿
 /*
  * Pluiviom�tre
  *
@@ -30,3 +30,4 @@ class Pluiviometre : public Capteur
 };
 
 #endif // CAPTEUR_H
+

@@ -1,6 +1,6 @@
-﻿
+﻿//---------------------------------------------------------------------------
 /*
- * Pluiviom�tre
+ * Pluiviometre
  *
  * Classe qui herite de la class capteur
  *
@@ -10,8 +10,9 @@
  *
  **/
 
-#ifndef PLUIVIOMETRE_H0
-#define PLUIVIOMETRE_H
+#ifndef PluiviometreH
+#define PluiviometreH
+//---------------------------------------------------------------------------
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -28,6 +29,4 @@ class Pluiviometre : public Capteur
         virtual double readValue();
 
 };
-
-#endif // CAPTEUR_H
-
+#endif

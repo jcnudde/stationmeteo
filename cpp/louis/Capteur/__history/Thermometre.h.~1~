@@ -1,5 +1,5 @@
 /*
- * Hygrometre
+ * thermometre
  *
  * Classe qui herite de la class capteur
  *
@@ -8,14 +8,9 @@
  *
  *
  **/
-//---------------------------------------------------------------------------
 
-#ifndef HygrometreH
-#define HygrometreH
-//---------------------------------------------------------------------------
-#endif
-#ifndef HYGROMETRE_H
-#define HYGROMETRE_H
+#ifndef THERMOMETRE_H
+#define THERMOMETRE_H
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -24,7 +19,7 @@
 
 using namespace std;
 
-class Hygrometre : public Capteur
+class Thermometre : public Capteur
 {
 
     public:

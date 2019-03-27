@@ -8,12 +8,7 @@
  *
  *
  **/
-//---------------------------------------------------------------------------
 
-#ifndef HygrometreH
-#define HygrometreH
-//---------------------------------------------------------------------------
-#endif
 #ifndef HYGROMETRE_H
 #define HYGROMETRE_H
 
@@ -34,3 +29,4 @@ class Hygrometre : public Capteur
 };
 
 #endif // CAPTEUR_H
+

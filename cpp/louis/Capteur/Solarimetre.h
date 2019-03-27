@@ -9,13 +9,19 @@
  *
  **/
 
-#ifndef SOLARIMETRE_H0
+//---------------------------------------------------------------------------
+
+#ifndef SolarimetreH
+#define SolarimetreH
+//---------------------------------------------------------------------------
+#endif
+#ifndef SOLARIMETRE_H
 #define SOLARIMETRE_H
 
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
-#include "../Capteur.h"
+#include "Capteur.h"
 
 using namespace std;
 
@@ -24,7 +30,8 @@ class Solarimetre : public Capteur
 
     public:
         virtual double readValue();
-
+        double readValue();
+		string getUnit();
 };
 
 #endif // CAPTEUR_H

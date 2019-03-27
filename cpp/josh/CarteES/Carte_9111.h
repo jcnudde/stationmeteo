@@ -1,37 +1,25 @@
- 
-/*
- * Carte_9111
- *
- * Herite de la classe carteE_S
- * 
- * Copyright 7 mars 2019 (@author CNUDDE Joshua)
- * @version 1.0
- * 
- * 
- **/
-
-#ifndef CARTE_9111_H
-#define CARTE_9111_H
-
-#include <stdlib.h>
-#include <stdio.h>
-#include "../CarteE_S.h"
+//---------------------------------------------------------------------------
+#include <vcl.h>
+#ifndef Carte_9111H
+#define Carte_9111H
+//---------------------------------------------------------------------------
+#endif
 #include "include/Dask.h"
-
+#include <iostream>
+#include "CarteE_S.h"
 
 using namespace std;
 
-class Carte_9111 : public CarteE_S 
+class Carte_9111 : public CarteE_S
 {
-    private:
-        I16 card;   //variable permettant de concerver la connection avec la carte   
-    public:
-        Carte_9111(I16 num_carte); // Constructeur qui permet d'initialiser
-							  //la connection
-	    ~Carte_9111(); 			  //ferme la connection avec la connection 
-       virtual int  readAnalog(double channel);
-       virtual bool readTOR(double channel);
-       virtual void writeAnalog(double channel);  
-};
+	I16 card;
+	public:
 
-#endif // CAPTEUR_H
+	Carte_9111(I16 num_carte);
+	~Carte_9111();
+
+	int readAnalog(double channel);
+	bool readTOR(double channel);
+	void writeAnalog(double channel);
+	double readVoltage(double channel);
+};

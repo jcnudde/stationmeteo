@@ -15,12 +15,12 @@ double Hygrometre::readValue()
     return 20;
 }
 
-double Barometre::readValue()
+double Hygrometre::readValue()
 {
     this->carte->readVoltage(this->channel);
     return 100;
 }
-string Barometre::getUnit()
+string Hygrometre::getUnit()
 {
     return "%";
 }

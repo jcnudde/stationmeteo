@@ -9,19 +9,6 @@
 #include <iostream>
 #include <sstream>
 
-
-typedef struct
-{
-    double vitesseVent;
-    double temperature;
-    double pressionAtmospherique;
-    double direction;
-    double hummiditeRelative;
-    double luminosite;
-    bool jour;      //0 pour nuit et 1 pour jour
-    bool pluie; //0 pour pas de pluie et 1 pour pluie
-    double surfaceDePluie;
-}tabDonnerCapteur;
 using namespace std;
 
 class MysqlMeteoManager {

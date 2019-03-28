@@ -26,7 +26,8 @@ class Pluiviometre : public Capteur
 
     public:
         Pluiviometre(double channel);
-        virtual double readValue();
+		virtual double readValue();
+		string getUnit();
 
 };
 #endif

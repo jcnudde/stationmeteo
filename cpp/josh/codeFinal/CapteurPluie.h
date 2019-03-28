@@ -25,7 +25,8 @@ class CapteurPluie : public Capteur
 
     public:
         CapteurPluie(double channel);
-        virtual double readValue();
+		double readValue();
+		string getUnit();
 
 };
 #endif

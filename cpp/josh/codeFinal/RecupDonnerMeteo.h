@@ -54,13 +54,17 @@ typedef struct
     double surfaceDePluie;
 }tabDonnerCapteur;
 
+
 class RecupDonnerMeteo
 {
-    private:
-        SqlMeteoManager* sqlMeteo;
-        tabCapteur capteur;
+	private:
+		//variable meteo
+		static RecupDonnerMeteo* m_instance;
+		tabCapteur capteur;
+		//variable pour le thread
         HANDLE Thread;
-        DWORD dwThreadIdArray;
+		DWORD dwThreadIdArray;
+		bool boucleThread;
         //constructeur
         RecupDonnerMeteo();
         //destructeur
@@ -72,7 +76,7 @@ class RecupDonnerMeteo
         //renvoie les données météo aquise à l'instant t sous forme d'une structure
         tabDonnerCapteur getDonner();
         //renvoie un seul et même pointeur
-        RecupDonner* getInstance();
+        static RecupDonnerMeteo* getInstance();
 
 };
 //---------------------------------------------------------------------------

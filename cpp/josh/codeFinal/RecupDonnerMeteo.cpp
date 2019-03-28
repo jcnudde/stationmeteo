@@ -5,16 +5,18 @@
 #include "RecupDonnerMeteo.h"
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
+RecupDonnerMeteo* RecupDonnerMeteo::m_instance = NULL;
+
 RecupDonnerMeteo::RecupDonnerMeteo()
 {
     //on instancie chaque capteur
-    this->capteur.anemometre = new Anemometre(0);
+	this->capteur.anemometre = new Anemometre(0);
     this->capteur.girouette = new Girouette(1);
     this->capteur.barometre = new Barometre(2);
-    this->capteur.thermometre = new Thermometre(); //  manque le constructeur
-    this->capteur.hygrometre = new Hygrometre(); //  manque le constructeur
-    this->capteur.solarimetre = new Solarimetre(); //  manque le constructeur
-    this->capteur.capteur_JourNuit = new CapteurJour_Nuit(8);
+	this->capteur.thermometre = new Thermometre(3);
+	this->capteur.hygrometre = new Hygrometre(4);
+	this->capteur.solarimetre = new Solarimetre(6);
+	this->capteur.capteur_JourNuit = new CapteurJour_Nuit(8);
     this->capteur.capteurPluie = new CapteurPluie(7);
     this->capteur.pluviometre = new Pluiviometre(9);
 
@@ -35,6 +37,15 @@ RecupDonnerMeteo::~RecupDonnerMeteo()
     //on close la boucle du thread
 	this->boucleThread = false;
 }
+RecupDonnerMeteo* RecupDonnerMeteo::getInstance()
+{
+	if(m_instance==NULL)
+	{
+		m_instance = new RecupDonnerMeteo();
+	}
+	return m_instance;
+
+}
 DWORD WINAPI RecupDonnerMeteo::ThreadRecupDonnee(LPVOID params)
 {
     RecupDonnerMeteo * recupDonnerMeteo = (RecupDonnerMeteo*) params;
@@ -53,11 +64,9 @@ DWORD WINAPI RecupDonnerMeteo::ThreadRecupDonnee(LPVOID params)
         donneeMeteoThread.pluie = recupDonnerMeteo->capteur.capteurPluie->readValue();
         donneeMeteoThread.surfaceDePluie = recupDonnerMeteo->capteur.pluviometre->readValue();
 
-        //attentte classe sqlMeteoManager pour insert les donnée meteo
+        //attente classe sqlMeteoManager pour insert les donnée meteo
     }
-
     return 0;
-
 }
 tabDonnerCapteur RecupDonnerMeteo::getDonner()
 {

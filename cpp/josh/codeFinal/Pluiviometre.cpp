@@ -18,5 +18,5 @@ double Pluiviometre::readValue()
 
 string Pluiviometre::getUnit()
 {
-    return "mm";
+    return "mm²";
 }

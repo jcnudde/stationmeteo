@@ -3,7 +3,7 @@
 #pragma hdrstop
 
 #include "MysqlMeteoManager.h"
-
+#include <ustring.h>
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 
@@ -107,9 +107,14 @@ MysqlMeteoManager * MysqlMeteoManager::getInstance()
 //	float f;
 //	ss.string(120);
 //	ss >> f;
-UnicodeString test =   "josh";
-char * chaine=  StringUtils::magicConvert(test) ;
-	requete+= "   tedt";
+	String test = FloatToStr(donneeMeteo.vitesseVent);
+//	UnicodeString test ;
+	wchar_t * tmp;
+//	tmp = test.w_str();
+//	int len = wcslen(tmp);
+//	char * ret = new char[len+1];
+//	wcstombs(ret, tmp, len);
+//	requete+= ret;
 	requete+=donneeMeteo.vitesseVent;
 	requete+=",";
 	requete+=donneeMeteo.direction;

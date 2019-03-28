@@ -4,6 +4,7 @@
 
 #include "MysqlMeteoManager.h"
 #include <ustring.h>
+#include "StringUtils.h"
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 
@@ -102,7 +103,7 @@ MysqlMeteoManager * MysqlMeteoManager::getInstance()
 		 case 22:
 			direction = "NNE";
 			break;
-	  }	string requete = "INSERT INTO `meteo`.`donnees_meteo` (`vitesseVent`, `direction`, `pressionAtmospherique`, `temperature`, `humiditeRelative`, `luminosite`, `pluie`, `jour`, `surfaceDePluie`, `date`) VALUES (";
+	  }	String requete = "INSERT INTO `meteo`.`donnees_meteo` (`vitesseVent`, `direction`, `pressionAtmospherique`, `temperature`, `humiditeRelative`, `luminosite`, `pluie`, `jour`, `surfaceDePluie`, `date`) VALUES (";
 //	 stringstream ss;
 //	float f;
 //	ss.string(120);
@@ -115,34 +116,32 @@ MysqlMeteoManager * MysqlMeteoManager::getInstance()
 //	char * ret = new char[len+1];
 //	wcstombs(ret, tmp, len);
 //	requete+= ret;
-	requete+=donneeMeteo.vitesseVent;
+	requete+=String(donneeMeteo.vitesseVent);
 	requete+=",";
-	requete+=donneeMeteo.direction;
+	requete+=String(donneeMeteo.direction);
 	requete+=",";
-	requete+=donneeMeteo.pressionAtmospherique;
+	requete+=String(donneeMeteo.pressionAtmospherique);
 	requete+=",";
-	requete+=donneeMeteo.temperature;
+	requete+=String(donneeMeteo.temperature);
 	requete+=",";
-	requete+=donneeMeteo.hummiditeRelative;
+	requete+= String(donneeMeteo.hummiditeRelative);
 	requete+=",";
-	requete+=donneeMeteo.luminosite;
+	requete+=String(donneeMeteo.luminosite);
 	requete+=",";
-	requete+=donneeMeteo.jour;
+	requete+= String(donneeMeteo.jour ? 1 : 0);
 	requete+=",";
-	requete+=donneeMeteo.pluie;
+	requete+= String(donneeMeteo.pluie ? 1 : 0);
     requete+=",";
-	requete+=donneeMeteo.surfaceDePluie;
+	requete+= String(donneeMeteo.surfaceDePluie);
 	requete+=",";
 	requete+="NOW());";
 
-	if(bdd->insert(requete))
-	{
-        return true;
-	}
-	else
-	{
-        return false;
-    }
+	char * req = StringUtils::magicConvert(requete.c_str());
+
+	bool res = bdd->insert(req);
+    delete req;
+
+	return res;
 
 }
 

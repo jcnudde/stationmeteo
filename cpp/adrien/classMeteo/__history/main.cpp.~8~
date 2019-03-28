@@ -1,0 +1,47 @@
+  #pragma hdrstop
+#pragma argsused
+
+#ifdef _WIN32
+#include <tchar.h>
+#else
+  typedef char _TCHAR;
+  #define _tmain main
+#endif
+
+#include <stdio.h>
+#include "MysqlMeteoManager.h"
+#include <conio.h>
+#include <iostream>
+
+using namespace std;
+
+int main(int argc, char * argv[])
+{
+    	tabDonnerCapteur tableauxDonner;
+
+	tableauxDonner.vitesseVent= 120;
+	tableauxDonner.temperature =20;
+	tableauxDonner.pressionAtmospherique=50;
+	tableauxDonner.direction=360;
+	tableauxDonner.hummiditeRelative=50;
+	tableauxDonner.luminosite=100;
+	tableauxDonner.jour=1;
+	tableauxDonner.pluie=0;
+    tableauxDonner.surfaceDePluie=5;
+
+	MysqlMeteoManager *test1 = MysqlMeteoManager::getInstance();
+	MysqlMeteoManager *test2= MysqlMeteoManager::getInstance();
+
+	if(test1->InsertDonnerCapteur(tableauxDonner))
+	{
+		cout<<"insert good"<<endl;
+	}
+	else
+	{
+        cout<<"insert pas good"<<endl;
+    }
+
+	getch();
+
+	return 0;
+}

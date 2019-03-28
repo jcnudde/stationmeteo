@@ -4,7 +4,7 @@
 #define StringUtilsH
 
 #include <vcl.h>
-//#include <System.hpp>
+#include <System.hpp>
 
 class StringUtils
 {

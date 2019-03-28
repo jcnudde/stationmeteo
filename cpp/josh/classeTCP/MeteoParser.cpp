@@ -15,7 +15,7 @@ void MeteoParser::Parse(char * buf, SOCKET sock)
 
 	if (strcmp(buf,"METEO\n") == 0 ) {
 
-	 serv->sendMessage(sock,"123456789");
+        this->affichageIHM();
 
 
 	}

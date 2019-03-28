@@ -14,7 +14,7 @@ class MeteoParser : public AbstractParser
 {
 	public:
 		virtual void Parse(char * buf, SOCKET sock);
-
+        void affichageIHM();
 };
 
 //---------------------------------------------------------------------------

@@ -49,8 +49,8 @@ typedef struct
     double direction;
     double hummiditeRelative;
     double luminosite;
-    bool jour;      //0 pour nuit et 1 pour jour
-    bool pluie; //0 pour pas de pluie et 1 pour pluie
+	double jour;      //0 pour nuit et 1 pour jour
+    double pluie; //0 pour pas de pluie et 1 pour pluie
     double surfaceDePluie;
 }tabDonnerCapteur;
 

@@ -20,6 +20,7 @@ __published:	// Composants gérés par l'EDI
 	TButton *stopServer;
 	TGroupBox *GroupBoxServer;
 	TShape *voyantEtatServer;
+	TButton *ParamServer;
 	void __fastcall startServerClick(TObject *Sender);
 	void __fastcall stopServerClick(TObject *Sender);
 

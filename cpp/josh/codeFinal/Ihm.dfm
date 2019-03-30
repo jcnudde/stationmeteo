@@ -17,7 +17,7 @@ object Form2: TForm2
     Left = 16
     Top = 8
     Width = 233
-    Height = 89
+    Height = 129
     Caption = 'Server'
     TabOrder = 0
     object voyantEtatServer: TShape
@@ -46,6 +46,14 @@ object Form2: TForm2
       Caption = 'Start'
       TabOrder = 1
       OnClick = startServerClick
+    end
+    object ParamServer: TButton
+      Left = 16
+      Top = 88
+      Width = 193
+      Height = 25
+      Caption = 'ParamServer'
+      TabOrder = 2
     end
   end
 end

@@ -72,15 +72,16 @@ tabDonnerCapteur RecupDonnerMeteo::getDonner()
 {
     tabDonnerCapteur donneeMeteo;
 
-    donneeMeteo.vitesseVent=capteur.anemometre->readValue();
+	donneeMeteo.vitesseVent = capteur.anemometre->readValue();
     donneeMeteo.direction = capteur.girouette->readValue();
-    donneeMeteo.pressionAtmospherique=capteur.barometre->readValue();
-    donneeMeteo.direction=capteur.girouette->readValue();
-    donneeMeteo.hummiditeRelative=capteur.hygrometre->readValue();
-    donneeMeteo.luminosite=capteur.solarimetre->readValue();
-    donneeMeteo.jour=capteur.capteur_JourNuit->readValue();
-    donneeMeteo.pluie=capteur.capteurPluie->readValue();
-    donneeMeteo.surfaceDePluie=capteur.pluviometre->readValue();
+	donneeMeteo.pressionAtmospherique = capteur.barometre->readValue();
+	donneeMeteo.direction = capteur.girouette->readValue();
+	donneeMeteo.temperature = capteur.thermometre->readValue();
+	donneeMeteo.hummiditeRelative = capteur.hygrometre->readValue();
+	donneeMeteo.luminosite = capteur.solarimetre->readValue();
+	donneeMeteo.jour = capteur.capteur_JourNuit->readValue();
+	donneeMeteo.pluie = capteur.capteurPluie->readValue();
+    donneeMeteo.surfaceDePluie = capteur.pluviometre->readValue();
 
     return donneeMeteo;
 }

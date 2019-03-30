@@ -13,7 +13,8 @@ Pluiviometre::Pluiviometre(double channel):Capteur(channel)
 
 double Pluiviometre::readValue()
 {
-	return 1 ;
+	this->PhysicalValue=30;
+	return this->PhysicalValue;
 }
 
 string Pluiviometre::getUnit()

@@ -29,6 +29,27 @@ void MeteoParser::getDonnerMeteo(TcpServer *serv,SOCKET client)
 {
 	this->recupDonnerMeteo = RecupDonnerMeteo::getInstance();
 
-    recupDonnerMeteo->getDonner();
-	serv->sendMessage(client,"120km/h;NNE;1000hPa;20°C;50%;100lux;pluie;jour;120mm²");
+	tabDonnerCapteur tabDonner =recupDonnerMeteo->getDonner();
+	String protocole = "$";
+	protocole+= String((int)tabDonner.vitesseVent);
+	protocole+=";";
+	protocole+=String((int)tabDonner.temperature);
+	protocole+=";";
+	protocole+=String((int)tabDonner.pressionAtmospherique);
+	protocole+=";";
+	protocole+=String(tabDonner.direction);
+	protocole+=";";
+	protocole+=String((int)tabDonner.hummiditeRelative);
+	protocole+=";";
+	protocole+=String((int)tabDonner.luminosite);
+	protocole+=";";
+	protocole+=String((int)tabDonner.jour);
+	protocole+=";";
+	protocole+=String((int)tabDonner.pluie);
+	protocole+=";";
+	protocole+=String((int)tabDonner.surfaceDePluie);
+	protocole+="$";
+
+	char * req = StringUtils::magicConvert(protocole.c_str());
+	serv->sendMessage(client,req);
 }

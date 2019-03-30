@@ -11,8 +11,8 @@ Solarimetre::Solarimetre(double channel):Capteur(channel)
 }
 double Solarimetre::readValue()
 {
-    this->PhysicalValue=20;
-    return 20;
+	this->PhysicalValue=1000;
+    return 1000;
 }
 string Solarimetre::getUnit()
 {

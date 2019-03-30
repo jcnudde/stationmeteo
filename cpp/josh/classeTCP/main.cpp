@@ -19,21 +19,22 @@
 #include "TcpServer.h"
 #include "MeteoParser.h"
 
-typedef int socklen_t;
-
-
 using namespace std;
 
  int _tmain(int argc, _TCHAR* argv[])
 {
-	AbstractParser * parser = new MeteoParser();
-	 TcpServer test(parser);
+	 //intstance de mes classe :  MeteoParser , TcpServer
+	 AbstractParser * parser = new MeteoParser();
+	 TcpServer serv(parser);
 
-	 if(test.start(9013))
+     //on demarre le server sur le port 9013 nous renvoie true si c'est bon
+	 if(serv.start(9013))
 	 {
 		cout<<"serveur demmarer sur le port 9013"<<endl;
-        getch();
-	 	test.stop();
+        //on bloque la console pour laisser le serveur tourné
+		getch();
+        //on stope le server
+	 	serv.stop();
 	 }
 
 	return 0;

@@ -83,7 +83,7 @@ __fastcall TForm1::TForm1(TComponent* Owner) : TForm(Owner) {
 void __fastcall TForm1::Timer1Timer(TObject *Sender) {
 	 this->StringGrid1->Cells[1][1]=  this->carte->readVoltage(0);
 	 this->StringGrid1->Cells[2][1]= this->carte->readVoltage(1);
-	// this->StringGrid1->Cells[3][1]= this->carte->readVoltage(2);
+	 this->StringGrid1->Cells[3][1]= this->carte->readVoltage(2);
 
     string t = renvoiCardinaux(this->girouette->readValue());
 	this->StringGrid1->Cells[1][2] = ((int)this->anemometre->readValue());

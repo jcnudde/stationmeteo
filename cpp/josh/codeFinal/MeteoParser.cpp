@@ -13,7 +13,7 @@ void MeteoParser::Parse(char * buf, SOCKET sock)
 
 	TcpServer * serv = this->getServer();
 
-	if(strcmp(buf,"METEO\n") == 0 ) {
+	if(strcmp(buf,"METEO") == 0 ) {
 		this->previsionMeteo(serv,sock);
 	}
 	if(strcmp(buf,"DONNEDONNER") == 0 ){
@@ -52,4 +52,5 @@ void MeteoParser::getDonnerMeteo(TcpServer *serv,SOCKET client)
 
 	char * req = StringUtils::magicConvert(protocole.c_str());
 	serv->sendMessage(client,req);
+    delete req;
 }

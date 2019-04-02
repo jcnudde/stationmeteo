@@ -16,13 +16,25 @@
 using namespace std;
 int main(int argc, char * argv[])
 {
-   	MysqlMeteoManager *test1 = MysqlMeteoManager::getInstance();
+	vector <tabDonnerCapteur> test;
+	MysqlMeteoManager *test1 = MysqlMeteoManager::getInstance();
 	MysqlMeteoManager *test2= MysqlMeteoManager::getInstance();
 	cout<<test2<<endl;
 	cout<<test1<<endl;
 
-	MysqlMeteoManager::InsertDonnerCapteur();
-	cout<<test1<<endl;
+
+	MysqlMeteoManager *test1 =  MysqlMeteoManager::InsertDonnerCapteur();
+    cout<<test3<<endl;
+
+
+	test=test1->SelectLastDonnee();
+
+	for (int i = 0; i < test.size(); i++) {
+		cout<<test[i].vitesseVent<<endl;
+	}
+
+
+
 
 	getch();
 	return 0;

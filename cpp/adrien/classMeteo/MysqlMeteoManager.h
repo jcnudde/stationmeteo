@@ -8,6 +8,18 @@
 #include <vcl.h>
 #include <iostream>
 #include <sstream>
+typedef struct
+{
+    double vitesseVent;
+    double temperature;
+    double pressionAtmospherique;
+    double direction;
+    double hummiditeRelative;
+	double luminosite;
+	double jour;      //0 pour nuit et 1 pour jour
+    double pluie; //0 pour pas de pluie et 1 pour pluie
+    double surfaceDePluie;
+}tabDonnerCapteur;
 
 using namespace std;
 

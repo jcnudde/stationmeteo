@@ -31,8 +31,23 @@ using namespace std;
 	MysqlMeteoManager *test1 = MysqlMeteoManager::getInstance();
 	MysqlMeteoManager *test2= MysqlMeteoManager::getInstance();
 
-	test1->InsertDonnerCapteur(tableauxDonner) ;
+	if(test3->InsertDonnerCapteur(tableauxDonner))
+	{
+		cout<<"insert good"<<endl;
+	}
+	else
+	{
+		cout<<"insert not good"<<endl;
+    }
 
+//	if(test1->SelectLastDonnee(vector<tableauxDonner>))
+//	{
+//		cout<<"select good"<<endl;
+//	}
+//	else
+//	{
+//		cout<<"select not good"<<endl;
+//	}
 	getch();
 	return 0;
 }

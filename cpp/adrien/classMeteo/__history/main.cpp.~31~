@@ -34,7 +34,7 @@ int main(int argc, char * argv[])
     var1.surfaceDePluie=1;
 
 //	MysqlMeteoManager *test3
-	bool test3 = test3->InsertDonnerCapteur(var1);
+	bool test3 =  test1->InsertDonnerCapteur(var1);
 	cout<<test3<<endl;
 
 

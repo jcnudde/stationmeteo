@@ -13,7 +13,6 @@ CapteurPluie:CapteurPluie(double channel):Capteur(channel)
 
 double CapteurPluie::readValue()
 {
-    this->carte->readVoltage(this->channel);
     return 1 ;
 }
 

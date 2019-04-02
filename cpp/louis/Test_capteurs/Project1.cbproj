@@ -112,12 +112,22 @@
         <BCC_PCHName_Clang>Project1PCH1.h</BCC_PCHName_Clang>
     </PropertyGroup>
     <ItemGroup>
-        <CppCompile Include="Hygrometre.cpp">
+        <CppCompile Include="Capteur.cpp">
+            <DependentOn>Capteur.h</DependentOn>
+            <BuildOrder>8</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="CarteE_S.cpp">
+            <DependentOn>CarteE_S.h</DependentOn>
+            <BuildOrder>8</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="Carte_9111.cpp">
+            <DependentOn>Carte_9111.h</DependentOn>
             <BuildOrder>7</BuildOrder>
         </CppCompile>
-        <None Include="Hygrometre.h">
-            <BuildOrder>8</BuildOrder>
-        </None>
+        <CppCompile Include="Hygrometre.cpp">
+            <DependentOn>Hygrometre.h</DependentOn>
+            <BuildOrder>7</BuildOrder>
+        </CppCompile>
         <CppCompile Include="ihm.cpp">
             <Form>Form1</Form>
             <FormType>dfm</FormType>
@@ -134,16 +144,10 @@
             <DependentOn>Solarimetre.h</DependentOn>
             <BuildOrder>3</BuildOrder>
         </CppCompile>
-        <None Include="Solarimetre.h">
-            <BuildOrder>4</BuildOrder>
-        </None>
         <CppCompile Include="Thermometre.cpp">
             <DependentOn>Thermometre.h</DependentOn>
             <BuildOrder>5</BuildOrder>
         </CppCompile>
-        <None Include="Thermometre.h">
-            <BuildOrder>6</BuildOrder>
-        </None>
         <FormResources Include="ihm.dfm"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
@@ -601,12 +605,12 @@
                         <Operation>1</Operation>
                     </Platform>
                 </DeployClass>
-                <ProjectRoot Platform="Win64" Name="$(PROJECTNAME)"/>
+                <ProjectRoot Platform="iOSSimulator" Name="$(PROJECTNAME).app"/>
                 <ProjectRoot Platform="Android" Name="$(PROJECTNAME)"/>
                 <ProjectRoot Platform="Win32" Name="$(PROJECTNAME)"/>
                 <ProjectRoot Platform="iOSDevice64" Name="$(PROJECTNAME).app"/>
+                <ProjectRoot Platform="Win64" Name="$(PROJECTNAME)"/>
                 <ProjectRoot Platform="OSX32" Name="$(PROJECTNAME).app"/>
-                <ProjectRoot Platform="iOSSimulator" Name="$(PROJECTNAME).app"/>
                 <ProjectRoot Platform="iOSDevice32" Name="$(PROJECTNAME).app"/>
             </Deployment>
             <Platforms>

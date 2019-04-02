@@ -5,6 +5,7 @@
 #include "Hygrometre.h"
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
+
 Hygrometre::Hygrometre(double channel):Capteur(channel)
 {
 
@@ -22,4 +23,3 @@ string Hygrometre::getUnit()
 {
     return "%";
 }
-

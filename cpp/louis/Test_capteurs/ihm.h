@@ -7,9 +7,11 @@
 #include <Vcl.Controls.hpp>
 #include <Vcl.StdCtrls.hpp>
 #include <Vcl.Forms.hpp>
+#include <Vcl.ExtCtrls.hpp>
+#include <Vcl.Grids.hpp>
 
-//#include "Carte_9111.h"
-//#include "CarteE_S.h"
+#include "Carte_9111.h"
+#include "CarteE_S.h"
 #include "Thermometre.h"
 #include "Hygromometre.h"
 #include "Solarimetre.h"
@@ -26,11 +28,16 @@ __published:	// Composants gérés par l'EDI
 	TEdit *Edit_humidité;
 	TEdit *Edit_temperature;
 	TEdit *Edit_luminosite;
+	TStringGrid *StringGrid1;
 	void __fastcall label_humiditeClick(TObject *Sender);
 	void __fastcall Edit_temperatureChange(TObject *Sender);
 private:	// Déclarations utilisateur
 public:		// Déclarations utilisateur
 	__fastcall TForm1(TComponent* Owner);
+	CarteE_S *carte;
+	Capteur *thermometre;
+	Capteur *hygrometre;
+	Capteur *solarimetre;
 };
 //---------------------------------------------------------------------------
 extern PACKAGE TForm1 *Form1;

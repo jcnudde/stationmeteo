@@ -39,7 +39,7 @@
     Left = 72
     Top = 40
     Width = 105
-    Height = 53
+    Height = 21
     TabOrder = 0
     Text = 'Edit_humidit'#233
   end
@@ -47,7 +47,7 @@
     Left = 256
     Top = 40
     Width = 105
-    Height = 53
+    Height = 21
     TabOrder = 1
     Text = 'Edit_temperature'
     OnChange = Edit_temperatureChange
@@ -56,8 +56,15 @@
     Left = 488
     Top = 40
     Width = 105
-    Height = 53
+    Height = 21
     TabOrder = 2
     Text = 'Edit_luminosite'
+  end
+  object StringGrid1: TStringGrid
+    Left = 168
+    Top = 112
+    Width = 377
+    Height = 161
+    TabOrder = 3
   end
 end

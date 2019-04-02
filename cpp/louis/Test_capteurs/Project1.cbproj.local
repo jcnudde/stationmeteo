@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+  <Transactions>
+    <Transaction>2019/04/02 14:50:40.490,=C:\Users\LLonguet\Documents\Embarcadero\Studio\Projets\Project1PCH1.h</Transaction>
+    <Transaction>2019/04/02 14:50:40.507,=C:\Users\LLonguet\Documents\Embarcadero\Studio\Projets\Unit1.cpp</Transaction>
+    <Transaction>2019/04/02 15:01:22.139,C:\Users\LLonguet\Desktop\Projetmeteo\cpp\louis\Test_capteurs\ihm.dfm=C:\Users\LLonguet\Documents\Embarcadero\Studio\Projets\Unit1.dfm</Transaction>
+    <Transaction>2019/04/02 15:01:22.139,C:\Users\LLonguet\Desktop\Projetmeteo\cpp\louis\Test_capteurs\ihm.cpp=C:\Users\LLonguet\Documents\Embarcadero\Studio\Projets\Unit1.cpp</Transaction>
+    <Transaction>2019/04/02 15:01:22.139,C:\Users\LLonguet\Desktop\Projetmeteo\cpp\louis\Test_capteurs\ihm.h=C:\Users\LLonguet\Documents\Embarcadero\Studio\Projets\Unit1.h</Transaction>
+    <Transaction>2019/04/02 15:02:36.839,=C:\Users\LLonguet\Desktop\Projetmeteo\cpp\louis\Test_capteurs\Solarimetre.cpp</Transaction>
+    <Transaction>2019/04/02 15:02:36.843,=C:\Users\LLonguet\Desktop\Projetmeteo\cpp\louis\Test_capteurs\Solarimetre.h</Transaction>
+    <Transaction>2019/04/02 15:02:36.878,=C:\Users\LLonguet\Desktop\Projetmeteo\cpp\louis\Test_capteurs\Thermometre.cpp</Transaction>
+    <Transaction>2019/04/02 15:02:36.882,=C:\Users\LLonguet\Desktop\Projetmeteo\cpp\louis\Test_capteurs\Thermometre.h</Transaction>
+    <Transaction>2019/04/02 15:02:36.918,=C:\Users\LLonguet\Desktop\Projetmeteo\cpp\louis\Test_capteurs\Hygrometre.cpp</Transaction>
+    <Transaction>2019/04/02 15:02:36.954,=C:\Users\LLonguet\Desktop\Projetmeteo\cpp\louis\Test_capteurs\Hygrometre.h</Transaction>
+    <Transaction>2019/04/02 15:11:09.796,C:\Users\LLonguet\Desktop\Projetmeteo\cpp\louis\Test_capteurs\Project1PCH1.h=C:\Users\LLonguet\Documents\Embarcadero\Studio\Projets\Project1PCH1.h</Transaction>
+    <Transaction>2019/04/02 15:11:11.139,C:\Users\LLonguet\Desktop\Projetmeteo\cpp\louis\Test_capteurs\Project1.cbproj=C:\Users\LLonguet\Documents\Embarcadero\Studio\Projets\Project1.cbproj</Transaction>
+  </Transactions>
+  <ProjectSortOrder AutoSort="0" SortType="0">
+    <File Path="Project1.cpp"/>
+    <File Path="Project1PCH1.h"/>
+    <File Path="ihm.cpp"/>
+    <File Path="ihm.cpp"/>
+    <File Path="ihm.dfm"/>
+    <File Path="ihm.h"/>
+    <File Path="Solarimetre.cpp"/>
+    <File Path="Solarimetre.cpp"/>
+    <File Path="Solarimetre.h"/>
+    <File Path="Thermometre.cpp"/>
+    <File Path="Thermometre.cpp"/>
+    <File Path="Thermometre.h"/>
+    <File Path="Hygrometre.cpp"/>
+    <File Path="Hygrometre.h"/>
+  </ProjectSortOrder>
+</BorlandProject>

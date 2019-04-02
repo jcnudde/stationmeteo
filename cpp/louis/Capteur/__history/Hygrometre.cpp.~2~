@@ -2,7 +2,7 @@
 
 #pragma hdrstop
 
-#include "Hygrometre.h"
+#include "Hygometre.h"
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 Hygrometre::Hygrometre(double channel):Capteur(channel)

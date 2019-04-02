@@ -11,11 +11,23 @@
 #include <stdio.h>
 #include "MysqlMeteoManager.h"
 #include <conio.h>
- int _tmain(int argc, _TCHAR* argv[])
+#include <iostream>
+
+using namespace std;
+int main(int argc, char * argv[])
 {
 	MysqlMeteoManager *test1 = MysqlMeteoManager::getInstance();
-
+	MysqlMeteoManager *test2= MysqlMeteoManager::getInstance();
+	cout<<test2<<endl;
 	cout<<test1<<endl;
+
+	test1->SelectLastDonnee();
+
+test1->InsertDonnerCapteur();
+
+
+
+
 	getch();
 	return 0;
 }

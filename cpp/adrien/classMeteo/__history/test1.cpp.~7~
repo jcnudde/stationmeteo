@@ -37,17 +37,9 @@ using namespace std;
 	}
 	else
 	{
-		cout<<"insert not good"<<endl;
+        cout<<"insert pas good"<<endl;
     }
 
-	if(test1->SelectLastDonnee(vector<tableauxDonner>))
-	{
-		cout<<"select good"<<endl;
-	}
-	else
-	{
-		cout<<"select not good"<<endl;
-	}
 	getch();
 	return 0;
 }

@@ -14,12 +14,15 @@
 #include <iostream>
 
 using namespace std;
- int _tmain(int argc, _TCHAR* argv[])
+int main(int argc, char * argv[])
 {
-	MysqlMeteoManager *test1 = MysqlMeteoManager::getInstance();
+   	MysqlMeteoManager *test1 = MysqlMeteoManager::getInstance();
 	MysqlMeteoManager *test2= MysqlMeteoManager::getInstance();
-	cout<<test2<<end2
-		cout<<test1<<endl;
+	cout<<test2<<endl;
+	cout<<test1<<endl;
+
+	MysqlMeteoManager::InsertDonnerCapteur(tabDonnerCapteur donneeMeteo);
+	cout<<test1<<endl;
 
 	getch();
 	return 0;

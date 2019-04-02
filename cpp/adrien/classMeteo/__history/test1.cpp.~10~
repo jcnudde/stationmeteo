@@ -1,4 +1,4 @@
-  #pragma hdrstop
+#pragma hdrstop
 #pragma argsused
 
 #ifdef _WIN32
@@ -14,10 +14,9 @@
 #include <iostream>
 
 using namespace std;
-
-int main(int argc, char * argv[])
+ int _tmain(int argc, _TCHAR* argv[])
 {
-    	tabDonnerCapteur tableauxDonner;
+	tabDonnerCapteur tableauxDonner;
 
 	tableauxDonner.vitesseVent= 120;
 	tableauxDonner.temperature =20;
@@ -38,10 +37,17 @@ int main(int argc, char * argv[])
 	}
 	else
 	{
-        cout<<"insert pas good"<<endl;
+        cout<<"insert not good"<<endl;
     }
 
+	if(test1->SelectLastDonnee(tableuaxDonner))
+	{
+		cout<<"select good"<<endl;
+	}
+	else
+	{
+        cout<<"select not good"<<endl;
+    }
 	getch();
-
 	return 0;
 }

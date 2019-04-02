@@ -18,7 +18,10 @@ int main(int argc, char * argv[])
 {
    	MysqlMeteoManager *test1 = MysqlMeteoManager::getInstance();
 	MysqlMeteoManager *test2= MysqlMeteoManager::getInstance();
-	cout<<test2<<end2;
+	cout<<test2<<endl;
+	cout<<test1<<endl;
+
+	MysqlMeteoManager::InsertDonnerCapteur();
 	cout<<test1<<endl;
 
 	getch();

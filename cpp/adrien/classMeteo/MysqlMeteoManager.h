@@ -38,6 +38,7 @@ class MysqlMeteoManager {
         MysqlMeteoManager * operator=(MysqlMeteoManager* o1);
         bool connect();
 		bool InsertDonnerCapteur(tabDonnerCapteur donneeMeteo);
+		vector<tabDonnerCapteur> SelectLastDonnee();
 };
 //---------------------------------------------------------------------------
 #endif

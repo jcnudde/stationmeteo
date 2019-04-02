@@ -4,7 +4,8 @@
 #define MysqlMeteoManagerH
 #include "Bdd.h"
 #include "Mysql.h"
-#include "StringUtils.cpp"
+
+#include <vcl.h>
 #include <iostream>
 #include <sstream>
 

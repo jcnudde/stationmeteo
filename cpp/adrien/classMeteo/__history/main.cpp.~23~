@@ -14,11 +14,21 @@
 #include <iostream>
 
 using namespace std;
- int _tmain(int argc, _TCHAR* argv[])
+int main(int argc, char * argv[])
 {
+    vector <tabDonnerCapteur> test;
 	MysqlMeteoManager *test1 = MysqlMeteoManager::getInstance();
-
+	MysqlMeteoManager *test2= MysqlMeteoManager::getInstance();
+	cout<<test2<<endl;
 	cout<<test1<<endl;
+
+	test1->SelectLastDonnee();
+
+
+
+
+
+
 	getch();
 	return 0;
 }

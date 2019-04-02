@@ -3,6 +3,8 @@
 #pragma hdrstop
 
 #include "MysqlMeteoManager.h"
+#include <ustring.h>
+#include "StringUtils.h"
 
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
@@ -39,7 +41,7 @@ MysqlMeteoManager * MysqlMeteoManager::getInstance()
 
     }
     return m_instance;
-}void MysqlMeteoManager::stopInstance(){
+}// delete bdd et instancevoid MysqlMeteoManager::stopInstance(){
 	delete bdd;
 	delete m_instance;
 	m_instance = NULL;
@@ -53,7 +55,7 @@ MysqlMeteoManager * MysqlMeteoManager::getInstance()
 	{
 		return false;
     }
-}bool MysqlMeteoManager::InsertDonnerCapteur(tabDonnerCapteur donneeMeteo){     string direction;	 switch ((int)donneeMeteo.direction)      {
+}// insertion en bddbool MysqlMeteoManager::InsertDonnerCapteur(tabDonnerCapteur donneeMeteo){     string direction;	 switch ((int)donneeMeteo.direction)      {
 		 case 360:
 			direction ="N";
 			break;
@@ -102,47 +104,39 @@ MysqlMeteoManager * MysqlMeteoManager::getInstance()
 		 case 22:
 			direction = "NNE";
 			break;
-	  }	string requete = "INSERT INTO `meteo`.`donnees_meteo` (`vitesseVent`, `direction`, `pressionAtmospherique`, `temperature`, `humiditeRelative`, `luminosite`, `pluie`, `jour`, `surfaceDePluie`, `date`) VALUES (";
-//	 stringstream ss;
-//	float f;
-//	ss.string(120);
-//	ss >> f;
-    String test = donneeMeteo.vitesseVent;
-	UnicodeString test ;
-	wchar_t * tmp;
-//	tmp = test.w_str();
-//	int len = wcslen(tmp);
-//	char * ret = new char[len+1];
-//	wcstombs(ret, tmp, len);
-//	requete+= ret;
-	requete+=donneeMeteo.vitesseVent;
+	  }	 // requete pour inserer données métèo	String requete = "INSERT INTO `meteo`.`donnees_meteo` (`vitesseVent`, `direction`, `pressionAtmospherique`, `temperature`, `humiditeRelative`, `luminosite`, `pluie`, `jour`, `surfaceDePluie`, `date`) VALUES (";
+
+	requete+=String(donneeMeteo.vitesseVent);
 	requete+=",";
-	requete+=donneeMeteo.direction;
+	requete+=String(donneeMeteo.direction);
 	requete+=",";
-	requete+=donneeMeteo.pressionAtmospherique;
+	requete+=String(donneeMeteo.pressionAtmospherique);
 	requete+=",";
-	requete+=donneeMeteo.temperature;
+	requete+=String(donneeMeteo.temperature);
 	requete+=",";
-	requete+=donneeMeteo.hummiditeRelative;
+	requete+= String(donneeMeteo.hummiditeRelative);
 	requete+=",";
-	requete+=donneeMeteo.luminosite;
+	requete+=String(donneeMeteo.luminosite);
 	requete+=",";
-	requete+=donneeMeteo.jour;
+	requete+= String(donneeMeteo.jour ? 1 : 0);
 	requete+=",";
-	requete+=donneeMeteo.pluie;
+	requete+= String(donneeMeteo.pluie ? 1 : 0);
     requete+=",";
-	requete+=donneeMeteo.surfaceDePluie;
+	requete+= String(donneeMeteo.surfaceDePluie);
 	requete+=",";
 	requete+="NOW());";
 
-	if(bdd->insert(requete))
-	{
-        return true;
-	}
-	else
-	{
-        return false;
-    }
+	char * req = StringUtils::magicConvert(requete.c_str());
 
-}
+	bool res = bdd->insert(req);
+    delete req;
 
+	return res;
+
+}// séléctionner les derniéres données en BDDtabDonnerCapteur MysqlMeteoManager::SelectLastDonnee(){	vector< vector<string> > resultRequete;	vector<tabDonnerCapteur> vectorDonnerCapteur;	string requete = "SELECT`vitesseVent`, `direction`, `pressionAtmospherique`, `temperature`, `humiditeRelative`, `luminosite`, `pluie`, `jour`, `surfaceDePluie`, `date` FROM `donnees_meteo` WHERE 1 ";	resultRequete=bdd->select(requete);	for (int i = 0; i <resultRequete.size(); i++)	{		for (int j = 0; j < resultRequete[i].size(); i++)
+		{
+			tabDonnerCapteur donnerCapteur;
+
+			donnerCapteur.vitesseVent= resultRequete[i][j];
+		}
+	}}

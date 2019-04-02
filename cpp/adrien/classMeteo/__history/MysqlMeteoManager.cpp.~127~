@@ -138,31 +138,31 @@ MysqlMeteoManager * MysqlMeteoManager::getInstance()
 			switch(j)
 			{
 				case 0:
-				donnerCapteur->vitesseVent= atof(resultRequete[i][j].c_str());
+				donnerCapteur->vitesseVent = resultRequete[i][j];
 				break;
 				case 1:
-				donnerCapteur->direction= atof(resultRequete[i][j].c_str());
+				donnerCapteur->direction= resultRequete[i][j];
 				break;
 				case 2:
-				donnerCapteur->pressionAtmospherique= atof(resultRequete[i][j].c_str());
+				donnerCapteur->pressionAtmospherique= resultRequete[i][j];
 				break;
 				case 3:
-				donnerCapteur->temperature= atof(resultRequete[i][j].c_str());
+				donnerCapteur->temperature= resultRequete[i][j];
 				break;
 				case 4:
-				donnerCapteur->hummiditeRelative= atof(resultRequete[i][j].c_str());
+				donnerCapteur->hummiditeRelative= resultRequete[i][j];
 				break;
 				case 5:
-				donnerCapteur->luminosite= atof(resultRequete[i][j].c_str());
+				donnerCapteur->luminosite= resultRequete[i][j];
 				break;
 				case 6:
-				donnerCapteur->pluie= atoi(resultRequete[i][j].c_str()) == 1;
+				donnerCapteur->pluie= resultRequete[i][j];
 				break;
 				case 7:
-				donnerCapteur->jour= atoi(resultRequete[i][j].c_str()) == 1;
+				donnerCapteur->jour= resultRequete[i][j];
 				break;
 				case 8:
-				donnerCapteur->surfaceDePluie= atoi(resultRequete[i][j].c_str()) == 1;
+				donnerCapteur->surfaceDePluie= resultRequete[i][j];
                 break;
 			}
 		}

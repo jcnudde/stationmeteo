@@ -5,20 +5,21 @@
 #include "Solarimetre.h"
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
+
 Solarimetre::Solarimetre(double channel):Capteur(channel)
 {
 
 }
+
 double Solarimetre::readValue()
 {
-    this->PhysicalValue=20;
-    return 20;
+	this->PhysicalValue=this->cate->readVolage(this->channel);
+	//Muliplie la valeur par 1000
+	this->PhysicalValue*=1000;
+
+	return this->PhysicalValue;
 }
-double Solarimetre::readValue()
-{
-    this->carte->readVoltage(this->channel);
-    return 1000;
-}
+
 string Solarimetre::getUnit()
 {
     return "Lux";

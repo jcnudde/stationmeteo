@@ -5,20 +5,22 @@
 #include "Thermometre.h"
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
+
 Thermometre::Thermometre(double channel):Capteur(channel)
 {
 
 }
 double Thermometre::readValue()
 {
-    this->PhysicalValue=20;
-    return 20;
+	this->PhysicalValue=this->carte->readVoltage(this->channel);
+	//on muliplie la valeur par 7
+	this-PhysicalValue*=7;
+	//on retire 35 au resulat precedent
+	this->physicalValue-=35;
+
+    return this->physicalValue;
 }
-double Thermometre::readValue()
-{
-    this->carte->readVoltage(this->channel);
-    return 25;
-}
+
 string Thermometre::getUnit()
 {
     return "Oc";

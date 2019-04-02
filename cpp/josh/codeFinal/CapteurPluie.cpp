@@ -6,14 +6,15 @@
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 
-CapteurPluie:CapteurPluie(double channel):Capteur(channel)
+CapteurPluie::CapteurPluie(double channel):Capteur(channel)
 {
 
 }
 
 double CapteurPluie::readValue()
 {
-    return 1 ;
+	this->PhysicalValue=1;
+	return this->PhysicalValue;
 }
 
 string CapteurPluie::getUnit()

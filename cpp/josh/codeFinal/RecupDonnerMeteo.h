@@ -49,18 +49,22 @@ typedef struct
     double direction;
     double hummiditeRelative;
     double luminosite;
-    bool jour;      //0 pour nuit et 1 pour jour
-    bool pluie; //0 pour pas de pluie et 1 pour pluie
+	double jour;      //0 pour nuit et 1 pour jour
+    double pluie; //0 pour pas de pluie et 1 pour pluie
     double surfaceDePluie;
 }tabDonnerCapteur;
 
+
 class RecupDonnerMeteo
 {
-    private:
-        SqlMeteoManager* sqlMeteo;
-        tabCapteur capteur;
+	private:
+		//variable meteo
+		static RecupDonnerMeteo* m_instance;
+		tabCapteur capteur;
+		//variable pour le thread
         HANDLE Thread;
-        DWORD dwThreadIdArray;
+		DWORD dwThreadIdArray;
+		bool boucleThread;
         //constructeur
         RecupDonnerMeteo();
         //destructeur
@@ -72,7 +76,7 @@ class RecupDonnerMeteo
         //renvoie les données météo aquise à l'instant t sous forme d'une structure
         tabDonnerCapteur getDonner();
         //renvoie un seul et même pointeur
-        RecupDonner* getInstance();
+        static RecupDonnerMeteo* getInstance();
 
 };
 //---------------------------------------------------------------------------

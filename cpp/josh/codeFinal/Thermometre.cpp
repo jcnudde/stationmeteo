@@ -12,14 +12,9 @@ Thermometre::Thermometre(double channel):Capteur(channel)
 double Thermometre::readValue()
 {
     this->PhysicalValue=20;
-    return 20;
+    return this->PhysicalValue;
 }
-double Barometre::readValue()
-{
-    this->carte->readVoltage(this->channel);
-    return 25;
-}
-string Barometre::getUnit()
+string Thermometre::getUnit()
 {
     return "°c";
 }

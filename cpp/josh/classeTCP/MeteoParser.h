@@ -1,5 +1,15 @@
 //---------------------------------------------------------------------------
-
+/*
+ * CapteurPluie
+ *
+ * Classe qui herite de la class capteur
+ *
+ * Copyright 11 mars 2019 (@author BASILE Adrien)
+ * @version 0.0
+ *
+ *
+ **/
+ //---------------------------------------------------------------------------
 #ifndef MeteoParserH
 #define MeteoParserH
 
@@ -14,7 +24,6 @@ class MeteoParser : public AbstractParser
 {
 	public:
 		virtual void Parse(char * buf, SOCKET sock);
-        void affichageIHM();
 };
 
 //---------------------------------------------------------------------------

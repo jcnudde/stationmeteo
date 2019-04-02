@@ -2,25 +2,20 @@
 
 #pragma hdrstop
 
-#include "Hygometre.h"
+#include "Hygrometre.h"
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
+
 Hygrometre::Hygrometre(double channel):Capteur(channel)
 {
 
 }
 double Hygrometre::readValue()
 {
-    this->PhysicalValue=20;
-    return 20;
-}
-
-double Barometre::readValue()
-{
-    this->carte->readVoltage(this->channel);
+    this->PhysicalValue=100;
     return 100;
 }
-string Barometre::getUnit()
+string Hygrometre::getUnit()
 {
     return "%";
 }

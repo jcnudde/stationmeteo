@@ -1,0 +1,23 @@
+//---------------------------------------------------------------------------
+
+#ifndef MeteoParserH
+#define MeteoParserH
+
+#include "AbstractParser.h"
+#include <cstring>
+#include <iostream>
+
+
+using namespace std;
+
+class MeteoParser : public AbstractParser
+{
+	private:
+		void previsionMeteo(TcpServer *serv,SOCKET client);
+		void recupDonnerMeteo(TcpServer *serv,SOCKET client);
+	public:
+		virtual void Parse(char * buf, SOCKET sock);
+};
+
+//---------------------------------------------------------------------------
+#endif

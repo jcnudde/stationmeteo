@@ -19,7 +19,7 @@ double Carte_9111::readVoltage(double channel)
 {
 	F64 volt_temp=0;
 
-	AI_VReadChannel(card,channel, AD_B_5_V,&volt_temp);
+	AI_VReadChannel(card,channel, AD_B_10_V,&volt_temp);
 
 	return  ((float)volt_temp);
 }

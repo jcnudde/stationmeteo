@@ -26,7 +26,13 @@ void __fastcall TForm1::Timer1Timer(TObject *Sender)
 		{
 			tabDonnerCapteur capData = dataNotifier->get();
 			this->LabelAnemo->Caption = UnicodeString((int)capData.vitesseVent)+"m/s";
+			this->LabelGirouette->Caption = UnicodeString((int)capData.direction);
+			this->Labelbarom->Caption = UnicodeString((int)capData.pressionAtmospherique)+"hPa";
+			this->LabelTherm->Caption =  UnicodeString((int)capData.temperature)+"°C";
 			this->LabelHumid->Caption = UnicodeString((int)capData.hummiditeRelative)+"%";
+			this->LabelSola->Caption =  UnicodeString((int)capData.luminosite)+"Lux";
+
+
         }
 	}
 	catch(std::string error)

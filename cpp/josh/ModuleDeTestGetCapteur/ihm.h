@@ -30,7 +30,6 @@ __published:	// Composants gérés par l'EDI
 	TLabel *Labelbarom;
 	TLabel *LabelTherm;
 	TLabel *LabelSola;
-	TLabel *Label14;
 	TLabel *LabelJour;
 	TLabel *LabelPlui;
 	TLabel *LabelPluiviometre;

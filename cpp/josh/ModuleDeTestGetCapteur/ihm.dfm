@@ -2,7 +2,7 @@ object Form1: TForm1
   Left = 0
   Top = 0
   Caption = 'Form1'
-  ClientHeight = 496
+  ClientHeight = 564
   ClientWidth = 1050
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -14,142 +14,243 @@ object Form1: TForm1
   PixelsPerInch = 96
   TextHeight = 13
   object LabelAnemo: TLabel
-    Left = 232
-    Top = 96
-    Width = 58
-    Height = 13
+    Left = 376
+    Top = 32
+    Width = 177
+    Height = 40
     Caption = 'LabelAnemo'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -33
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
   end
   object LabelHumid: TLabel
-    Left = 226
-    Top = 240
-    Width = 54
-    Height = 13
+    Left = 376
+    Top = 266
+    Width = 170
+    Height = 40
     Caption = 'LabelHumid'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -33
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
   end
   object Label3: TLabel
-    Left = 42
-    Top = 96
-    Width = 61
-    Height = 13
+    Left = 16
+    Top = 40
+    Width = 186
+    Height = 40
     Caption = 'Anemometre'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -33
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
   end
   object Label4: TLabel
-    Left = 46
-    Top = 136
-    Width = 45
-    Height = 13
+    Left = 20
+    Top = 86
+    Width = 134
+    Height = 40
     Caption = 'Girouette'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -33
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
   end
   object Label5: TLabel
-    Left = 46
-    Top = 176
-    Width = 50
-    Height = 13
+    Left = 20
+    Top = 144
+    Width = 151
+    Height = 40
     Caption = 'Barometre'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -33
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
   end
   object Label6: TLabel
-    Left = 46
-    Top = 208
-    Width = 64
-    Height = 13
+    Left = 20
+    Top = 206
+    Width = 197
+    Height = 40
     Caption = 'Thermometre'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -33
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
   end
   object Label7: TLabel
-    Left = 46
-    Top = 240
-    Width = 57
-    Height = 13
+    Left = 15
+    Top = 266
+    Width = 171
+    Height = 40
     Caption = 'Hygrometre'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -33
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
   end
   object Label8: TLabel
-    Left = 46
-    Top = 272
-    Width = 54
-    Height = 13
+    Left = 20
+    Top = 324
+    Width = 166
+    Height = 40
     Caption = 'Solarimetre'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -33
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
   end
   object Label9: TLabel
-    Left = 46
-    Top = 312
-    Width = 85
-    Height = 13
+    Left = 20
+    Top = 394
+    Width = 252
+    Height = 40
     Caption = 'CapteurJour_Nuit'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -33
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
   end
   object Label10: TLabel
-    Left = 46
-    Top = 352
-    Width = 61
-    Height = 13
+    Left = 20
+    Top = 450
+    Width = 182
+    Height = 40
     Caption = 'CapteurPluie'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -33
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
   end
   object Label11: TLabel
-    Left = 46
-    Top = 392
-    Width = 52
-    Height = 13
+    Left = 20
+    Top = 516
+    Width = 161
+    Height = 40
     Caption = 'Pluivimetre'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -33
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
   end
   object LabelGirouette: TLabel
-    Left = 232
-    Top = 136
-    Width = 70
-    Height = 13
+    Left = 376
+    Top = 86
+    Width = 210
+    Height = 40
     Caption = 'LabelGirouette'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -33
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
   end
   object Labelbarom: TLabel
-    Left = 232
-    Top = 176
-    Width = 55
-    Height = 13
+    Left = 376
+    Top = 144
+    Width = 169
+    Height = 40
     Caption = 'Labelbarom'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -33
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
   end
   object LabelTherm: TLabel
-    Left = 226
-    Top = 208
-    Width = 55
-    Height = 13
+    Left = 376
+    Top = 206
+    Width = 170
+    Height = 40
     Caption = 'LabelTherm'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -33
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
   end
   object LabelSola: TLabel
-    Left = 226
-    Top = 272
-    Width = 45
-    Height = 13
+    Left = 376
+    Top = 324
+    Width = 137
+    Height = 40
     Caption = 'LabelSola'
-  end
-  object Label14: TLabel
-    Left = 952
-    Top = 496
-    Width = 37
-    Height = 13
-    Caption = 'Label14'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -33
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
   end
   object LabelJour: TLabel
-    Left = 226
-    Top = 312
-    Width = 46
-    Height = 13
+    Left = 376
+    Top = 386
+    Width = 138
+    Height = 40
     Caption = 'LabelJour'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -33
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
   end
   object LabelPlui: TLabel
-    Left = 226
-    Top = 352
-    Width = 41
-    Height = 13
+    Left = 376
+    Top = 450
+    Width = 128
+    Height = 40
     Caption = 'LabelPlui'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -33
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
   end
   object LabelPluiviometre: TLabel
-    Left = 219
-    Top = 392
-    Width = 83
-    Height = 13
+    Left = 376
+    Top = 516
+    Width = 255
+    Height = 40
     Caption = 'LabelPluiviometre'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -33
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
   end
   object Timer1: TTimer
     Interval = 10
     OnTimer = Timer1Timer
-    Left = 24
-    Top = 24
+    Left = 984
+    Top = 16
   end
 end

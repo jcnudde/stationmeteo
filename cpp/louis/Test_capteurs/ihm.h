@@ -28,9 +28,14 @@ __published:	// Composants gérés par l'EDI
 	TEdit *Edit_humidité;
 	TEdit *Edit_temperature;
 	TEdit *Edit_luminosite;
-	TStringGrid *StringGrid1;
+	TTimer *Timer;
+	TEdit *Edit_hygrometrie;
+	TEdit *Edit_thermometre;
+	TEdit *Edit_luxmetre;
 	void __fastcall label_humiditeClick(TObject *Sender);
 	void __fastcall Edit_temperatureChange(TObject *Sender);
+	void __fastcall TimerTimer(TObject *Sender);
+	void __fastcall Edit_luxmetreChange(TObject *Sender);
 private:	// Déclarations utilisateur
 public:		// Déclarations utilisateur
 	__fastcall TForm1(TComponent* Owner);

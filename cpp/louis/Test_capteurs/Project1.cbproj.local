@@ -4,12 +4,12 @@
     <Transaction>2019/04/02 14:50:40.000.490,=C:\Users\LLonguet\Documents\Embarcadero\Studio\Projets\Project1PCH1.h</Transaction>
     <Transaction>2019/04/02 14:50:40.000.507,=C:\Users\LLonguet\Documents\Embarcadero\Studio\Projets\Unit1.cpp</Transaction>
     <Transaction>2019/04/02 15:01:22.000.139,C:\Users\LLonguet\Desktop\Projetmeteo\cpp\louis\Test_capteurs\ihm.cpp=C:\Users\LLonguet\Documents\Embarcadero\Studio\Projets\Unit1.cpp</Transaction>
-    <Transaction>2019/04/02 15:01:22.000.139,C:\Users\LLonguet\Desktop\Projetmeteo\cpp\louis\Test_capteurs\ihm.dfm=C:\Users\LLonguet\Documents\Embarcadero\Studio\Projets\Unit1.dfm</Transaction>
     <Transaction>2019/04/02 15:01:22.000.139,C:\Users\LLonguet\Desktop\Projetmeteo\cpp\louis\Test_capteurs\ihm.h=C:\Users\LLonguet\Documents\Embarcadero\Studio\Projets\Unit1.h</Transaction>
-    <Transaction>2019/04/02 15:02:36.000.878,=C:\Users\LLonguet\Desktop\Projetmeteo\cpp\louis\Test_capteurs\Thermometre.cpp</Transaction>
+    <Transaction>2019/04/02 15:01:22.000.139,C:\Users\LLonguet\Desktop\Projetmeteo\cpp\louis\Test_capteurs\ihm.dfm=C:\Users\LLonguet\Documents\Embarcadero\Studio\Projets\Unit1.dfm</Transaction>
     <Transaction>2019/04/02 15:02:36.000.843,=C:\Users\LLonguet\Desktop\Projetmeteo\cpp\louis\Test_capteurs\Solarimetre.h</Transaction>
-    <Transaction>2019/04/02 15:02:36.000.954,=C:\Users\LLonguet\Desktop\Projetmeteo\cpp\louis\Test_capteurs\Hygrometre.h</Transaction>
     <Transaction>2019/04/02 15:02:36.000.882,=C:\Users\LLonguet\Desktop\Projetmeteo\cpp\louis\Test_capteurs\Thermometre.h</Transaction>
+    <Transaction>2019/04/02 15:02:36.000.954,=C:\Users\LLonguet\Desktop\Projetmeteo\cpp\louis\Test_capteurs\Hygrometre.h</Transaction>
+    <Transaction>2019/04/02 15:02:36.000.878,=C:\Users\LLonguet\Desktop\Projetmeteo\cpp\louis\Test_capteurs\Thermometre.cpp</Transaction>
     <Transaction>2019/04/02 15:02:36.000.918,=C:\Users\LLonguet\Desktop\Projetmeteo\cpp\louis\Test_capteurs\Hygrometre.cpp</Transaction>
     <Transaction>2019/04/02 15:02:36.000.839,=C:\Users\LLonguet\Desktop\Projetmeteo\cpp\louis\Test_capteurs\Solarimetre.cpp</Transaction>
     <Transaction>2019/04/02 15:11:09.000.796,C:\Users\LLonguet\Desktop\Projetmeteo\cpp\louis\Test_capteurs\Project1PCH1.h=C:\Users\LLonguet\Documents\Embarcadero\Studio\Projets\Project1PCH1.h</Transaction>
@@ -19,14 +19,12 @@
     <Transaction>2019/04/02 15:29:09.000.659,=C:\Users\LLonguet\Desktop\Projetmeteo\cpp\louis\Test_capteurs\Unit1.pas</Transaction>
     <Transaction>2019/04/02 15:29:55.000.359,=C:\Users\LLonguet\Desktop\Projetmeteo\cpp\louis\Test_capteurs\Carte_9111.cpp</Transaction>
     <Transaction>2019/04/02 15:30:01.000.902,=C:\Users\LLonguet\Desktop\Projetmeteo\cpp\louis\Test_capteurs\CarteE_S.cpp</Transaction>
-    <Transaction>2019/04/02 15:30:07.000.161,C:\Users\LLonguet\Desktop\Projetmeteo\cpp\louis\Test_capteurs\Hygrometre.h=</Transaction>
     <Transaction>2019/04/02 15:30:07.000.141,C:\Users\LLonguet\Desktop\Projetmeteo\cpp\louis\Test_capteurs\Hygrometre.cpp=</Transaction>
+    <Transaction>2019/04/02 15:30:07.000.161,C:\Users\LLonguet\Desktop\Projetmeteo\cpp\louis\Test_capteurs\Hygrometre.h=</Transaction>
     <Transaction>2019/04/02 15:30:15.000.029,=C:\Users\LLonguet\Desktop\Projetmeteo\cpp\louis\Test_capteurs\Hygrometre.cpp</Transaction>
     <Transaction>2019/04/02 15:30:15.000.015,=C:\Users\LLonguet\Desktop\Projetmeteo\cpp\louis\Test_capteurs\Hygrometre.h</Transaction>
     <Transaction>2019/04/02 15:30:23.000.600,C:\Users\LLonguet\Desktop\Projetmeteo\cpp\louis\Test_capteurs\Hygrometre.cpp=</Transaction>
     <Transaction>2019/04/02 15:30:23.000.572,C:\Users\LLonguet\Desktop\Projetmeteo\cpp\louis\Test_capteurs\Hygrometre.h=</Transaction>
-    <Transaction>2019/04/02 15:35:18.171,=C:\Users\LLonguet\Desktop\Projetmeteo\cpp\louis\Test_capteurs\Hygrometre.cpp</Transaction>
-    <Transaction>2019/04/02 16:17:52.269,=C:\Users\LLonguet\Desktop\Projetmeteo\cpp\louis\Test_capteurs\Capteur.cpp</Transaction>
   </Transactions>
 	<ProjectSortOrder AutoSort="0" SortType="0">
     <File Path="Project1.cpp"/>
@@ -47,11 +45,5 @@
     <File Path="CarteE_S.cpp"/>
     <File Path="CarteE_S.cpp"/>
     <File Path="CarteE_S.h"/>
-    <File Path="Hygrometre.cpp"/>
-    <File Path="Hygrometre.cpp"/>
-    <File Path="Hygrometre.h"/>
-    <File Path="Capteur.cpp"/>
-    <File Path="Capteur.cpp"/>
-    <File Path="Capteur.h"/>
   </ProjectSortOrder>
 </BorlandProject>

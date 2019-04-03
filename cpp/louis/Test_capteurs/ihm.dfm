@@ -60,11 +60,34 @@
     TabOrder = 2
     Text = 'Edit_luminosite'
   end
-  object StringGrid1: TStringGrid
-    Left = 168
-    Top = 112
-    Width = 377
-    Height = 161
+  object Edit_hygrometrie: TEdit
+    Left = 72
+    Top = 67
+    Width = 105
+    Height = 21
     TabOrder = 3
+    Text = 'Edit_hygrometrie'
+  end
+  object Edit_thermometre: TEdit
+    Left = 256
+    Top = 67
+    Width = 105
+    Height = 21
+    TabOrder = 4
+    Text = 'Edit_thermometre'
+  end
+  object Edit_luxmetre: TEdit
+    Left = 488
+    Top = 67
+    Width = 105
+    Height = 21
+    TabOrder = 5
+    Text = 'Edit_luxmetre'
+    OnChange = Edit_luxmetreChange
+  end
+  object Timer: TTimer
+    OnTimer = TimerTimer
+    Left = 24
+    Top = 216
   end
 end

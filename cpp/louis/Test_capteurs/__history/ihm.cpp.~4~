@@ -35,7 +35,7 @@ void __fastcall TForm1::TimerTimer(TObject *Sender)
 	//affichage avec calcul
 	this->Edit_thermometre = this->thermometre->readValue();
 	this->Edit_luxmetre = this->solarimetre->readValue();
-	this->Edit_hygrometrie =this->hygrometre->readValue();
+	this->Edit_hygrometrie =this->hygrometre->readValue);
 
 
 

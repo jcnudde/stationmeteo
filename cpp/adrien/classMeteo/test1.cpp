@@ -34,7 +34,7 @@ using namespace std;
 	cout<<test2<<endl;
 	cout<<test1<<endl;
 
-    bool value;
+
 	tabDonnerCapteur var1;
 
 	var1.vitesseVent=120;

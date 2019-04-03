@@ -64,5 +64,5 @@ void MeteoParser::getDonnerMeteo(TcpServer *serv,SOCKET client)
 //
 //	char * req = StringUtils::magicConvert(protocole.c_str());
 	serv->sendMessage(client,"test");
-//    delete req;
+    delete req;
 }

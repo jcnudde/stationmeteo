@@ -41,7 +41,7 @@ void MeteoParser::getDonnerMeteo(TcpServer *serv,SOCKET client)
 	tabDonner.pluie=0;
 	tabDonner.surfaceDePluie=120;
 
-//
+
 //	String protocole = "$";
 //	protocole+= String((int)tabDonner.vitesseVent);
 //	protocole+=";";
@@ -63,6 +63,6 @@ void MeteoParser::getDonnerMeteo(TcpServer *serv,SOCKET client)
 //	protocole+="$";
 //
 //	char * req = StringUtils::magicConvert(protocole.c_str());
-	serv->sendMessage(client,"test");
+//	serv->sendMessage(client,req);
 //    delete req;
 }

@@ -41,28 +41,28 @@ void MeteoParser::getDonnerMeteo(TcpServer *serv,SOCKET client)
 	tabDonner.pluie=0;
 	tabDonner.surfaceDePluie=120;
 
-//
-//	String protocole = "$";
-//	protocole+= String((int)tabDonner.vitesseVent);
-//	protocole+=";";
-//	protocole+=String((int)tabDonner.temperature);
-//	protocole+=";";
-//	protocole+=String((int)tabDonner.pressionAtmospherique);
-//	protocole+=";";
-//	protocole+=String(tabDonner.direction);
-//	protocole+=";";
-//	protocole+=String((int)tabDonner.hummiditeRelative);
-//	protocole+=";";
-//	protocole+=String((int)tabDonner.luminosite);
-//	protocole+=";";
-//	protocole+=String((int)tabDonner.jour);
-//	protocole+=";";
-//	protocole+=String((int)tabDonner.pluie);
-//	protocole+=";";
-//	protocole+=String((int)tabDonner.surfaceDePluie);
-//	protocole+="$";
-//
-//	char * req = StringUtils::magicConvert(protocole.c_str());
-	serv->sendMessage(client,"test");
-//    delete req;
+
+	String protocole = "$";
+	protocole+= String((int)tabDonner.vitesseVent);
+	protocole+=";";
+	protocole+=String((int)tabDonner.temperature);
+	protocole+=";";
+	protocole+=String((int)tabDonner.pressionAtmospherique);
+	protocole+=";";
+	protocole+=String(tabDonner.direction);
+	protocole+=";";
+	protocole+=String((int)tabDonner.hummiditeRelative);
+	protocole+=";";
+	protocole+=String((int)tabDonner.luminosite);
+	protocole+=";";
+	protocole+=String((int)tabDonner.jour);
+	protocole+=";";
+	protocole+=String((int)tabDonner.pluie);
+	protocole+=";";
+	protocole+=String((int)tabDonner.surfaceDePluie);
+	protocole+="$";
+
+	char * req = StringUtils::magicConvert(protocole.c_str());
+	serv->sendMessage(client,req);
+    delete req;
 }

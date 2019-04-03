@@ -1,0 +1,155 @@
+object Form1: TForm1
+  Left = 0
+  Top = 0
+  Caption = 'Form1'
+  ClientHeight = 496
+  ClientWidth = 1050
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  PixelsPerInch = 96
+  TextHeight = 13
+  object LabelAnemo: TLabel
+    Left = 232
+    Top = 96
+    Width = 58
+    Height = 13
+    Caption = 'LabelAnemo'
+  end
+  object LabelHumid: TLabel
+    Left = 226
+    Top = 240
+    Width = 54
+    Height = 13
+    Caption = 'LabelHumid'
+  end
+  object Label3: TLabel
+    Left = 42
+    Top = 96
+    Width = 61
+    Height = 13
+    Caption = 'Anemometre'
+  end
+  object Label4: TLabel
+    Left = 46
+    Top = 136
+    Width = 45
+    Height = 13
+    Caption = 'Girouette'
+  end
+  object Label5: TLabel
+    Left = 46
+    Top = 176
+    Width = 50
+    Height = 13
+    Caption = 'Barometre'
+  end
+  object Label6: TLabel
+    Left = 46
+    Top = 208
+    Width = 64
+    Height = 13
+    Caption = 'Thermometre'
+  end
+  object Label7: TLabel
+    Left = 46
+    Top = 240
+    Width = 57
+    Height = 13
+    Caption = 'Hygrometre'
+  end
+  object Label8: TLabel
+    Left = 46
+    Top = 272
+    Width = 54
+    Height = 13
+    Caption = 'Solarimetre'
+  end
+  object Label9: TLabel
+    Left = 46
+    Top = 312
+    Width = 85
+    Height = 13
+    Caption = 'CapteurJour_Nuit'
+  end
+  object Label10: TLabel
+    Left = 46
+    Top = 352
+    Width = 61
+    Height = 13
+    Caption = 'CapteurPluie'
+  end
+  object Label11: TLabel
+    Left = 46
+    Top = 392
+    Width = 52
+    Height = 13
+    Caption = 'Pluivimetre'
+  end
+  object LabelGirouette: TLabel
+    Left = 232
+    Top = 136
+    Width = 70
+    Height = 13
+    Caption = 'LabelGirouette'
+  end
+  object Labelbarom: TLabel
+    Left = 232
+    Top = 176
+    Width = 55
+    Height = 13
+    Caption = 'Labelbarom'
+  end
+  object LabelTherm: TLabel
+    Left = 226
+    Top = 208
+    Width = 55
+    Height = 13
+    Caption = 'LabelTherm'
+  end
+  object LabelSola: TLabel
+    Left = 226
+    Top = 272
+    Width = 45
+    Height = 13
+    Caption = 'LabelSola'
+  end
+  object Label14: TLabel
+    Left = 952
+    Top = 496
+    Width = 37
+    Height = 13
+    Caption = 'Label14'
+  end
+  object LabelJour: TLabel
+    Left = 226
+    Top = 312
+    Width = 46
+    Height = 13
+    Caption = 'LabelJour'
+  end
+  object LabelPlui: TLabel
+    Left = 226
+    Top = 352
+    Width = 41
+    Height = 13
+    Caption = 'LabelPlui'
+  end
+  object LabelPluiviometre: TLabel
+    Left = 226
+    Top = 392
+    Width = 83
+    Height = 13
+    Caption = 'LabelPluiviometre'
+  end
+  object Timer1: TTimer
+    Interval = 10
+    OnTimer = Timer1Timer
+    Left = 24
+    Top = 24
+  end
+end

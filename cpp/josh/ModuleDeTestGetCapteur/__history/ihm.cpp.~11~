@@ -1,0 +1,38 @@
+//---------------------------------------------------------------------------
+
+#include <vcl.h>
+#pragma hdrstop
+
+#include "ihm.h"
+//---------------------------------------------------------------------------
+#pragma package(smart_init)
+#pragma resource "*.dfm"
+TForm1 *Form1;
+//---------------------------------------------------------------------------
+__fastcall TForm1::TForm1(TComponent* Owner)
+	: TForm(Owner)
+{
+	o1 = RecupDonnerMeteo::getInstance();
+	dataNotifier = new MeteoDataNotifier();
+	o1->addNotifier(dataNotifier);
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::Timer1Timer(TObject *Sender)
+{
+	try
+	{
+		while(true)
+		{
+			tabDonnerCapteur capData = dataNotifier->get();
+			Label1->Caption = UnicodeString((int)capData.vitesseVent);
+			this->Label2->Caption =  UnicodeString((int)capData.temperature);
+        }
+	}
+	catch(std::string error)
+	{
+
+    }
+}
+//---------------------------------------------------------------------------
+

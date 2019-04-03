@@ -1,0 +1,14 @@
+//---------------------------------------------------------------------------
+
+#ifndef MeteoDataNotifierH
+#define MeteoDataNotifierH
+
+#include "DataNotifier.h"
+
+class MeteoDataNotifier : public DataNotifier<tabDonnerCapteur>
+{
+
+};
+
+//---------------------------------------------------------------------------
+#endif

@@ -1,0 +1,2 @@
+CTR_Read comptage
+CTR_Setup Configure le compteur sélectionné pour fonctionner dans le mode spécifié.

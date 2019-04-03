@@ -1,0 +1,72 @@
+//---------------------------------------------------------------------------
+/*
+ * RecupDonnerMeteo.h
+ *
+ * Classe qui herite de la class capteur
+ *
+ * Copyright 7 mars 2019 (@author CNUDDE Joshua)
+ * @version 1.0
+ *
+ *
+ **/
+#ifndef RecupDonnerMeteoH
+#define RecupDonnerMeteoH
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
+#include <windows.h>
+#include "Anemometre.h"
+#include "Girouette.h"
+#include "Barometre.h"
+#include "CapteurJour_Nuit.h"
+#include "CapteurPluie.h"
+#include "Pluiviometre.h"
+#include "Hygrometre.h"
+#include "Solarimetre.h"
+#include "Thermometre.h"
+#include <vector>
+
+#include "MeteoDataNotifier.h"
+#include "MeteoStructs.h"
+
+using namespace std;
+
+
+
+
+class RecupDonnerMeteo
+{
+	private:
+		HANDLE mutexNotifiers;
+		std::vector<MeteoDataNotifier *> notifiers;
+
+		//variable meteo
+		static RecupDonnerMeteo* m_instance;
+		tabCapteur capteur;
+		//variable pour le thread
+		HANDLE Thread;
+		DWORD dwThreadIdArray;
+		bool boucleThread;
+		//constructeur
+		RecupDonnerMeteo();
+		//destructeur
+		~RecupDonnerMeteo();
+
+		void notifyData(tabDonnerCapteur data);
+
+		void lockNotifier();
+		void unlockNotifier();
+
+		static DWORD WINAPI ThreadRecupDonnee(LPVOID params);
+
+	public:
+		//renvoie les données météo aquise à l'instant t sous forme d'une structure
+		tabDonnerCapteur getDonner();
+		//renvoie un seul et même pointeur
+		static RecupDonnerMeteo* getInstance();
+
+		void addNotifier(MeteoDataNotifier * notifier);
+		void removeNotifier(MeteoDataNotifier * notifier);
+};
+//---------------------------------------------------------------------------
+#endif

@@ -1,0 +1,29 @@
+//---------------------------------------------------------------------------
+
+#ifndef ihmH
+#define ihmH
+//---------------------------------------------------------------------------
+#include <System.Classes.hpp>
+#include <Vcl.Controls.hpp>
+#include <Vcl.StdCtrls.hpp>
+#include <Vcl.Forms.hpp>
+#include "RecupDonnerMeteo.h"
+#include <Vcl.ExtCtrls.hpp>
+#include "MeteoDataNotifier"
+//---------------------------------------------------------------------------
+class TForm1 : public TForm
+{
+__published:	// Composants gérés par l'EDI
+	TTimer *Timer1;
+	void __fastcall Timer1Timer(TObject *Sender);
+private:	// Déclarations utilisateur
+	RecupDonnerMeteo *o1;
+	MeteoDataNotifier * dataNotifier;
+public:		// Déclarations utilisateur
+
+	__fastcall TForm1(TComponent* Owner);
+};
+//---------------------------------------------------------------------------
+extern PACKAGE TForm1 *Form1;
+//---------------------------------------------------------------------------
+#endif

@@ -1,0 +1,16 @@
+//---------------------------------------------------------------------------
+
+#ifndef DataNotifierH
+#define DataNotifierH
+
+#include "MemoirePartagee.h"
+
+template<typename T>
+class DataNotifier<T> : public SharedData<T>
+{
+	public:
+		virtual void notifyData(T data) = 0;
+};
+
+//---------------------------------------------------------------------------
+#endif

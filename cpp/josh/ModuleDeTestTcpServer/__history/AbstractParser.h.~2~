@@ -1,0 +1,14 @@
+//---------------------------------------------------------------------------
+
+#ifndef AbstractParserH
+#define AbstractParserH
+
+class AbstractParser
+{
+	public:
+		virtual void Parse(char * buffer, SOCKET sock) = 0;
+};
+
+
+//---------------------------------------------------------------------------
+#endif

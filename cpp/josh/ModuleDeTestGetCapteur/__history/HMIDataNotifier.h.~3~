@@ -1,0 +1,18 @@
+//---------------------------------------------------------------------------
+
+#ifndef HMIDataNotifierH
+#define HMIDataNotifierH
+
+#include "DataNotifier.h"
+#include "ihm.h"
+
+class HMIDataNotifier : public DataNotifier<tabDonnerCapteur>
+{
+	public:
+		HMIDataNotifier(TForm1 * hmi);
+		virtual void notify(tabDonnerCapteur data);
+};
+
+
+//---------------------------------------------------------------------------
+#endif

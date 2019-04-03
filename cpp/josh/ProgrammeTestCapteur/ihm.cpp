@@ -71,6 +71,7 @@ __fastcall TForm1::TForm1(TComponent* Owner) : TForm(Owner) {
 	this->StringGrid1->Cells[1][0] = "Anémométre";
 	this->StringGrid1->Cells[2][0] = "Girouette";
 	this->StringGrid1->Cells[3][0] = "Barometre";
+    this->StringGrid1->Cells[4][0] = "CapteurJour/nuit";
 	this->StringGrid1->Cells[0][1] = "Tension";
 	this->StringGrid1->Cells[0][2] = "Physique";
 	// this->carte = new Carte_9111(0);
@@ -85,9 +86,15 @@ void __fastcall TForm1::Timer1Timer(TObject *Sender) {
 	 this->StringGrid1->Cells[2][1]= this->carte->readVoltage(1);
 	 this->StringGrid1->Cells[3][1]= this->carte->readVoltage(2);
 
+	 bool chose = this->carte->readTOR(8);
+	 char * vOut = chose ? "true" : "false";
+	 this->StringGrid1->Cells[4][1]= vOut;
+
     string t = renvoiCardinaux(this->girouette->readValue());
 	this->StringGrid1->Cells[1][2] = ((int)this->anemometre->readValue());
 	this->StringGrid1->Cells[2][2]= t.c_str();
+
+
 	// this->StringGrid1->Cells[3][2]= this->carte->readAnalog(2);
 }
 // ---------------------------------------------------------------------------

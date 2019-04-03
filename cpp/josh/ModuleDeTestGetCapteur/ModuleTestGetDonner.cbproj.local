@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2019/04/02 14:53:27.000.349,=C:\Users\Admin\Documents\Embarcadero\Studio\Projets\Project1PCH1.h</Transaction>
+    <Transaction>2019/04/02 14:53:27.000.383,=C:\Users\Admin\Documents\Embarcadero\Studio\Projets\Unit1.cpp</Transaction>
+    <Transaction>2019/04/02 14:54:23.000.503,C:\Users\Admin\Documents\Embarcadero\Studio\Projets\Unit1.h=C:\Users\Admin\Desktop\stationMeteo\cpp\josh\ModuleDeTestGetCapteur\ihm.h</Transaction>
+    <Transaction>2019/04/02 14:54:23.000.503,C:\Users\Admin\Documents\Embarcadero\Studio\Projets\Unit1.cpp=C:\Users\Admin\Desktop\stationMeteo\cpp\josh\ModuleDeTestGetCapteur\ihm.cpp</Transaction>
+    <Transaction>2019/04/02 14:54:23.000.503,C:\Users\Admin\Documents\Embarcadero\Studio\Projets\Unit1.dfm=C:\Users\Admin\Desktop\stationMeteo\cpp\josh\ModuleDeTestGetCapteur\ihm.dfm</Transaction>
+    <Transaction>2019/04/02 14:54:25.000.171,C:\Users\Admin\Documents\Embarcadero\Studio\Projets\Project1PCH1.h=C:\Users\Admin\Desktop\stationMeteo\cpp\josh\ModuleDeTestGetCapteur\Project1PCH1.h</Transaction>
+    <Transaction>2019/04/02 14:54:35.000.509,C:\Users\Admin\Documents\Embarcadero\Studio\Projets\Project1.cbproj=C:\Users\Admin\Desktop\stationMeteo\cpp\josh\ModuleDeTestGetCapteur\ModuleTestGetDonner.cbproj</Transaction>
+    <Transaction>2019/04/02 14:54:35.000.473,C:\Users\Admin\Desktop\stationMeteo\cpp\josh\ModuleDeTestGetCapteur\Project1PCH1.h=C:\Users\Admin\Desktop\stationMeteo\cpp\josh\ModuleDeTestGetCapteur\ModuleTestGetDonnerPCH1.h</Transaction>
+    <Transaction>2019/04/02 14:56:10.000.163,=C:\Users\Admin\Desktop\stationMeteo\cpp\josh\ModuleDeTestGetCapteur\CapteurJour_Nuit.cpp</Transaction>
+    <Transaction>2019/04/02 14:56:10.000.217,=C:\Users\Admin\Desktop\stationMeteo\cpp\josh\ModuleDeTestGetCapteur\RecupDonnerMeteo.cpp</Transaction>
+    <Transaction>2019/04/02 14:56:10.000.136,=C:\Users\Admin\Desktop\stationMeteo\cpp\josh\ModuleDeTestGetCapteur\Anemometre.cpp</Transaction>
+    <Transaction>2019/04/02 14:56:10.000.209,=C:\Users\Admin\Desktop\stationMeteo\cpp\josh\ModuleDeTestGetCapteur\Pluiviometre.cpp</Transaction>
+    <Transaction>2019/04/02 14:56:10.000.178,=C:\Users\Admin\Desktop\stationMeteo\cpp\josh\ModuleDeTestGetCapteur\Carte_9111.cpp</Transaction>
+    <Transaction>2019/04/02 14:56:10.000.194,=C:\Users\Admin\Desktop\stationMeteo\cpp\josh\ModuleDeTestGetCapteur\Girouette.cpp</Transaction>
+    <Transaction>2019/04/02 14:56:10.000.148,=C:\Users\Admin\Desktop\stationMeteo\cpp\josh\ModuleDeTestGetCapteur\Barometre.cpp</Transaction>
+    <Transaction>2019/04/02 14:56:10.000.156,=C:\Users\Admin\Desktop\stationMeteo\cpp\josh\ModuleDeTestGetCapteur\Capteur.cpp</Transaction>
+    <Transaction>2019/04/02 14:56:10.000.171,=C:\Users\Admin\Desktop\stationMeteo\cpp\josh\ModuleDeTestGetCapteur\CapteurPluie.cpp</Transaction>
+    <Transaction>2019/04/02 14:56:10.000.202,=C:\Users\Admin\Desktop\stationMeteo\cpp\josh\ModuleDeTestGetCapteur\Hygrometre.cpp</Transaction>
+    <Transaction>2019/04/02 14:56:10.000.186,=C:\Users\Admin\Desktop\stationMeteo\cpp\josh\ModuleDeTestGetCapteur\CarteE_S.cpp</Transaction>
+    <Transaction>2019/04/02 15:00:06.000.728,=C:\Users\Admin\Desktop\stationMeteo\cpp\josh\ModuleDeTestGetCapteur\pdask_bc.lib</Transaction>
+    <Transaction>2019/04/02 15:01:12.000.360,=C:\Users\Admin\Desktop\stationMeteo\cpp\josh\ModuleDeTestGetCapteur\StringUtils.cpp</Transaction>
+    <Transaction>2019/04/02 15:01:12.000.348,=C:\Users\Admin\Desktop\stationMeteo\cpp\josh\ModuleDeTestGetCapteur\Solarimetre.cpp</Transaction>
+    <Transaction>2019/04/02 15:01:12.000.371,=C:\Users\Admin\Desktop\stationMeteo\cpp\josh\ModuleDeTestGetCapteur\Thermometre.cpp</Transaction>
+    <Transaction>2019/04/02 15:26:41.000.196,=C:\Users\Admin\Desktop\stationMeteo\cpp\josh\ModuleDeTestGetCapteur\Unit1.cpp</Transaction>
+    <Transaction>2019/04/02 15:27:38.000.850,C:\Users\Admin\Desktop\stationMeteo\cpp\josh\ModuleDeTestGetCapteur\Unit1.h=C:\Users\Admin\Desktop\stationMeteo\cpp\josh\ModuleDeTestGetCapteur\MemoirePartagee.h</Transaction>
+    <Transaction>2019/04/02 15:27:38.000.850,C:\Users\Admin\Desktop\stationMeteo\cpp\josh\ModuleDeTestGetCapteur\Unit1.cpp=C:\Users\Admin\Desktop\stationMeteo\cpp\josh\ModuleDeTestGetCapteur\MemoirePartagee.cpp</Transaction>
+    <Transaction>2019/04/02 15:57:05.000.990,=C:\Users\Admin\Desktop\stationMeteo\cpp\josh\ModuleDeTestGetCapteur\Unit1.cpp</Transaction>
+    <Transaction>2019/04/02 15:57:21.000.772,C:\Users\Admin\Desktop\stationMeteo\cpp\josh\ModuleDeTestGetCapteur\DataNotifier.h=C:\Users\Admin\Desktop\stationMeteo\cpp\josh\ModuleDeTestGetCapteur\Unit1.h</Transaction>
+    <Transaction>2019/04/02 15:57:21.000.772,C:\Users\Admin\Desktop\stationMeteo\cpp\josh\ModuleDeTestGetCapteur\DataNotifier.cpp=C:\Users\Admin\Desktop\stationMeteo\cpp\josh\ModuleDeTestGetCapteur\Unit1.cpp</Transaction>
+    <Transaction>2019/04/02 16:01:29.000.208,=C:\Users\Admin\Desktop\stationMeteo\cpp\josh\ModuleDeTestGetCapteur\Unit1.cpp</Transaction>
+    <Transaction>2019/04/02 16:02:07.000.730,C:\Users\Admin\Desktop\stationMeteo\cpp\josh\ModuleDeTestGetCapteur\HMIDataNotifier.cpp=C:\Users\Admin\Desktop\stationMeteo\cpp\josh\ModuleDeTestGetCapteur\Unit1.cpp</Transaction>
+    <Transaction>2019/04/02 16:02:07.000.730,C:\Users\Admin\Desktop\stationMeteo\cpp\josh\ModuleDeTestGetCapteur\HMIDataNotifier.h=C:\Users\Admin\Desktop\stationMeteo\cpp\josh\ModuleDeTestGetCapteur\Unit1.h</Transaction>
+    <Transaction>2019/04/02 16:24:38.000.329,=C:\Users\Admin\Desktop\stationMeteo\cpp\josh\ModuleDeTestGetCapteur\Unit1.cpp</Transaction>
+    <Transaction>2019/04/02 16:24:49.000.044,C:\Users\Admin\Desktop\stationMeteo\cpp\josh\ModuleDeTestGetCapteur\MeteoDataNotifier.cpp=C:\Users\Admin\Desktop\stationMeteo\cpp\josh\ModuleDeTestGetCapteur\Unit1.cpp</Transaction>
+    <Transaction>2019/04/02 16:24:49.000.044,C:\Users\Admin\Desktop\stationMeteo\cpp\josh\ModuleDeTestGetCapteur\MeteoDataNotifier.h=C:\Users\Admin\Desktop\stationMeteo\cpp\josh\ModuleDeTestGetCapteur\Unit1.h</Transaction>
+    <Transaction>2019/04/02 16:36:27.000.100,=C:\Users\Admin\Desktop\stationMeteo\cpp\josh\ModuleDeTestGetCapteur\File1.h</Transaction>
+    <Transaction>2019/04/02 16:36:36.000.879,C:\Users\Admin\Desktop\stationMeteo\cpp\josh\ModuleDeTestGetCapteur\MeteoStructs.h=C:\Users\Admin\Desktop\stationMeteo\cpp\josh\ModuleDeTestGetCapteur\File1.h</Transaction>
+    <Transaction>2019/04/02 16:42:22.000.869,C:\Users\Admin\Desktop\stationMeteo\cpp\josh\ModuleDeTestGetCapteur\HMIDataNotifier.cpp=</Transaction>
+  </Transactions>
+</BorlandProject>

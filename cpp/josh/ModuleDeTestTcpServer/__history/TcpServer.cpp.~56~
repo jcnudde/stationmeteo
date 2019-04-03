@@ -1,0 +1,113 @@
+﻿//---------------------------------------------------------------------------
+
+#pragma hdrstop
+
+#include "TcpServer.h"
+//---------------------------------------------------------------------------
+#pragma package(smart_init)
+
+bool TcpServer::start(int port)
+{
+    //variable de retour
+    bool retour=false;
+		if (WSAStartup(MAKEWORD(2, 2),&this->wsaData) == 0)
+		{
+			this->server=socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
+			//teste si la socket est créé
+			if (this->server != INVALID_SOCKET)
+			{
+                //on remplie les info pour le server
+				this->addrServer.sin_addr.s_addr = INADDR_ANY;
+				this->addrServer.sin_port = htons(port);
+				this->addrServer.sin_family = AF_INET;
+				//test si le bind est bien fait
+				if(bind(server, (sockaddr*)&addrServer, sizeof(addrServer)) == 0)
+				{
+					//test si le listen a fonctionné
+					if(listen(server, SOMAXCONN) == 0)
+					{
+
+                        this->boucleThread=true;
+						this->Thread=CreateThread(
+						NULL,
+						0,
+						threadServer,
+						this,
+						0,
+						&dwThreadIdArray);
+						retour=true;
+					}
+				}
+
+			}
+		}
+        return retour;
+
+}
+void TcpServer::stop()
+{
+
+    this->boucleThread=false;
+	closesocket(this->server);
+	WSACleanup();
+}
+
+DWORD WINAPI TcpServer::threadServer(LPVOID params)
+{
+	TcpServer *thisThread = (TcpServer*) params;
+
+	fd_set master;
+
+	FD_ZERO(&master);
+
+	FD_SET(thisThread->server, &master);
+
+	while(thisThread->boucleThread)
+	{
+		fd_set copy = master;
+
+		int socketCount = select(0,&copy,NULL,NULL,NULL);
+
+		for (int i = 0; i < socketCount; i++) {
+			SOCKET sock = copy.fd_array[i];
+			if(sock == thisThread->server)
+			{
+				//accept a new connection
+				SOCKET newClient = accept(thisThread->server,NULL,NULL);
+
+				//add the new wonnection to the list of connected clients
+				FD_SET(newClient,&master);
+
+			}
+			else
+			{
+
+				ZeroMemory(thisThread->buffer,1500);
+				//accept a new message
+				int bytesIn = recv(sock,thisThread->buffer,1500,0);
+				if(bytesIn <=0)
+				{
+					//Drop the client
+					closesocket(sock);
+					FD_CLR(sock,&master);
+				}
+				else
+				{
+					cout<<thisThread->buffer<<endl;
+                    send(sock,"yo",2,0);
+                }
+			}
+
+		}
+	}
+	for (int i = 0; i < master.fd_count; i++) {
+
+		closesocket(master.fd_array[i]);
+	}
+	return 0;
+}
+
+TcpServer::~TcpServer()
+{
+    this->stop();
+}

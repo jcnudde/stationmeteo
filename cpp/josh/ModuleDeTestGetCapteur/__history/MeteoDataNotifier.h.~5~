@@ -1,0 +1,15 @@
+//---------------------------------------------------------------------------
+
+#ifndef MeteoDataNotifierH
+#define MeteoDataNotifierH
+
+#include "DataNotifier.h"
+#include "MeteoStructs.h"
+
+class MeteoDataNotifier : public DataNotifier<tabDonnerCapteur>
+{
+  	virtual void notifyData(tabDonnerCapteur data);
+};
+
+//---------------------------------------------------------------------------
+#endif

@@ -32,7 +32,17 @@ int Carte_9111::readAnalog(double channel)
 }
 bool Carte_9111::readTOR(double channel)
 {
-    return 1;
+    U16 valeur;
+
+	DI_ReadLine(card,P9111_CHANNEL_DI,channel,&valeur);
+	if((int)valeur==1)
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
 }
 void Carte_9111::writeAnalog(double channel)
 {

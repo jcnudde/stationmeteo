@@ -1,0 +1,23 @@
+//---------------------------------------------------------------------------
+
+#ifndef AbstractParserH
+#define AbstractParserH
+
+class TcpServer;
+struct SOCKET;
+
+
+class AbstractParser
+{
+	TcpServer * server;
+
+	public:
+		virtual void Parse(char * buffer, SOCKET sock) = 0;
+		inline void setServer(TcpServer * server) {
+			this->server = server;
+        }
+};
+
+
+//---------------------------------------------------------------------------
+#endif

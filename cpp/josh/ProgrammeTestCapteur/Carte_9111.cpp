@@ -19,7 +19,7 @@ double Carte_9111::readVoltage(double channel)
 {
 	F64 volt_temp=0;
 
-	AI_VReadChannel(card,channel, AD_B_5_V,&volt_temp);
+	AI_VReadChannel(card,channel, AD_B_10_V,&volt_temp);
 
 	return  ((float)volt_temp);
 }
@@ -32,7 +32,17 @@ int Carte_9111::readAnalog(double channel)
 }
 bool Carte_9111::readTOR(double channel)
 {
-    return 1;
+	U16 valeur;
+
+		DI_ReadLine(card,P9111_CHANNEL_DI,channel,&valeur);
+		if((int)valeur==1)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
 }
 void Carte_9111::writeAnalog(double channel)
 {

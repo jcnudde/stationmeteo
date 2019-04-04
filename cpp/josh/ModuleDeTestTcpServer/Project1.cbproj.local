@@ -3,30 +3,31 @@
 	<Transactions>
     <Transaction>2019/03/04 09:12:27.000.698,=C:\Users\Dev\Documents\Embarcadero\Studio\Projets\File1.cpp</Transaction>
     <Transaction>2019/03/04 09:12:27.000.514,=C:\Users\Dev\Documents\Embarcadero\Studio\Projets\Project1PCH1.h</Transaction>
-    <Transaction>2019/03/04 09:13:38.000.823,C:\Users\Dev\Desktop\File1.cpp=C:\Users\Dev\Documents\Embarcadero\Studio\Projets\File1.cpp</Transaction>
-    <Transaction>2019/03/04 09:13:40.000.674,C:\Users\Dev\Desktop\Project1PCH1.h=C:\Users\Dev\Documents\Embarcadero\Studio\Projets\Project1PCH1.h</Transaction>
-    <Transaction>2019/03/04 09:13:41.000.381,C:\Users\Dev\Desktop\Project1.cbproj=C:\Users\Dev\Documents\Embarcadero\Studio\Projets\Project1.cbproj</Transaction>
+    <Transaction>2019/03/04 09:13:38.000.823,C:\Users\Dev\Documents\Embarcadero\Studio\Projets\File1.cpp=C:\Users\Dev\Desktop\File1.cpp</Transaction>
+    <Transaction>2019/03/04 09:13:40.000.674,C:\Users\Dev\Documents\Embarcadero\Studio\Projets\Project1PCH1.h=C:\Users\Dev\Desktop\Project1PCH1.h</Transaction>
+    <Transaction>2019/03/04 09:13:41.000.381,C:\Users\Dev\Documents\Embarcadero\Studio\Projets\Project1.cbproj=C:\Users\Dev\Desktop\Project1.cbproj</Transaction>
     <Transaction>2019/03/12 14:50:42.000.438,=C:\Users\josh\Desktop\STATIONMETEO\cpp\classeTCP\Unit1.cpp</Transaction>
     <Transaction>2019/03/12 15:40:20.000.858,=C:\Users\josh\Desktop\STATIONMETEO\cpp\classeTCP\Unit1.cpp</Transaction>
-    <Transaction>2019/03/12 16:09:25.000.143,C:\Users\josh\Desktop\STATIONMETEO\cpp\classeTCP\Server.h=C:\Users\josh\Desktop\STATIONMETEO\cpp\classeTCP\Unit1.h</Transaction>
-    <Transaction>2019/03/12 16:09:25.000.143,C:\Users\josh\Desktop\STATIONMETEO\cpp\classeTCP\Server.cpp=C:\Users\josh\Desktop\STATIONMETEO\cpp\classeTCP\Unit1.cpp</Transaction>
+    <Transaction>2019/03/12 16:09:25.000.143,C:\Users\josh\Desktop\STATIONMETEO\cpp\classeTCP\Unit1.cpp=C:\Users\josh\Desktop\STATIONMETEO\cpp\classeTCP\Server.cpp</Transaction>
+    <Transaction>2019/03/12 16:09:25.000.143,C:\Users\josh\Desktop\STATIONMETEO\cpp\classeTCP\Unit1.h=C:\Users\josh\Desktop\STATIONMETEO\cpp\classeTCP\Server.h</Transaction>
     <Transaction>2019/03/12 16:12:47.000.936,=C:\Users\josh\Desktop\STATIONMETEO\cpp\classeTCP\Unit1.cpp</Transaction>
-    <Transaction>2019/03/12 16:20:48.000.758,C:\Users\josh\Desktop\STATIONMETEO\cpp\classeTCP\TcpServer.h=C:\Users\josh\Desktop\STATIONMETEO\cpp\classeTCP\Unit1.h</Transaction>
-    <Transaction>2019/03/12 16:20:48.000.758,C:\Users\josh\Desktop\STATIONMETEO\cpp\classeTCP\TcpServer.cpp=C:\Users\josh\Desktop\STATIONMETEO\cpp\classeTCP\Unit1.cpp</Transaction>
+    <Transaction>2019/03/12 16:20:48.000.758,C:\Users\josh\Desktop\STATIONMETEO\cpp\classeTCP\Unit1.h=C:\Users\josh\Desktop\STATIONMETEO\cpp\classeTCP\TcpServer.h</Transaction>
+    <Transaction>2019/03/12 16:20:48.000.758,C:\Users\josh\Desktop\STATIONMETEO\cpp\classeTCP\Unit1.cpp=C:\Users\josh\Desktop\STATIONMETEO\cpp\classeTCP\TcpServer.cpp</Transaction>
     <Transaction>2019/03/14 10:47:57.000.734,=C:\Users\josh\Desktop\STATIONMETEO\cpp\classeTCP\Unit1.pas</Transaction>
     <Transaction>2019/03/14 10:48:21.000.079,=C:\Users\josh\Desktop\STATIONMETEO\cpp\classeTCP\Unit1.cpp</Transaction>
-    <Transaction>2019/03/14 10:48:31.000.663,C:\Users\josh\Desktop\STATIONMETEO\cpp\classeTCP\Unit1.h=C:\Users\josh\Desktop\STATIONMETEO\cpp\classeTCP\TCP\ip_c.h</Transaction>
-    <Transaction>2019/03/14 10:48:31.000.663,C:\Users\josh\Desktop\STATIONMETEO\cpp\classeTCP\Unit1.cpp=C:\Users\josh\Desktop\STATIONMETEO\cpp\classeTCP\TCP\ip_c.cpp</Transaction>
-    <Transaction>2019/03/14 10:48:46.000.935,C:\Users\josh\Desktop\STATIONMETEO\cpp\classeTCP\File1.cpp=C:\Users\josh\Desktop\STATIONMETEO\cpp\classeTCP\tcpip_client.cpp</Transaction>
+    <Transaction>2019/03/14 10:48:31.000.663,C:\Users\josh\Desktop\STATIONMETEO\cpp\classeTCP\TCP\ip_c.cpp=C:\Users\josh\Desktop\STATIONMETEO\cpp\classeTCP\Unit1.cpp</Transaction>
+    <Transaction>2019/03/14 10:48:31.000.663,C:\Users\josh\Desktop\STATIONMETEO\cpp\classeTCP\TCP\ip_c.h=C:\Users\josh\Desktop\STATIONMETEO\cpp\classeTCP\Unit1.h</Transaction>
+    <Transaction>2019/03/14 10:48:46.000.935,C:\Users\josh\Desktop\STATIONMETEO\cpp\classeTCP\tcpip_client.cpp=C:\Users\josh\Desktop\STATIONMETEO\cpp\classeTCP\File1.cpp</Transaction>
     <Transaction>2019/03/14 10:49:34.000.235,C:\Users\josh\Desktop\STATIONMETEO\cpp\classeTCP\tcpip_client.cpp=</Transaction>
     <Transaction>2019/03/14 10:52:39.000.980,=C:\Users\josh\Desktop\STATIONMETEO\cpp\classeTCP\File1.cpp</Transaction>
     <Transaction>2019/03/26 14:22:12.000.597,=C:\Users\josh\Desktop\STATIONMETEO\cpp\josh\classeTCP\Unit1.cpp</Transaction>
-    <Transaction>2019/03/26 14:22:28.000.765,C:\Users\josh\Desktop\STATIONMETEO\cpp\josh\classeTCP\Unit1.cpp=C:\Users\josh\Desktop\STATIONMETEO\cpp\josh\classeTCP\AbstractParser.cpp</Transaction>
-    <Transaction>2019/03/26 14:22:28.000.765,C:\Users\josh\Desktop\STATIONMETEO\cpp\josh\classeTCP\Unit1.h=C:\Users\josh\Desktop\STATIONMETEO\cpp\josh\classeTCP\AbstractParser.h</Transaction>
+    <Transaction>2019/03/26 14:22:28.000.765,C:\Users\josh\Desktop\STATIONMETEO\cpp\josh\classeTCP\AbstractParser.cpp=C:\Users\josh\Desktop\STATIONMETEO\cpp\josh\classeTCP\Unit1.cpp</Transaction>
+    <Transaction>2019/03/26 14:22:28.000.765,C:\Users\josh\Desktop\STATIONMETEO\cpp\josh\classeTCP\AbstractParser.h=C:\Users\josh\Desktop\STATIONMETEO\cpp\josh\classeTCP\Unit1.h</Transaction>
     <Transaction>2019/03/26 14:25:38.000.293,=C:\Users\josh\Desktop\STATIONMETEO\cpp\josh\classeTCP\Unit1.cpp</Transaction>
-    <Transaction>2019/03/26 14:25:48.000.168,C:\Users\josh\Desktop\STATIONMETEO\cpp\josh\classeTCP\Unit1.h=C:\Users\josh\Desktop\STATIONMETEO\cpp\josh\classeTCP\MeteoParser.h</Transaction>
-    <Transaction>2019/03/26 14:25:48.000.168,C:\Users\josh\Desktop\STATIONMETEO\cpp\josh\classeTCP\Unit1.cpp=C:\Users\josh\Desktop\STATIONMETEO\cpp\josh\classeTCP\MeteoParser.cpp</Transaction>
-    <Transaction>2019/03/26 15:11:08.000.878,C:\Users\josh\Desktop\STATIONMETEO\cpp\josh\classeTCP\File1.cpp=C:\Users\josh\Desktop\STATIONMETEO\cpp\josh\classeTCP\main.cpp</Transaction>
+    <Transaction>2019/03/26 14:25:48.000.168,C:\Users\josh\Desktop\STATIONMETEO\cpp\josh\classeTCP\MeteoParser.h=C:\Users\josh\Desktop\STATIONMETEO\cpp\josh\classeTCP\Unit1.h</Transaction>
+    <Transaction>2019/03/26 14:25:48.000.168,C:\Users\josh\Desktop\STATIONMETEO\cpp\josh\classeTCP\MeteoParser.cpp=C:\Users\josh\Desktop\STATIONMETEO\cpp\josh\classeTCP\Unit1.cpp</Transaction>
+    <Transaction>2019/03/26 15:11:08.000.878,C:\Users\josh\Desktop\STATIONMETEO\cpp\josh\classeTCP\main.cpp=C:\Users\josh\Desktop\STATIONMETEO\cpp\josh\classeTCP\File1.cpp</Transaction>
     <Transaction>2019/04/03 07:51:42.000.846,=C:\Users\Admin\Desktop\stationMeteo\cpp\josh\ModuleDeTestTcpServer\MeteoStructs.h</Transaction>
+    <Transaction>2019/04/04 13:29:33.000.206,=C:\Users\Admin\Desktop\projetmete\cpp\josh\ModuleDeTestTcpServer\StringUtils.cpp</Transaction>
   </Transactions>
 </BorlandProject>

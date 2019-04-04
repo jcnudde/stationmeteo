@@ -23,11 +23,10 @@ void MeteoParser::Parse(char * buf, SOCKET sock)
 }
 void MeteoParser::previsionMeteo(TcpServer * serv,SOCKET client)
 {
-	serv->sendMessage(client,"123458");
+	serv->sendMessage(client,"$ensoleillé;pluie=0;25");
 }
 void MeteoParser::getDonnerMeteo(TcpServer *serv,SOCKET client)
 {
-//	this->recupDonnerMeteo = RecupDonnerMeteo::getInstance();
 
 	//on simule nos capteur que l'on est sensé recuperer avec notre class RecupDonnerMeteo
 	tabDonnerCapteur tabDonner;
@@ -41,28 +40,8 @@ void MeteoParser::getDonnerMeteo(TcpServer *serv,SOCKET client)
 	tabDonner.pluie=0;
 	tabDonner.surfaceDePluie=120;
 
-//
-//	String protocole = "$";
-//	protocole+= String((int)tabDonner.vitesseVent);
-//	protocole+=";";
-//	protocole+=String((int)tabDonner.temperature);
-//	protocole+=";";
-//	protocole+=String((int)tabDonner.pressionAtmospherique);
-//	protocole+=";";
-//	protocole+=String(tabDonner.direction);
-//	protocole+=";";
-//	protocole+=String((int)tabDonner.hummiditeRelative);
-//	protocole+=";";
-//	protocole+=String((int)tabDonner.luminosite);
-//	protocole+=";";
-//	protocole+=String((int)tabDonner.jour);
-//	protocole+=";";
-//	protocole+=String((int)tabDonner.pluie);
-//	protocole+=";";
-//	protocole+=String((int)tabDonner.surfaceDePluie);
-//	protocole+="$";
-//
-//	char * req = StringUtils::magicConvert(protocole.c_str());
-	serv->sendMessage(client,"test");
-//    delete req;
+
+
+	serv->sendMessage(client,"$120;21;1050;360;50;50000;1;0;120$");
+
 }

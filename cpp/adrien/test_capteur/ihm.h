@@ -8,6 +8,11 @@
 #include <Vcl.StdCtrls.hpp>
 #include <Vcl.Forms.hpp>
 #include <Vcl.ExtCtrls.hpp>
+#include "CapteurJour_Nuit.h"
+#include "CapteurPluie.h"
+#include "Pluiviometre.h"
+
+
 //---------------------------------------------------------------------------
 class TForm1 : public TForm
 {
@@ -21,13 +26,14 @@ __published:	// Composants gérés par l'EDI
 	TTimer *Timer1;
 	void __fastcall Timer1Timer(TObject *Sender);
 private:	// Déclarations utilisateur
-public:		// Déclarations utilisateur
-	__fastcall TForm1(TComponent* Owner);
-
 	CarteE_S *carte;
 	Capteur *capteurjour_nuit;
 	Capteur *capteurpluie;
 	Capteur *pluiviometre;
+public:		// Déclarations utilisateur
+	__fastcall TForm1(TComponent* Owner);
+
+
 };
 //---------------------------------------------------------------------------
 extern PACKAGE TForm1 *Form1;

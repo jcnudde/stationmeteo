@@ -17,7 +17,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
-#include "../Capteur.h"
+#include "Capteur.h"
 
 using namespace std;
 
@@ -26,7 +26,8 @@ class CapteurJour_Nuit : public Capteur
 
     public:
         CapteurJour_Nuit(double channel);
-        virtual double readValue();
+		virtual double readValue();
+		string getUnit();
 
 };
 #endif

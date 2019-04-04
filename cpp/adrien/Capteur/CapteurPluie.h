@@ -16,7 +16,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
-#include "../Capteur.h"
+#include "Capteur.h"
 
 using namespace std;
 
@@ -26,6 +26,6 @@ class CapteurPluie : public Capteur
     public:
         CapteurPluie(double channel);
         virtual double readValue();
-
+		string getUnit();
 };
 #endif

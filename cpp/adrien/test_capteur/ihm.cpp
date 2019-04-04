@@ -21,9 +21,22 @@ __fastcall TForm1::TForm1(TComponent* Owner)
 //---------------------------------------------------------------------------
 void __fastcall TForm1::Timer1Timer(TObject *Sender)
 {
-	this->Edit_jn = this->carte->readTOR(8);
-	this->Editpluie = this->carte->readTOR(7);
-	this->Editpluiviometre = this->carte->readTOR(9);
+	bool chose = this->capteurjour_nuit->readValue();
+	char * BOOL = chose ? "true" : "false";
+
+	this->Edit_jn->Text = BOOL;
+	delete BOOL ;
+
+	chose = this->capteurpluie->readValue();
+	BOOL = chose ? "true" : "false";
+	this->Editpluie->Text = BOOL;
+	delete BOOL  ;
+
+	chose = this->pluiviometre->readValue();
+	BOOL = chose ? "true" : "false";
+	this->Editpluiviometre->Text =BOOL;
+	delete BOOL  ;
+
 }
 //---------------------------------------------------------------------------
 

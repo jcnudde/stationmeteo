@@ -14,11 +14,11 @@ double Thermometre::readValue()
 {
 	this->PhysicalValue=this->carte->readVoltage(this->channel);
 	//on muliplie la valeur par 7
-	this-PhysicalValue*=7;
+	this->PhysicalValue*=7;
 	//on retire 35 au resulat precedent
-	this->physicalValue-=35;
+	this->PhysicalValue-=35;
 
-    return this->physicalValue;
+    return this->PhysicalValue;
 }
 
 string Thermometre::getUnit()

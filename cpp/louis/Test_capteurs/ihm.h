@@ -10,10 +10,9 @@
 #include <Vcl.ExtCtrls.hpp>
 #include <Vcl.Grids.hpp>
 
-#include "Carte_9111.h"
-#include "CarteE_S.h"
+
 #include "Thermometre.h"
-#include "Hygromometre.h"
+#include "Hygrometre.h"
 #include "Solarimetre.h"
 #include <Vcl.Grids.hpp>
 #include <Vcl.ExtCtrls.hpp>
@@ -32,10 +31,7 @@ __published:	// Composants gérés par l'EDI
 	TEdit *Edit_hygrometrie;
 	TEdit *Edit_thermometre;
 	TEdit *Edit_luxmetre;
-	void __fastcall label_humiditeClick(TObject *Sender);
-	void __fastcall Edit_temperatureChange(TObject *Sender);
 	void __fastcall TimerTimer(TObject *Sender);
-	void __fastcall Edit_luxmetreChange(TObject *Sender);
 private:	// Déclarations utilisateur
 public:		// Déclarations utilisateur
 	__fastcall TForm1(TComponent* Owner);

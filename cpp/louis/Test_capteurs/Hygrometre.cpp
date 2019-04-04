@@ -16,7 +16,7 @@ double Hygrometre::readValue()
 	//on multiplie par 10 la valeur
 	this->PhysicalValue*=10;
 
-	return this->physicalValue;
+	return this->PhysicalValue;
 }
 
 string Hygrometre::getUnit()

@@ -19,7 +19,6 @@
     Width = 41
     Height = 13
     Caption = 'Humidit'#233
-    OnClick = label_humiditeClick
   end
   object Label_temperature: TLabel
     Left = 272
@@ -50,7 +49,6 @@
     Height = 21
     TabOrder = 1
     Text = 'Edit_temperature'
-    OnChange = Edit_temperatureChange
   end
   object Edit_luminosite: TEdit
     Left = 488
@@ -83,7 +81,6 @@
     Height = 21
     TabOrder = 5
     Text = 'Edit_luxmetre'
-    OnChange = Edit_luxmetreChange
   end
   object Timer: TTimer
     OnTimer = TimerTimer

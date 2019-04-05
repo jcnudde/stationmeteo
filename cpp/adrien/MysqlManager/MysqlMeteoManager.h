@@ -1,27 +1,32 @@
 //---------------------------------------------------------------------------
 
-#ifndef MysqlManagerH
-#define MysqlManagerH
-#include "MysqlMeteoManager.h"
-#include "../classeBDD/Bdd.h"
-#include "../classeMysql/Mysql.h"
+#ifndef MysqlMeteoManagerH
+#define MysqlMeteoManagerH
+#include "Bdd.h"
+#include "Mysql.h"
 
-//---------------------------------------------------------------------------
-#endif
+#include <vcl.h>
+#include <iostream>
+#include <sstream>
+#include "MeteoStructs.h"
 
+using namespace std;
 
 class MysqlMeteoManager {
    private:
-     
-      static BDD* bdd;
-      static MysqlMeteoManager *m_instance;  
-      MysqlMeteoManager(); 
-      ~MysqlMeteoManager();
+	  static Bdd* bdd;
+	  static MysqlMeteoManager *m_instance;
+	  MysqlMeteoManager();
+	  ~MysqlMeteoManager();
 
    public:
-   
-       static MysqlMeteoManager * getInstance();
-    //    MysqlMeteoManager * operator=(MysqlMeteoManager* o1);
-    //    bool connect();
-    //    bool InsertDonnéeCapteur();  
-}
+
+		static MysqlMeteoManager * getInstance();
+		static void stopInstance();
+        MysqlMeteoManager * operator=(MysqlMeteoManager* o1);
+        bool connect();
+		bool InsertDonnerCapteur(tabDonnerCapteur donneeMeteo);
+		vector<tabDonnerCapteur> SelectLastDonnee();
+};
+//---------------------------------------------------------------------------
+#endif

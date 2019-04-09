@@ -21,11 +21,11 @@ void MeteoParser::Parse(char * buf, SOCKET sock)
     }
 
 }
-void MeteoParser::sendPrevisionMeteo(TcpServer * serv,SOCKET client)
+void MeteoParser::previsionMeteo(TcpServer * serv,SOCKET client)
 {
 	serv->sendMessage(client,"$ensoleillé;pluie=0;25");
 }
-void MeteoParser::sendDonnerMeteo(TcpServer *serv,SOCKET client)
+void MeteoParser::getDonnerMeteo(TcpServer *serv,SOCKET client)
 {
 
 	//on simule nos capteur que l'on est sensé recuperer avec notre class RecupDonnerMeteo

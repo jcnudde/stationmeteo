@@ -16,8 +16,8 @@ class MeteoParser : public AbstractParser
 {
 	private:
 //		RecupDonnerMeteo *recupDonnerMeteo;
-		void sendPrevisionMeteo(TcpServer *serv,SOCKET client);
-		void sendDonnerMeteo(TcpServer *serv,SOCKET client);
+		void previsionMeteo(TcpServer *serv,SOCKET client);
+		void getDonnerMeteo(TcpServer *serv,SOCKET client);
 	public:
 		virtual void Parse(char * buf, SOCKET sock);
 };

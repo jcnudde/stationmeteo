@@ -1,4 +1,4 @@
-﻿//---------------------------------------------------------------------------
+//---------------------------------------------------------------------------
 
 #pragma hdrstop
 
@@ -20,8 +20,13 @@ void MeteoParser::Parse(char * buf, SOCKET sock)
 	}
 	//on test si le message reçue est DONNEDONNER
 	if(strcmp(buf,"DONNEDONNER") == 0 ){
+<<<<<<< HEAD
 		this->sendDonnerMeteo(serv,sock);
     }
+=======
+		this->getDonnerMeteo(serv,sock);
+  }
+>>>>>>> 5b73ec8afa68c09e0ae8e42d8e0f053681f86eae
 
 }
 void MeteoParser::sendPrevisionMeteo(TcpServer * serv,SOCKET client)

@@ -30,11 +30,11 @@ using namespace std;
      //on demarre le server sur le port 9013 nous renvoie true si c'est bon
 	 if(serv.start(9013))
 	 {
-		cout<<"serveur demarrer sur le port 9013"<<endl;
-        //on bloque la console pour laisser le serveur tourné
-		getch();
+				cout<<"serveur demarrer sur le port 9013"<<endl;
+        //on bloque la console pour laisser le serveur fonctionnÃ©
+				getch();
         //on stope le server
-	 	serv.stop();
+	 			serv.stop();
 	 }
 
 	return 0;

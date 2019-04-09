@@ -60,14 +60,18 @@ void TcpServer::stop()
 
 DWORD WINAPI TcpServer::threadServer(LPVOID params)
 {
+	//on recaste notre objet reçue en TcpServer
 	TcpServer *thisThread = (TcpServer*) params;
 
+	//on crée notre tableau qui va contenir à la premier case notre socket server 
+	//et ensuite nos socket client
 	fd_set master;
 
 	FD_ZERO(&master);
 
 	FD_SET(thisThread->server, &master);
 
+	//boucle 
 	while(thisThread->boucleThread)
 	{
 		fd_set copy = master;
@@ -78,10 +82,10 @@ DWORD WINAPI TcpServer::threadServer(LPVOID params)
 			SOCKET sock = copy.fd_array[i];
 			if(sock == thisThread->server)
 			{
-				//accept a new connection
+				//accept une nouvelle connexion
 				SOCKET newClient = accept(thisThread->server,NULL,NULL);
 
-				//add the new wonnection to the list of connected clients
+				//on ajoute le nouveau client dans le tableaux master
 				FD_SET(newClient,&master);
 
 			}
@@ -89,22 +93,24 @@ DWORD WINAPI TcpServer::threadServer(LPVOID params)
 			{
 
 				ZeroMemory(thisThread->buffer,1500);
-				//accept a new message
+				//accept un nouveau  message
 				int bytesIn = recv(sock,thisThread->buffer,1500,0);
 				if(bytesIn <=0)
 				{
-					//Drop the client
+					//on suprimmer le client si il ne repond plus
 					closesocket(sock);
 					FD_CLR(sock,&master);
 				}
 				else
 				{
+					//on envoie notre message à la classe parse
 					thisThread->parser->Parse(thisThread->buffer, sock);
-					//cout<<thisThread->buffer<<endl;
 				}
 			}
 		}
 	}
+	//si la methode stop de la classe tcp server à etait appelé on sort de la boucle
+	//est on fermer toute les socket
 	for (int i = 0; i < master.fd_count; i++) {
 
 		closesocket(master.fd_array[i]);

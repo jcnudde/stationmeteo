@@ -10,25 +10,28 @@
 
 void MeteoParser::Parse(char * buf, SOCKET sock)
 {
-
+	//on recupere le serveur car on en Ã  besoin pour renvoyer la reponse
+	//au client 
 	TcpServer * serv = this->getServer();
 
+	//on test si le message reÃ§ue est METEO
 	if(strcmp(buf,"METEO") == 0 ) {
 		this->previsionMeteo(serv,sock);
 	}
+	//on test si le message reÃ§ue est DONNEDONNER
 	if(strcmp(buf,"DONNEDONNER") == 0 ){
 		this->getDonnerMeteo(serv,sock);
-    }
+  }
 
 }
 void MeteoParser::previsionMeteo(TcpServer * serv,SOCKET client)
 {
-	serv->sendMessage(client,"$ensoleillé;pluie=0;25");
+	serv->sendMessage(client,"$ensoleillï¿½;pluie=0;25");
 }
 void MeteoParser::getDonnerMeteo(TcpServer *serv,SOCKET client)
 {
 
-	//on simule nos capteur que l'on est sensé recuperer avec notre class RecupDonnerMeteo
+	//on simule nos capteur que l'on est sensï¿½ recuperer avec notre class RecupDonnerMeteo
 	tabDonnerCapteur tabDonner;
 	tabDonner.vitesseVent = 120;
 	tabDonner.temperature=21;

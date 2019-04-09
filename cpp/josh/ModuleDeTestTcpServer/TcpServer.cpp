@@ -105,6 +105,8 @@ DWORD WINAPI TcpServer::threadServer(LPVOID params)
 				{
 					//on envoie notre message à la classe parse
 					thisThread->parser->Parse(thisThread->buffer, sock);
+					//on affiche les message
+                    cout<<thisThread->buffer<<endl;
 				}
 			}
 		}

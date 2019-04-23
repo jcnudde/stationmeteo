@@ -13,8 +13,9 @@ CapteurJour_Nuit::CapteurJour_Nuit(double channel):Capteur(channel)
 
 double CapteurJour_Nuit::readValue()
 {
-    this->PhysicalValue=1;
-        return 1 ;
+    this->PhysicalValue = this->carte->readTOR(this->channel);
+
+	return  this->PhysicalValue;
 }
 
 string CapteurJour_Nuit::getUnit()

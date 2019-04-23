@@ -7,7 +7,7 @@
 #include <cstring>
 #include <iostream>
 #include <System.hpp>
-#include "RecupDonnerMeteo.h"
+#include "MeteoStructs.h"
 #include "StringUtils.h"
 
 using namespace std;
@@ -15,9 +15,9 @@ using namespace std;
 class MeteoParser : public AbstractParser
 {
 	private:
-		RecupDonnerMeteo *recupDonnerMeteo;
-		void previsionMeteo(TcpServer *serv,SOCKET client);
-		void getDonnerMeteo(TcpServer *serv,SOCKET client);
+//		RecupDonnerMeteo *recupDonnerMeteo;
+		void sendPrevisionMeteo(TcpServer *serv,SOCKET client);
+		void sendDonnerMeteo(TcpServer *serv,SOCKET client);
 	public:
 		virtual void Parse(char * buf, SOCKET sock);
 };

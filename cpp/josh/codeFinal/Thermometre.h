@@ -29,7 +29,7 @@ using namespace std;
 class Thermometre : public Capteur
 {
 
-	public:
+    public:
 		Thermometre(double channel);
         double readValue();
 		string getUnit();

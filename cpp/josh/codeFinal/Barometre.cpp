@@ -13,7 +13,7 @@ Barometre::Barometre(double channel):Capteur(channel)
 double Barometre::readValue()
 {
 	this->carte->readVoltage(this->channel);
-    this->PhysicalValue=2000;
+    this->PhysicalValue=1050;
     return this->PhysicalValue;
 }
 string Barometre::getUnit()

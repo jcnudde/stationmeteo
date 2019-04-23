@@ -13,7 +13,7 @@
 //---------------------------------------------------------------------------
 class TForm1 : public TForm
 {
-__published:	// Composants gérés par l'EDI
+__published:	// Composants gï¿½rï¿½s par l'EDI
 	TTimer *Timer1;
 	TLabel *LabelAnemo;
 	TLabel *LabelHumid;
@@ -34,10 +34,11 @@ __published:	// Composants gérés par l'EDI
 	TLabel *LabelPlui;
 	TLabel *LabelPluiviometre;
 	void __fastcall Timer1Timer(TObject *Sender);
-private:	// Déclarations utilisateur
-	RecupDonnerMeteo *o1;
+private:	// DÃ©clarations utilisateur
+
+	RecupDonnerMeteo *recupDonner;
 	MeteoDataNotifier * dataNotifier;
-public:		// Déclarations utilisateur
+public:		// DÃ©clarations utilisateur
 
 	__fastcall TForm1(TComponent* Owner);
 };

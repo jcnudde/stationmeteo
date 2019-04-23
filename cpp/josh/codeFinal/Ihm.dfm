@@ -81,4 +81,10 @@ object Form2: TForm2
       TabOrder = 0
     end
   end
+  object TimerAffichageCapteur: TTimer
+    Interval = 10
+    OnTimer = TimerAffichageCapteurTimer
+    Left = 8
+    Top = 504
+  end
 end

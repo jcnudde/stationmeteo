@@ -115,7 +115,7 @@
     <ItemGroup>
         <CppCompile Include="AbstractParser.cpp">
             <DependentOn>AbstractParser.h</DependentOn>
-            <BuildOrder>11</BuildOrder>
+            <BuildOrder>21</BuildOrder>
         </CppCompile>
         <CppCompile Include="Anemometre.cpp">
             <DependentOn>Anemometre.h</DependentOn>
@@ -165,9 +165,17 @@
             <DependentOn>Ihm.h</DependentOn>
             <BuildOrder>2</BuildOrder>
         </CppCompile>
+        <CppCompile Include="MemoirePartagee.cpp">
+            <DependentOn>MemoirePartagee.h</DependentOn>
+            <BuildOrder>22</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="MeteoDataNotifier.cpp">
+            <DependentOn>MeteoDataNotifier.h</DependentOn>
+            <BuildOrder>23</BuildOrder>
+        </CppCompile>
         <CppCompile Include="MeteoParser.cpp">
             <DependentOn>MeteoParser.h</DependentOn>
-            <BuildOrder>12</BuildOrder>
+            <BuildOrder>24</BuildOrder>
         </CppCompile>
         <LibFiles Include="pdask_bc.lib" Condition="'$(Platform)'=='Win32'">
             <BuildOrder>9</BuildOrder>
@@ -671,13 +679,13 @@
                         <Operation>1</Operation>
                     </Platform>
                 </DeployClass>
-                <ProjectRoot Platform="iOSDevice32" Name="$(PROJECTNAME).app"/>
+                <ProjectRoot Platform="OSX32" Name="$(PROJECTNAME).app"/>
                 <ProjectRoot Platform="Android" Name="$(PROJECTNAME)"/>
                 <ProjectRoot Platform="Win32" Name="$(PROJECTNAME)"/>
                 <ProjectRoot Platform="iOSDevice64" Name="$(PROJECTNAME).app"/>
                 <ProjectRoot Platform="Win64" Name="$(PROJECTNAME)"/>
                 <ProjectRoot Platform="iOSSimulator" Name="$(PROJECTNAME).app"/>
-                <ProjectRoot Platform="OSX32" Name="$(PROJECTNAME).app"/>
+                <ProjectRoot Platform="iOSDevice32" Name="$(PROJECTNAME).app"/>
             </Deployment>
             <Platforms>
                 <Platform value="Win32">True</Platform>

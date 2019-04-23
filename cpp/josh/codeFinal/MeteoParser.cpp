@@ -1,4 +1,4 @@
-//---------------------------------------------------------------------------
+﻿//---------------------------------------------------------------------------
 
 #pragma hdrstop
 
@@ -10,47 +10,39 @@
 
 void MeteoParser::Parse(char * buf, SOCKET sock)
 {
-
+	//on recupere le serveur car on en à besoin pour renvoyer la reponse
+	//au client 
 	TcpServer * serv = this->getServer();
 
-	if(strcmp(buf,"METEO") == 0 ) {
-		this->previsionMeteo(serv,sock);
+	//on test si le message reçue est METEO
+	if(strcmp(buf,"PreviMeteo\n") == 0 ) {
+		this->sendPrevisionMeteo(serv,sock);
 	}
-	if(strcmp(buf,"DONNEDONNER") == 0 ){
-		this->getDonnerMeteo(serv,sock);
+	//on test si le message reçue est DONNEDONNER
+	if(strcmp(buf,"PartDonnerMeteo\n") == 0 ){
+		this->sendDonnerMeteo(serv,sock);
     }
 
 }
-void MeteoParser::previsionMeteo(TcpServer * serv,SOCKET client)
+void MeteoParser::sendPrevisionMeteo(TcpServer * serv,SOCKET client)
 {
-	serv->sendMessage(client,"123458");
+	serv->sendMessage(client,"$ensoleill�;pluie=0;25");
 }
-void MeteoParser::getDonnerMeteo(TcpServer *serv,SOCKET client)
+void MeteoParser::sendDonnerMeteo(TcpServer *serv,SOCKET client)
 {
-	this->recupDonnerMeteo = RecupDonnerMeteo::getInstance();
 
-	tabDonnerCapteur tabDonner =recupDonnerMeteo->getDonner();
-	String protocole = "$";
-	protocole+= String((int)tabDonner.vitesseVent);
-	protocole+=";";
-	protocole+=String((int)tabDonner.temperature);
-	protocole+=";";
-	protocole+=String((int)tabDonner.pressionAtmospherique);
-	protocole+=";";
-	protocole+=String(tabDonner.direction);
-	protocole+=";";
-	protocole+=String((int)tabDonner.hummiditeRelative);
-	protocole+=";";
-	protocole+=String((int)tabDonner.luminosite);
-	protocole+=";";
-	protocole+=String((int)tabDonner.jour);
-	protocole+=";";
-	protocole+=String((int)tabDonner.pluie);
-	protocole+=";";
-	protocole+=String((int)tabDonner.surfaceDePluie);
-	protocole+="$";
+	//on simule nos capteur que l'on est sens� recuperer avec notre class RecupDonnerMeteo
+	tabDonnerCapteur tabDonner;
+	tabDonner.vitesseVent = 120;
+	tabDonner.temperature=21;
+	tabDonner.pressionAtmospherique=1050;
+	tabDonner.direction=360;
+	tabDonner.hummiditeRelative=50;
+	tabDonner.luminosite=50000;
+	tabDonner.jour=1;
+	tabDonner.pluie=0;
+	tabDonner.surfaceDePluie=120;
 
-	char * req = StringUtils::magicConvert(protocole.c_str());
-	serv->sendMessage(client,req);
-    delete req;
+	serv->sendMessage(client,"$120;21;1050;360;50;50000;1;0;120$");
+
 }

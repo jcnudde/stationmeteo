@@ -15,7 +15,11 @@ __fastcall TForm2::TForm2(TComponent* Owner)
 	//allocation des pointeur sur nos classe
 	this->meteoParser = new MeteoParser();
 	this->tcpServer = new TcpServer(meteoParser);
+	//Recupération de l'instance de la Classe RecupDonnerMeteo
 	recupDonnerMeteo = RecupDonnerMeteo::getInstance();
+
+	dataNotifier = new MeteoDataNotifier();
+	recupDonnerMeteo->addNotifier(dataNotifier);
 	//Remplissage du tableau du StringGridCapteur
 	this->StringGridCapteur->Cells[0][0]="Capteurs";
 	this->StringGridCapteur->Cells[1][0]="Valeur Physique";
@@ -65,4 +69,30 @@ void __fastcall TForm2::stopServerClick(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 
+
+
+void __fastcall TForm2::TimerAffichageCapteurTimer(TObject *Sender)
+{
+    try
+	{
+		while(true)
+		{
+			tabDonnerCapteur capData = dataNotifier->get();
+			this->StringGridCapteur->Cells[1][1] = UnicodeString((int)capData.vitesseVent*3.6)+"km/h";
+			this->StringGridCapteur->Cells[1][2] = UnicodeString((int)capData.direction);
+			this->StringGridCapteur->Cells[1][3] = UnicodeString((int)capData.pressionAtmospherique)+"hPa";
+			this->StringGridCapteur->Cells[1][4] =  UnicodeString((int)capData.temperature)+"°C";
+			this->StringGridCapteur->Cells[1][5] = UnicodeString((int)capData.hummiditeRelative)+"%";
+			this->StringGridCapteur->Cells[1][6] =  UnicodeString((int)capData.luminosite)+"Lux";
+			this->StringGridCapteur->Cells[1][7] =  UnicodeString((int)capData.jour);
+			this->StringGridCapteur->Cells[1][8] =   UnicodeString((int)capData.pluie);
+			this->StringGridCapteur->Cells[1][9] = UnicodeString((int)capData.surfaceDePluie);
+        }
+	}
+	catch(std::string error)
+	{
+
+	}
+}
+//---------------------------------------------------------------------------
 

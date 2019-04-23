@@ -17,7 +17,7 @@ double Anemometre::readValue()
 	//on enleve -1 pour tomber à 0
 	this->PhysicalValue-=1.17;
 	//premier calcul aproximatif
-	this->PhysicalValue*=26.6;
+	this->PhysicalValue*=12;
 
 	return this->PhysicalValue;
 }

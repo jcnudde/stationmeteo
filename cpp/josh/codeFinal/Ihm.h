@@ -11,6 +11,7 @@
 #include "MeteoParser.h"
 #include "RecupDonnerMeteo.h"
 #include <Vcl.ExtCtrls.hpp>
+#include <Vcl.Grids.hpp>
 
 //---------------------------------------------------------------------------
 class TForm2 : public TForm
@@ -21,6 +22,8 @@ __published:	// Composants gérés par l'EDI
 	TGroupBox *GroupBoxServer;
 	TShape *voyantEtatServer;
 	TButton *ParamServer;
+	TGroupBox *GroupBoxCapteur;
+	TStringGrid *StringGridCapteur;
 	void __fastcall startServerClick(TObject *Sender);
 	void __fastcall stopServerClick(TObject *Sender);
 

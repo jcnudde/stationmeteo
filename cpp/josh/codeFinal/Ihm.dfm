@@ -2,8 +2,8 @@ object Form2: TForm2
   Left = 0
   Top = 0
   Caption = 'GestionMeteo'
-  ClientHeight = 300
-  ClientWidth = 635
+  ClientHeight = 541
+  ClientWidth = 861
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -21,7 +21,7 @@ object Form2: TForm2
     Caption = 'Server'
     TabOrder = 0
     object voyantEtatServer: TShape
-      Left = 144
+      Left = 152
       Top = 16
       Width = 65
       Height = 56
@@ -54,6 +54,31 @@ object Form2: TForm2
       Height = 25
       Caption = 'ParamServer'
       TabOrder = 2
+    end
+  end
+  object GroupBoxCapteur: TGroupBox
+    Left = 292
+    Top = 8
+    Width = 561
+    Height = 513
+    Caption = 'Capteurs'
+    TabOrder = 1
+    object StringGridCapteur: TStringGrid
+      Left = 72
+      Top = 23
+      Width = 417
+      Height = 466
+      ColCount = 2
+      DefaultColWidth = 200
+      DefaultRowHeight = 45
+      RowCount = 10
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -20
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 0
     end
   end
 end

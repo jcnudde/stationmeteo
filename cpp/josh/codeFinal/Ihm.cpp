@@ -15,7 +15,20 @@ __fastcall TForm2::TForm2(TComponent* Owner)
 	//allocation des pointeur sur nos classe
 	this->meteoParser = new MeteoParser();
 	this->tcpServer = new TcpServer(meteoParser);
-    recupDonnerMeteo = RecupDonnerMeteo::getInstance();
+	recupDonnerMeteo = RecupDonnerMeteo::getInstance();
+	//Remplissage du tableau du StringGridCapteur
+	this->StringGridCapteur->Cells[0][0]="Capteurs";
+	this->StringGridCapteur->Cells[1][0]="Valeur Physique";
+	this->StringGridCapteur->Cells[0][1]="Anémomètre";
+	this->StringGridCapteur->Cells[0][2]="Girouette";
+	this->StringGridCapteur->Cells[0][3]="Baromètre";
+	this->StringGridCapteur->Cells[0][4]="Thermomètre";
+	this->StringGridCapteur->Cells[0][5]="Hygromètre";
+	this->StringGridCapteur->Cells[0][6]="Luxmètre";
+	this->StringGridCapteur->Cells[0][7]="Capteur jour/nuit";
+	this->StringGridCapteur->Cells[0][8]="Capteur Pluie";
+	this->StringGridCapteur->Cells[0][9]="Pluiviomètre";
+
 
 }
 //---------------------------------------------------------------------------
@@ -51,4 +64,5 @@ void __fastcall TForm2::stopServerClick(TObject *Sender)
     this->startServer->Visible=true;
 }
 //---------------------------------------------------------------------------
+
 

@@ -22,7 +22,6 @@ __published:	// Composants gérés par l'EDI
 	TButton *stopServer;
 	TGroupBox *GroupBoxServer;
 	TShape *voyantEtatServer;
-	TButton *ParamServer;
 	TGroupBox *GroupBoxCapteur;
 	TStringGrid *StringGridCapteur;
 	TTimer *TimerAffichageCapteur;

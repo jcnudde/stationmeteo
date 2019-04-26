@@ -8,9 +8,12 @@
 using namespace std;
 class Server
 {
+	protected :
+		int port;
 	public :
 		virtual bool start(int port)=0;
 		virtual void stop()=0;
+		int getPort();
 	
 };
 //---------------------------------------------------------------------------

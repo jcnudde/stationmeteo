@@ -14,6 +14,8 @@ TcpServer::TcpServer(AbstractParser * parser)
 
 bool TcpServer::start(int port)
 {
+	//on recupére le port
+    this->port = port;
     //variable de retour
     bool retour=false;
 		if (WSAStartup(MAKEWORD(2, 2),&this->wsaData) == 0)

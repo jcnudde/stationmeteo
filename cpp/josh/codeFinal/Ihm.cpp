@@ -46,7 +46,8 @@ void __fastcall TForm2::startServerClick(TObject *Sender)
 		this->voyantEtatServer->Brush->Color=clLime;
 		//on cache start et on affiche stop
 		this->startServer->Visible=false;
-        this->stopServer->Visible=true;
+		this->stopServer->Visible=true;
+
 	}
 	else
 	{
@@ -65,7 +66,8 @@ void __fastcall TForm2::stopServerClick(TObject *Sender)
 	this->voyantEtatServer->Brush->Color=clRed;
     //on cache stop et on affiche start
 	this->stopServer->Visible=false;
-    this->startServer->Visible=true;
+	this->startServer->Visible=true;
+
 }
 //---------------------------------------------------------------------------
 

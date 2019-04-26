@@ -115,7 +115,7 @@
     <ItemGroup>
         <CppCompile Include="AbstractParser.cpp">
             <DependentOn>AbstractParser.h</DependentOn>
-            <BuildOrder>11</BuildOrder>
+            <BuildOrder>21</BuildOrder>
         </CppCompile>
         <CppCompile Include="Anemometre.cpp">
             <DependentOn>Anemometre.h</DependentOn>
@@ -165,9 +165,17 @@
             <DependentOn>Ihm.h</DependentOn>
             <BuildOrder>2</BuildOrder>
         </CppCompile>
+        <CppCompile Include="MemoirePartagee.cpp">
+            <DependentOn>MemoirePartagee.h</DependentOn>
+            <BuildOrder>22</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="MeteoDataNotifier.cpp">
+            <DependentOn>MeteoDataNotifier.h</DependentOn>
+            <BuildOrder>23</BuildOrder>
+        </CppCompile>
         <CppCompile Include="MeteoParser.cpp">
             <DependentOn>MeteoParser.h</DependentOn>
-            <BuildOrder>12</BuildOrder>
+            <BuildOrder>24</BuildOrder>
         </CppCompile>
         <LibFiles Include="pdask_bc.lib" Condition="'$(Platform)'=='Win32'">
             <BuildOrder>9</BuildOrder>
@@ -184,6 +192,12 @@
         <CppCompile Include="Server.cpp">
             <DependentOn>Server.h</DependentOn>
             <BuildOrder>13</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="ServerParamForm.cpp">
+            <Form>Form1</Form>
+            <FormType>dfm</FormType>
+            <DependentOn>ServerParamForm.h</DependentOn>
+            <BuildOrder>22</BuildOrder>
         </CppCompile>
         <CppCompile Include="Solarimetre.cpp">
             <DependentOn>Solarimetre.h</DependentOn>
@@ -202,6 +216,7 @@
             <BuildOrder>20</BuildOrder>
         </CppCompile>
         <FormResources Include="Ihm.dfm"/>
+        <FormResources Include="ServerParamForm.dfm"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>
@@ -664,12 +679,12 @@
                         <Operation>1</Operation>
                     </Platform>
                 </DeployClass>
-                <ProjectRoot Platform="iOSSimulator" Name="$(PROJECTNAME).app"/>
+                <ProjectRoot Platform="OSX32" Name="$(PROJECTNAME).app"/>
                 <ProjectRoot Platform="Android" Name="$(PROJECTNAME)"/>
                 <ProjectRoot Platform="Win32" Name="$(PROJECTNAME)"/>
                 <ProjectRoot Platform="iOSDevice64" Name="$(PROJECTNAME).app"/>
                 <ProjectRoot Platform="Win64" Name="$(PROJECTNAME)"/>
-                <ProjectRoot Platform="OSX32" Name="$(PROJECTNAME).app"/>
+                <ProjectRoot Platform="iOSSimulator" Name="$(PROJECTNAME).app"/>
                 <ProjectRoot Platform="iOSDevice32" Name="$(PROJECTNAME).app"/>
             </Deployment>
             <Platforms>

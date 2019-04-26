@@ -24,60 +24,49 @@
 #include "Hygrometre.h"
 #include "Solarimetre.h"
 #include "Thermometre.h"
+#include <vector>
+
+#include "MeteoDataNotifier.h"
+#include "MeteoStructs.h"
 
 using namespace std;
 
-//structure permettant de gerer tout les capteur
-typedef struct
-{
-    Capteur *anemometre;
-    Capteur *girouette;
-    Capteur *barometre;
-    Capteur *thermometre;
-    Capteur *hygrometre;
-    Capteur *solarimetre;
-    Capteur *capteur_JourNuit;
-    Capteur *capteurPluie;
-    Capteur *pluviometre;
-} tabCapteur;
-//structure permettant de gerer toute les données des capteur
-typedef struct
-{
-    double vitesseVent;
-    double temperature;
-    double pressionAtmospherique;
-    double direction;
-    double hummiditeRelative;
-    double luminosite;
-	double jour;      //0 pour nuit et 1 pour jour
-    double pluie; //0 pour pas de pluie et 1 pour pluie
-    double surfaceDePluie;
-}tabDonnerCapteur;
+
 
 
 class RecupDonnerMeteo
 {
 	private:
+		HANDLE mutexNotifiers;
+		std::vector<MeteoDataNotifier *> notifiers;
+
 		//variable meteo
 		static RecupDonnerMeteo* m_instance;
 		tabCapteur capteur;
 		//variable pour le thread
-        HANDLE Thread;
+		HANDLE Thread;
 		DWORD dwThreadIdArray;
 		bool boucleThread;
-        //constructeur
-        RecupDonnerMeteo();
-        //destructeur
-        ~RecupDonnerMeteo();
+		//constructeur
+		RecupDonnerMeteo();
+		//destructeur
+		~RecupDonnerMeteo();
 
-        static DWORD WINAPI ThreadRecupDonnee(LPVOID params);
+		void notifyData(tabDonnerCapteur data);
 
-    public:
-        //renvoie les données météo aquise à l'instant t sous forme d'une structure
-        tabDonnerCapteur getDonner();
-        //renvoie un seul et même pointeur
-        static RecupDonnerMeteo* getInstance();
+		void lockNotifier();
+		void unlockNotifier();
 
+		static DWORD WINAPI ThreadRecupDonnee(LPVOID params);
+
+	public:
+		//renvoie les données météo aquise à l'instant t sous forme d'une structure
+		tabDonnerCapteur getDonner();
+		//renvoie un seul et même pointeur
+		static RecupDonnerMeteo* getInstance();
+
+		void addNotifier(MeteoDataNotifier * notifier);
+		bool removeNotifier(MeteoDataNotifier * notifier);
 };
 //---------------------------------------------------------------------------
 #endif

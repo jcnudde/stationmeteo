@@ -12,9 +12,13 @@ Hygrometre::Hygrometre(double channel):Capteur(channel)
 }
 double Hygrometre::readValue()
 {
-    this->PhysicalValue=100;
-    return 100;
+	this->PhysicalValue=this->carte->readVoltage(this->channel);
+	//on multiplie par 10 la valeur
+	this->PhysicalValue*=10;
+
+	return this->PhysicalValue;
 }
+
 string Hygrometre::getUnit()
 {
     return "%";

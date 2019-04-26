@@ -15,7 +15,24 @@ __fastcall TForm2::TForm2(TComponent* Owner)
 	//allocation des pointeur sur nos classe
 	this->meteoParser = new MeteoParser();
 	this->tcpServer = new TcpServer(meteoParser);
-    recupDonnerMeteo = RecupDonnerMeteo::getInstance();
+	//Recupération de l'instance de la Classe RecupDonnerMeteo
+	recupDonnerMeteo = RecupDonnerMeteo::getInstance();
+
+	dataNotifier = new MeteoDataNotifier();
+	recupDonnerMeteo->addNotifier(dataNotifier);
+	//Remplissage du tableau du StringGridCapteur
+	this->StringGridCapteur->Cells[0][0]="Capteurs";
+	this->StringGridCapteur->Cells[1][0]="Valeur Physique";
+	this->StringGridCapteur->Cells[0][1]="Anémomètre";
+	this->StringGridCapteur->Cells[0][2]="Girouette";
+	this->StringGridCapteur->Cells[0][3]="Baromètre";
+	this->StringGridCapteur->Cells[0][4]="Thermomètre";
+	this->StringGridCapteur->Cells[0][5]="Hygromètre";
+	this->StringGridCapteur->Cells[0][6]="Luxmètre";
+	this->StringGridCapteur->Cells[0][7]="Capteur jour/nuit";
+	this->StringGridCapteur->Cells[0][8]="Capteur Pluie";
+	this->StringGridCapteur->Cells[0][9]="Pluiviomètre";
+
 
 }
 //---------------------------------------------------------------------------
@@ -29,7 +46,8 @@ void __fastcall TForm2::startServerClick(TObject *Sender)
 		this->voyantEtatServer->Brush->Color=clLime;
 		//on cache start et on affiche stop
 		this->startServer->Visible=false;
-        this->stopServer->Visible=true;
+		this->stopServer->Visible=true;
+
 	}
 	else
 	{
@@ -48,7 +66,35 @@ void __fastcall TForm2::stopServerClick(TObject *Sender)
 	this->voyantEtatServer->Brush->Color=clRed;
     //on cache stop et on affiche start
 	this->stopServer->Visible=false;
-    this->startServer->Visible=true;
+	this->startServer->Visible=true;
+
+}
+//---------------------------------------------------------------------------
+
+
+
+void __fastcall TForm2::TimerAffichageCapteurTimer(TObject *Sender)
+{
+    try
+	{
+		while(true)
+		{
+			tabDonnerCapteur capData = dataNotifier->get();
+			this->StringGridCapteur->Cells[1][1] = UnicodeString((int)capData.vitesseVent*3.6)+"km/h";
+			this->StringGridCapteur->Cells[1][2] = UnicodeString((int)capData.direction);
+			this->StringGridCapteur->Cells[1][3] = UnicodeString((int)capData.pressionAtmospherique)+"hPa";
+			this->StringGridCapteur->Cells[1][4] =  UnicodeString((int)capData.temperature)+"°C";
+			this->StringGridCapteur->Cells[1][5] = UnicodeString((int)capData.hummiditeRelative)+"%";
+			this->StringGridCapteur->Cells[1][6] =  UnicodeString((int)capData.luminosite)+"Lux";
+			this->StringGridCapteur->Cells[1][7] =  UnicodeString((int)capData.jour);
+			this->StringGridCapteur->Cells[1][8] =   UnicodeString((int)capData.pluie);
+			this->StringGridCapteur->Cells[1][9] = UnicodeString((int)capData.surfaceDePluie);
+        }
+	}
+	catch(std::string error)
+	{
+
+	}
 }
 //---------------------------------------------------------------------------
 

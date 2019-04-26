@@ -28,8 +28,8 @@ using namespace std;
 class Solarimetre : public Capteur
 {
 
-	public:
-		Solarimetre(double channel);
+    public:
+       	Solarimetre(double channel);
         double readValue();
 		string getUnit();
 };

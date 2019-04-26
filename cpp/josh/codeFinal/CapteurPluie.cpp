@@ -13,8 +13,9 @@ CapteurPluie::CapteurPluie(double channel):Capteur(channel)
 
 double CapteurPluie::readValue()
 {
-	this->PhysicalValue=1;
-	return this->PhysicalValue;
+	this->PhysicalValue = this->carte->readTOR(this->channel);
+
+	return  this->PhysicalValue;
 }
 
 string CapteurPluie::getUnit()

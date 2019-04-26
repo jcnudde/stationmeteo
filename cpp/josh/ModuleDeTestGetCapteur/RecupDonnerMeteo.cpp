@@ -19,7 +19,7 @@ RecupDonnerMeteo::RecupDonnerMeteo()
 	this->capteur.solarimetre = new Solarimetre(6);
 	this->capteur.capteur_JourNuit = new CapteurJour_Nuit(8);
 	this->capteur.capteurPluie = new CapteurPluie(0);
-    this->capteur.pluviometre = new Pluiviometre(5);
+    this->capteur.pluviometre = new Pluiviometre(4);
 
 	//on demare la boucle infini du thread
 	this->boucleThread = true;

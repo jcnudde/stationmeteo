@@ -29,7 +29,7 @@ class Solarimetre : public Capteur
 {
 
     public:
-       	Solarimetre(double channel);
+       	Solarimetre(int channel);
         double readValue();
 		string getUnit();
 };

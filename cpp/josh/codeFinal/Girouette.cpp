@@ -5,7 +5,7 @@
 #include "Girouette.h"
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
-Girouette::Girouette(double channel):Capteur(channel)
+Girouette::Girouette(int channel):Capteur(channel)
 {
 
 }

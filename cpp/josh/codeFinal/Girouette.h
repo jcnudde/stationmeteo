@@ -24,7 +24,7 @@ class Girouette : public Capteur
 {
 
     public:
-        Girouette(double channel);
+        Girouette(int channel);
 		double readValue();
 		string getUnit();
 

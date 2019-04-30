@@ -26,11 +26,11 @@ using namespace std;
 class Capteur
 {
     protected:
-        double channel;
+        int channel;
         double PhysicalValue;
         CarteE_S *carte;
     public:
-        Capteur(double channel);
+        Capteur(int channel);
         ~Capteur();
 		//methode abstraite pour lire une valeur et la retourne
 		virtual double readValue()=0;

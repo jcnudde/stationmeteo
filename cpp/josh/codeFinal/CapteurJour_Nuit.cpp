@@ -6,7 +6,7 @@
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 
-CapteurJour_Nuit::CapteurJour_Nuit(double channel):Capteur(channel)
+CapteurJour_Nuit::CapteurJour_Nuit(int channel):Capteur(channel)
 {
 
 }

@@ -8,7 +8,7 @@ class Anemometre : public Capteur
 {
 
     public:
-        Anemometre(double channel);
+        Anemometre(int channel);
 		double readValue();
 		string getUnit();
 

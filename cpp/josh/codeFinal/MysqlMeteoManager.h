@@ -8,18 +8,7 @@
 #include <vcl.h>
 #include <iostream>
 #include <sstream>
-typedef struct
-{
-    double vitesseVent;
-    double temperature;
-    double pressionAtmospherique;
-    double direction;
-    double hummiditeRelative;
-	double luminosite;
-	double jour;      //0 pour nuit et 1 pour jour
-    double pluie; //0 pour pas de pluie et 1 pour pluie
-    double surfaceDePluie;
-}tabDonnerCapteur;
+#include "MeteoStructs.h"
 
 using namespace std;
 
@@ -38,6 +27,9 @@ class MysqlMeteoManager {
         bool connect();
 		bool InsertDonnerCapteur(tabDonnerCapteur donneeMeteo);
 		vector<tabDonnerCapteur> SelectLastDonnee();
+		//methode pour convertire les degrée en point cardinaux (string)
+		string convertDegrPointCard(int degree);
+		String convertVirguPoint(double valeur);
 };
 //---------------------------------------------------------------------------
 #endif

@@ -25,7 +25,7 @@ class Barometre : public Capteur
 {
 
     public:
-        Barometre(double channel);
+        Barometre(int channel);
 		double readValue();
 		string getUnit();
 

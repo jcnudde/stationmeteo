@@ -28,7 +28,7 @@ class Hygrometre : public Capteur
 {
 
 	public:
-		Hygrometre(double channel);
+		Hygrometre(int channel);
         double readValue();
 		string getUnit();
 };

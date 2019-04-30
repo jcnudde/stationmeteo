@@ -7,7 +7,10 @@
 #pragma package(smart_init)
 
 #include "TcpServer.h"
-
+MeteoParser::MeteoParser()
+{
+    this->recupDonnerMeteo = RecupDonnerMeteo::getInstance();
+}
 void MeteoParser::Parse(char * buf, SOCKET sock)
 {
 	//on recupere le serveur car on en à besoin pour renvoyer la reponse
@@ -32,17 +35,81 @@ void MeteoParser::sendDonnerMeteo(TcpServer *serv,SOCKET client)
 {
 
 	//on simule nos capteur que l'on est sens� recuperer avec notre class RecupDonnerMeteo
-	tabDonnerCapteur tabDonner;
-	tabDonner.vitesseVent = 120;
-	tabDonner.temperature=21;
-	tabDonner.pressionAtmospherique=1050;
-	tabDonner.direction=360;
-	tabDonner.hummiditeRelative=50;
-	tabDonner.luminosite=50000;
-	tabDonner.jour=1;
-	tabDonner.pluie=0;
-	tabDonner.surfaceDePluie=120;
 
-	serv->sendMessage(client,"$120;21;1050;360;50;50000;1;0;120$");
+	tabDonnerCapteur donner = this->recupDonnerMeteo->getDonner();
 
+	String answer;
+
+	answer = String((int)donner.temperature);
+	answer+=";";
+	answer+= String((int)donner.hummiditeRelative);
+	answer+=";";
+	answer+= String((int)donner.vitesseVent);
+	answer+=";";
+	answer+= String(this->convertDegrPointCard((int)donner.direction).c_str());
+	answer+=";";
+	answer+= String((int)donner.luminosite);
+	answer+=";";
+	answer+= String((int)donner.pressionAtmospherique);
+	answer+=";";
+	answer+= String((int)donner.surfaceDePluie);
+	answer+=";";
+	answer+= String(donner.pluie ? 1 : 0);
+	answer+=";";
+	answer+= String(donner.jour ? 1 : 0);
+    answer+="\n";
+	serv->sendMessage(client,StringUtils::magicConvert(answer));
+
+}
+string MeteoParser::convertDegrPointCard(int degree)
+{    string direction;    switch (degree)	{
+		 case 360:
+			direction ="N";
+			break;
+		 case 337:
+			direction = "NNO";
+			break;
+		 case 315:
+			direction = "NO";
+			break;
+		 case 292:
+			direction = "ONO";
+			break;
+		 case 270:
+			direction = "O";
+			break;
+		 case 247:
+			direction = "OSO";
+			break;
+		 case 225:
+			direction = "SO";
+			break;
+		 case 202:
+			direction = "SSO";
+			break;
+		 case 180:
+			direction = "S";
+			break;
+		 case 157:
+			direction = "SSE";
+			break;
+		 case 135:
+			direction = "SE";
+			break;
+		 case 112:
+			direction = "ESE";
+			break;
+		 case 90:
+			direction = "E";
+			break;
+		 case 67:
+			direction = "ENE";
+			break;
+		 case 45:
+			direction = "NE";
+			break;
+		 case 22:
+			direction = "NNE";
+			break;
+	  }	return direction;
 }

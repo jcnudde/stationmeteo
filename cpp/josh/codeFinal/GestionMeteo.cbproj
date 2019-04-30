@@ -70,7 +70,7 @@
         <DCC_Namespace>Winapi;System.Win;Data.Win;Datasnap.Win;Web.Win;Soap.Win;Xml.Win;Bde;$(DCC_Namespace)</DCC_Namespace>
         <IncludePath>$(BDSINCLUDE)\windows\vcl;$(IncludePath)</IncludePath>
         <PackageImports>adortl;appanalytics;bcbie;bcbsmp;bindcomp;bindcompdbx;bindcompfmx;bindcompvcl;bindengine;CloudService;CodeSiteExpressPkg;CustomIPTransport;DataSnapClient;DataSnapCommon;DataSnapConnectors;DatasnapConnectorsFreePascal;DataSnapFireDAC;DataSnapIndy10ServerTransport;DataSnapNativeClient;DataSnapProviderClient;DataSnapServer;DataSnapServerMidas;dbexpress;dbrtl;dbxcds;DbxClientDriver;DbxCommonDriver;DBXDb2Driver;DBXFirebirdDriver;DBXInformixDriver;DBXInterBaseDriver;DBXMSSQLDriver;DBXMySQLDriver;DBXOdbcDriver;DBXOracleDriver;DBXSqliteDriver;DBXSybaseASADriver;DBXSybaseASEDriver;dsnap;dsnapcon;dsnapxml;emsclient;emsclientfiredac;FireDAC;FireDACADSDriver;FireDACASADriver;FireDACCommon;FireDACCommonDriver;FireDACDb2Driver;FireDACDBXDriver;FireDACDSDriver;FireDACIBDriver;FireDACInfxDriver;FireDACMSAccDriver;FireDACMSSQLDriver;FireDACMySQLDriver;FireDACODBCDriver;FireDACOracleDriver;FireDACPgDriver;FireDACSqliteDriver;FireDACTDataDriver;fmx;fmxase;fmxdae;fmxFireDAC;fmxobj;FMXTee;FmxTeeUI;frx22;frxDB22;frxe22;frxTee22;ibmonitor;ibxpress;IndyCore;IndyIPClient;IndyIPCommon;IndyIPServer;IndyProtocols;IndySystem;inet;inetdb;inetdbxpress;Intraweb;RESTBackendComponents;RESTComponents;rtl;soapmidas;soaprtl;soapserver;svn;Tee;TeeDB;TeeUI;tethering;vcl;vclactnband;vcldb;vcldsnap;vclFireDAC;vclib;vclie;vclimg;VCLRESTComponents;vclribbon;VclSmp;vcltouch;vclx;xmlrtl;$(PackageImports)</PackageImports>
-        <ILINK_LibraryPath>C:\Users\josh\Desktop\STATIONMETEO\cpp\josh\codeFinal\;$(ILINK_LibraryPath)</ILINK_LibraryPath>
+        <ILINK_LibraryPath>C:\Users\Admin\Documents\GitHub\stationmeteo\cpp\josh\codeFinal\;C:\Users\josh\Desktop\STATIONMETEO\cpp\josh\codeFinal\;$(ILINK_LibraryPath)</ILINK_LibraryPath>
         <VerInfo_Locale>1033</VerInfo_Locale>
         <Manifest_File>$(BDS)\bin\default_app.manifest</Manifest_File>
         <VerInfo_Keys>CompanyName=;FileDescription=;FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=;ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
@@ -165,6 +165,10 @@
             <DependentOn>Ihm.h</DependentOn>
             <BuildOrder>2</BuildOrder>
         </CppCompile>
+        <LibFiles Include="libmysql.lib" Condition="'$(Platform)'=='Win32'">
+            <BuildOrder>24</BuildOrder>
+            <IgnorePath>true</IgnorePath>
+        </LibFiles>
         <CppCompile Include="MemoirePartagee.cpp">
             <DependentOn>MemoirePartagee.h</DependentOn>
             <BuildOrder>22</BuildOrder>
@@ -176,6 +180,14 @@
         <CppCompile Include="MeteoParser.cpp">
             <DependentOn>MeteoParser.h</DependentOn>
             <BuildOrder>24</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="Mysql.cpp">
+            <DependentOn>Mysql.h</DependentOn>
+            <BuildOrder>25</BuildOrder>
+        </CppCompile>
+        <CppCompile Include="MysqlMeteoManager.cpp">
+            <DependentOn>MysqlMeteoManager.h</DependentOn>
+            <BuildOrder>26</BuildOrder>
         </CppCompile>
         <LibFiles Include="pdask_bc.lib" Condition="'$(Platform)'=='Win32'">
             <BuildOrder>9</BuildOrder>
@@ -192,12 +204,6 @@
         <CppCompile Include="Server.cpp">
             <DependentOn>Server.h</DependentOn>
             <BuildOrder>13</BuildOrder>
-        </CppCompile>
-        <CppCompile Include="ServerParamForm.cpp">
-            <Form>Form1</Form>
-            <FormType>dfm</FormType>
-            <DependentOn>ServerParamForm.h</DependentOn>
-            <BuildOrder>22</BuildOrder>
         </CppCompile>
         <CppCompile Include="Solarimetre.cpp">
             <DependentOn>Solarimetre.h</DependentOn>
@@ -216,7 +222,6 @@
             <BuildOrder>20</BuildOrder>
         </CppCompile>
         <FormResources Include="Ihm.dfm"/>
-        <FormResources Include="ServerParamForm.dfm"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>
@@ -245,6 +250,12 @@
                 </Source>
             </CPlusPlusBuilder.Personality>
             <Deployment Version="2">
+                <DeployFile LocalName="libmysql.lib" Configuration="Debug" Class="ProjectFile">
+                    <Platform Name="Win32">
+                        <RemoteDir>.\</RemoteDir>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
                 <DeployFile Condition="'$(UsingDelphiRTL)'=='true'" LocalName="$(BDS)\bin64\borlndmm.dll" Class="DependencyModule">
                     <Platform Name="Win64">
                         <Overwrite>true</Overwrite>
@@ -679,12 +690,12 @@
                         <Operation>1</Operation>
                     </Platform>
                 </DeployClass>
-                <ProjectRoot Platform="OSX32" Name="$(PROJECTNAME).app"/>
+                <ProjectRoot Platform="iOSSimulator" Name="$(PROJECTNAME).app"/>
                 <ProjectRoot Platform="Android" Name="$(PROJECTNAME)"/>
                 <ProjectRoot Platform="Win32" Name="$(PROJECTNAME)"/>
                 <ProjectRoot Platform="iOSDevice64" Name="$(PROJECTNAME).app"/>
+                <ProjectRoot Platform="OSX32" Name="$(PROJECTNAME).app"/>
                 <ProjectRoot Platform="Win64" Name="$(PROJECTNAME)"/>
-                <ProjectRoot Platform="iOSSimulator" Name="$(PROJECTNAME).app"/>
                 <ProjectRoot Platform="iOSDevice32" Name="$(PROJECTNAME).app"/>
             </Deployment>
             <Platforms>

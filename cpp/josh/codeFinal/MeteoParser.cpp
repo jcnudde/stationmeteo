@@ -19,13 +19,13 @@ void MeteoParser::Parse(char * buf, SOCKET sock)
 	TcpServer * serv = this->getServer();
 
 	//on test si le message reçue est METEO
-	if(strcmp(buf,"PreviMeteo\n") == 0 ) {
+	if(strcmp(buf,"PreviMeteo") == 0 ) {
 		this->sendPrevisionMeteo(serv,sock);
 	}
 	//on test si le message reçue est DONNEDONNER
-	if(strcmp(buf,"PartDonnerMeteo\n") == 0 ){
+	if(strcmp(buf,"PartDonnerMeteo") == 0 ){
 		this->sendDonnerMeteo(serv,sock);
-    }
+	}
 
 }
 void MeteoParser::sendPrevisionMeteo(TcpServer * serv,SOCKET client)

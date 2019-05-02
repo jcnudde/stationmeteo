@@ -16,24 +16,24 @@ String PrevisionMeteo::previsionMeteo()
 	String repPrevision;
 	vector<tabDonnerCapteur> data = this->sqlMeteo->SelectLastDonnee();
 	//variable pour calculer les tendances
-	int tendanceAtmospherique;
-	int tendanceHumidite;
-	int tendanceTemperature;
-	int tendanceViteVent;
-	int previValeurAtmo;
-	int previValeurHumi;
-	int previValeurTemp;
-	int previValeurViteVent;
-	float moyennePluie;
-	float moyenneDirection;
+	int tendanceAtmospherique=0;
+	int tendanceHumidite=0;
+	int tendanceTemperature=0;
+	int tendanceViteVent=0;
+	int previValeurAtmo=0;
+	int previValeurHumi=0;
+	int previValeurTemp=0;
+	int previValeurViteVent=0;
+	float moyennePluie=0;
+	float moyenneDirection=0;
 
 	//on récupére en + les derniéres veleurs à l'instant t
 	data.push_back(this->recDonneeMeteo->getDonner());
 
-
+	int t = data.size();
 	for (int i = 1; i < data.size(); i++) {
 		//on calcule les tendances Atmosphérique,Humidité, vitesse des vents et Température
-		tendanceAtmospherique+=(data[i].pressionAtmospherique-data[i-1].hummiditeRelative);
+		tendanceAtmospherique+=(data[i].pressionAtmospherique-data[i-1].pressionAtmospherique);
 		tendanceHumidite+=(data[i].hummiditeRelative-data[i-1].hummiditeRelative);
 		tendanceTemperature+=(data[i].temperature-data[i-1].temperature);
 		tendanceViteVent+=(data[i].vitesseVent-data[i-1].vitesseVent);
@@ -53,11 +53,11 @@ String PrevisionMeteo::previsionMeteo()
 	moyenneDirection = moyenneDirection/(data.size());
 
 	if (previValeurAtmo>=1015) {
-		repPrevision="sol;";
+		repPrevision="Sol;";
 	}
 	else
 	{
-		repPrevision="Nuageux;";
+		repPrevision="Nua;";
 	}
 
 	repPrevision+=String(previValeurTemp);

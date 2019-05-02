@@ -1,0 +1,83 @@
+//---------------------------------------------------------------------------
+
+#pragma hdrstop
+
+#include "PrevisionMeteo.h"
+//---------------------------------------------------------------------------
+#pragma package(smart_init)
+
+PrevisionMeteo::PrevisionMeteo()
+{
+	this->sqlMeteo = MysqlMeteoManager::getInstance();
+	this->recDonneeMeteo = RecupDonnerMeteo::getInstance();
+}
+String PrevisionMeteo::previsionMeteo()
+{
+	String repPrevision;
+	vector<tabDonnerCapteur> data = this->sqlMeteo->SelectLastDonnee();
+	//variable pour calculer les tendances
+	int tendanceAtmospherique;
+	int tendanceHumidite;
+	int tendanceTemperature;
+	int tendanceViteVent;
+	int previValeurAtmo;
+	int previValeurHumi;
+	int previValeurTemp;
+	int previValeurViteVent;
+	float moyennePluie;
+	float moyenneDirection;
+
+	//on récupére en + les derniéres veleurs à l'instant t
+	data.push_back(this->recDonneeMeteo->getDonner());
+
+
+	for (int i = 1; i < data.size(); i++) {
+		//on calcule les tendances Atmosphérique,Humidité, vitesse des vents et Température
+		tendanceAtmospherique+=(data[i].pressionAtmospherique-data[i-1].hummiditeRelative);
+		tendanceHumidite+=(data[i].hummiditeRelative-data[i-1].hummiditeRelative);
+		tendanceTemperature+=(data[i].temperature-data[i-1].temperature);
+		tendanceViteVent+=(data[i].vitesseVent-data[i-1].vitesseVent);
+		//on fait la sommes des pluie et de la direction du vent
+		moyennePluie+=data[i].pluie;
+		moyenneDirection+=data[i].direction;
+	}
+
+	//prevision des valeur avenir pour la Pression Atmosphérique,L'Humidité,
+	//la vitesse du vent et la Température
+	previValeurAtmo = data[data.size()-1].pressionAtmospherique+tendanceAtmospherique;
+	previValeurHumi = data[data.size()-1].hummiditeRelative+tendanceHumidite;
+	previValeurTemp = data[data.size()-1].temperature+tendanceTemperature;
+	previValeurViteVent = data[data.size()-1].temperature+tendanceTemperature;
+	//on calcule la moyenne des pluie et de la direction du vent
+	moyennePluie = moyennePluie/(data.size());
+	moyenneDirection = moyenneDirection/(data.size());
+
+	if (previValeurAtmo>=1015) {
+		repPrevision="sol;";
+	}
+	else
+	{
+		repPrevision="Nuageux;";
+	}
+
+	repPrevision+=String(previValeurTemp);
+	repPrevision+=";";
+	repPrevision+=String(previValeurHumi);
+	repPrevision+=";";
+	repPrevision+=String(previValeurViteVent);
+	repPrevision+=";";
+	repPrevision+=String(moyenneDirection);
+	repPrevision+=";";
+	if (moyennePluie<0.5) {
+		repPrevision+="0";
+	}
+	else
+	{
+		repPrevision+="1";
+	}
+	repPrevision+=";";
+	repPrevision+=String(datadata[data.size()-1].donneeMeteo.jour ? 1 : 0);
+	repPrevision+="\n";
+
+    return repPrevision;
+}

@@ -9,7 +9,8 @@
 #include "TcpServer.h"
 MeteoParser::MeteoParser()
 {
-    this->recupDonnerMeteo = RecupDonnerMeteo::getInstance();
+	this->recDonner = RecupDonnerMeteo::getInstance();
+    this->previMeteo = new PrevisionMeteo();
 }
 void MeteoParser::Parse(char * buf, SOCKET sock)
 {
@@ -29,14 +30,14 @@ void MeteoParser::Parse(char * buf, SOCKET sock)
 }
 void MeteoParser::sendPrevisionMeteo(TcpServer * serv,SOCKET client)
 {
-	serv->sendMessage(client,"$ensoleill�;pluie=0;25");
+	serv->sendMessage(client,StringUtils::magicConvert(this->previMeteo->previsionMeteo()));
 }
 void MeteoParser::sendDonnerMeteo(TcpServer *serv,SOCKET client)
 {
 
 	//on simule nos capteur que l'on est sens� recuperer avec notre class RecupDonnerMeteo
 
-	tabDonnerCapteur donner = this->recupDonnerMeteo->getDonner();
+	tabDonnerCapteur donner = this->recDonner->getDonner();
 
 	String answer;
 
@@ -57,7 +58,7 @@ void MeteoParser::sendDonnerMeteo(TcpServer *serv,SOCKET client)
 	answer+= String(donner.pluie ? 1 : 0);
 	answer+=";";
 	answer+= String(donner.jour ? 1 : 0);
-    answer+="\n";
+	answer+="\n";
 	serv->sendMessage(client,StringUtils::magicConvert(answer));
 
 }

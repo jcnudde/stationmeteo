@@ -63,7 +63,6 @@ DWORD WINAPI RecupDonnerMeteo::ThreadRecupDonnee(LPVOID params)
 
     while(recupDonnerMeteo->boucleThread)
 	{
-        Sleep(60000);
         donneeMeteoThread.vitesseVent = recupDonnerMeteo->capteur.anemometre->readValue();
         donneeMeteoThread.direction = recupDonnerMeteo->capteur.girouette->readValue();
         donneeMeteoThread.pressionAtmospherique = recupDonnerMeteo->capteur.barometre->readValue();
@@ -78,6 +77,8 @@ DWORD WINAPI RecupDonnerMeteo::ThreadRecupDonnee(LPVOID params)
 
 		//attente classe sqlMeteoManager pour insert les donnée meteo
 		recupDonnerMeteo->mysql->InsertDonnerCapteur(donneeMeteoThread);
+
+		Sleep(60000);
 	}
 	return 0;
 }

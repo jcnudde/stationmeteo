@@ -6,7 +6,7 @@
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 
-Pluiviometre::Pluiviometre(double channel):Capteur(channel)
+Pluiviometre::Pluiviometre(int channel):Capteur(channel)
 {
 
 }

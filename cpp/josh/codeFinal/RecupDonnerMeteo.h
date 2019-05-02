@@ -25,7 +25,7 @@
 #include "Solarimetre.h"
 #include "Thermometre.h"
 #include <vector>
-
+#include "MysqlMeteoManager.h"
 #include "MeteoDataNotifier.h"
 #include "MeteoStructs.h"
 
@@ -47,6 +47,8 @@ class RecupDonnerMeteo
 		HANDLE Thread;
 		DWORD dwThreadIdArray;
 		bool boucleThread;
+		//Variable pour la bdd
+		MysqlMeteoManager *mysql;
 		//constructeur
 		RecupDonnerMeteo();
 		//destructeur

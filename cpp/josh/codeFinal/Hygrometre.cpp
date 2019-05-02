@@ -6,7 +6,7 @@
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 
-Hygrometre::Hygrometre(double channel):Capteur(channel)
+Hygrometre::Hygrometre(int channel):Capteur(channel)
 {
 
 }

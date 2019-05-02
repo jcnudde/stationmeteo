@@ -6,7 +6,7 @@
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 
-Capteur::Capteur(double channel)
+Capteur::Capteur(int channel)
 {
    this->carte=new Carte_9111(1);
    this->channel= channel;

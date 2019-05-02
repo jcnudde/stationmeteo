@@ -30,14 +30,7 @@ MysqlMeteoManager * MysqlMeteoManager::getInstance()
 	{
 		m_instance = new MysqlMeteoManager();
 		bdd = new Mysql();
-		if(m_instance->connect())
-		{
-            cout<<"nice"<<endl;
-		}
-		else
-		{
-			cout<<"null"<<endl;
-        }
+		m_instance->connect();
 
     }
     return m_instance;
@@ -47,15 +40,80 @@ MysqlMeteoManager * MysqlMeteoManager::getInstance()
 	m_instance = NULL;
 	bdd = NULL;
 
-}//connexion a la BDDbool MysqlMeteoManager::connect(){	if(bdd->connecte("127.0.0.1","root","","meteo"))
+}//connexion a la BDDbool MysqlMeteoManager::connect(){	if(bdd->connecte("192.168.65.66","admin","admin","meteo"))
 	{
 		return true;
 	}
 	else
 	{
 		return false;
-    }
-}// insertion en bddbool MysqlMeteoManager::InsertDonnerCapteur(tabDonnerCapteur donneeMeteo){     string direction;	 switch ((int)donneeMeteo.direction)      {
+	}
+}// insertion en bddbool MysqlMeteoManager::InsertDonnerCapteur(tabDonnerCapteur donneeMeteo){	 string direction = this->convertDegrPointCard((int)donneeMeteo.direction);	 // requete pour inserer données métèo	String requete = "INSERT INTO `meteo`.`donnees_meteo` (`vitesseVent`, `direction`, `pressionAtmospherique`, `temperature`, `humiditeRelative`, `luminosite`, `pluie`, `jour`, `surfaceDePluie`, `date`) VALUES (";
+
+	requete+=this->convertVirguPoint((int)donneeMeteo.vitesseVent*3.6);
+	requete+=",'";
+	requete+=String(convertDegrPointCard((int)donneeMeteo.direction).c_str());
+	requete+="',";
+	requete+=this->convertVirguPoint(donneeMeteo.pressionAtmospherique);
+	requete+=",";
+	requete+=this->convertVirguPoint(donneeMeteo.temperature);
+	requete+=",";
+	requete+= String((int)donneeMeteo.hummiditeRelative);
+	requete+=",";
+	requete+=String((int)donneeMeteo.luminosite);
+	requete+=",";
+	requete+= String(donneeMeteo.jour ? 1 : 0);
+	requete+=",";
+	requete+= String(donneeMeteo.pluie ? 1 : 0);
+    requete+=",";
+	requete+= String(donneeMeteo.surfaceDePluie);
+	requete+=",";
+	requete+="NOW());";
+
+	char * req = StringUtils::magicConvert(requete.c_str());
+
+
+	bool res = bdd->insert(req);
+    delete req;
+
+	return res;
+
+}// séléctionner les derniéres données en BDDvector<tabDonnerCapteur> MysqlMeteoManager::SelectLastDonnee(){	vector< vector<string> > resultRequete;	vector<tabDonnerCapteur> vectorDonnerCapteur;	string requete = "SELECT`vitesseVent`, `direction`, `pressionAtmospherique`, `temperature`, `humiditeRelative`, `luminosite`, `pluie`, `jour`, `surfaceDePluie`, `date` FROM `donnees_meteo` WHERE 1 ";	resultRequete=bdd->select(requete);	for (int i = 0; i <resultRequete.size(); i++)	{		tabDonnerCapteur * donnerCapteur = new tabDonnerCapteur;		for (int j = 0; j < resultRequete[i].size(); i++)
+		{
+			switch(j)
+			{
+				case 0:
+					donnerCapteur->vitesseVent= atof(resultRequete[i][j].c_str());
+				break;
+				case 1:
+					donnerCapteur->direction= atof(resultRequete[i][j].c_str());
+				break;
+				case 2:
+					donnerCapteur->pressionAtmospherique= atof(resultRequete[i][j].c_str());
+				break;
+				case 3:
+					donnerCapteur->temperature= atof(resultRequete[i][j].c_str());
+				break;
+				case 4:
+					donnerCapteur->hummiditeRelative= atof(resultRequete[i][j].c_str());
+				break;
+				case 5:
+					donnerCapteur->luminosite= atof(resultRequete[i][j].c_str());
+				break;
+				case 6:
+					donnerCapteur->pluie= atoi(resultRequete[i][j].c_str()) == 1;
+				break;
+				case 7:
+					donnerCapteur->jour= atoi(resultRequete[i][j].c_str()) == 1;
+				break;
+				case 8:
+					donnerCapteur->surfaceDePluie= atoi(resultRequete[i][j].c_str()) == 1;
+                break;
+			}
+		}
+		vectorDonnerCapteur.push_back(*donnerCapteur);
+		delete donnerCapteur;
+	}}string MysqlMeteoManager::convertDegrPointCard(int degree){    string direction;    switch (degree)	{
 		 case 360:
 			direction ="N";
 			break;
@@ -104,68 +162,20 @@ MysqlMeteoManager * MysqlMeteoManager::getInstance()
 		 case 22:
 			direction = "NNE";
 			break;
-	  }	 // requete pour inserer données métèo	String requete = "INSERT INTO `meteo`.`donnees_meteo` (`vitesseVent`, `direction`, `pressionAtmospherique`, `temperature`, `humiditeRelative`, `luminosite`, `pluie`, `jour`, `surfaceDePluie`, `date`) VALUES (";
+	  }	return direction;
+}String MysqlMeteoManager::convertVirguPoint(double valeur){	//on convertie en UNICODE String	String val = String(valeur);
+	//on convertie en char
+	char *vale = StringUtils::magicConvert(val);
+	//on recupere l'emplacement de la virgule
+	char *valeCouper = strchr(vale,',');
+	if(valeCouper != NULL)
+	{
+		int empl = valeCouper-vale;
+		//on change la , en . a l'emplacement
+		vale[empl]='.';
 
-	requete+=String(donneeMeteo.vitesseVent);
-	requete+=",";
-	requete+=String(donneeMeteo.direction);
-	requete+=",";
-	requete+=String(donneeMeteo.pressionAtmospherique);
-	requete+=",";
-	requete+=String(donneeMeteo.temperature);
-	requete+=",";
-	requete+= String(donneeMeteo.hummiditeRelative);
-	requete+=",";
-	requete+=String(donneeMeteo.luminosite);
-	requete+=",";
-	requete+= String(donneeMeteo.jour ? 1 : 0);
-	requete+=",";
-	requete+= String(donneeMeteo.pluie ? 1 : 0);
-    requete+=",";
-	requete+= String(donneeMeteo.surfaceDePluie);
-	requete+=",";
-	requete+="NOW());";
+		val=vale;
+	}
 
-	char * req = StringUtils::magicConvert(requete.c_str());
-
-	bool res = bdd->insert(req);
-    delete req;
-
-	return res;
-
-}// séléctionner les derniéres données en BDDvector<tabDonnerCapteur> MysqlMeteoManager::SelectLastDonnee(){	vector< vector<string> > resultRequete;	vector<tabDonnerCapteur> vectorDonnerCapteur;	string requete = "SELECT`vitesseVent`, `direction`, `pressionAtmospherique`, `temperature`, `humiditeRelative`, `luminosite`, `pluie`, `jour`, `surfaceDePluie`, `date` FROM `donnees_meteo` WHERE 1 ";	resultRequete=bdd->select(requete);	for (int i = 0; i <resultRequete.size(); i++)	{		tabDonnerCapteur * donnerCapteur = new tabDonnerCapteur;		for (int j = 0; j < resultRequete[i].size(); i++)
-		{
-			switch(j)
-			{
-				case 0:
-				donnerCapteur->vitesseVent= atof(resultRequete[i][j].c_str());
-				break;
-				case 1:
-				donnerCapteur->direction= atof(resultRequete[i][j].c_str());
-				break;
-				case 2:
-				donnerCapteur->pressionAtmospherique= atof(resultRequete[i][j].c_str());
-				break;
-				case 3:
-				donnerCapteur->temperature= atof(resultRequete[i][j].c_str());
-				break;
-				case 4:
-				donnerCapteur->hummiditeRelative= atof(resultRequete[i][j].c_str());
-				break;
-				case 5:
-				donnerCapteur->luminosite= atof(resultRequete[i][j].c_str());
-				break;
-				case 6:
-				donnerCapteur->pluie= atoi(resultRequete[i][j].c_str()) == 1;
-				break;
-				case 7:
-				donnerCapteur->jour= atoi(resultRequete[i][j].c_str()) == 1;
-				break;
-				case 8:
-				donnerCapteur->surfaceDePluie= atoi(resultRequete[i][j].c_str()) == 1;
-                break;
-			}
-		}
-		vectorDonnerCapteur.push_back(*donnerCapteur);
-		delete donnerCapteur;
-	}}
+    return val;
+}

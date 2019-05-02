@@ -6,7 +6,7 @@
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 
-CapteurPluie::CapteurPluie(double channel):Capteur(channel)
+CapteurPluie::CapteurPluie(int channel):Capteur(channel)
 {
 
 }

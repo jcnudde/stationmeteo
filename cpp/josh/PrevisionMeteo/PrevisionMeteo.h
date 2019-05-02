@@ -1,7 +1,8 @@
 #ifndef PREVISIONMETEO_H
 #define PREVISIONMETEO_H
 
-#include "../RecupDonner/RecupDonnerMeteo.h"
+#include "RecupDonnerMeteo.h"
+
 
 class PrevisonMeteo
 {
@@ -9,6 +10,7 @@ class PrevisonMeteo
         SqlMeteoManager* sqlMeteo;  
         RecupDonnerMeteo * donneeMeteo         
     public:
+        string previsionMeteo();
 };
 
 

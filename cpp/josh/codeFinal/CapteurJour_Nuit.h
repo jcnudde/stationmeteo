@@ -25,7 +25,7 @@ class CapteurJour_Nuit : public Capteur
 {
 
     public:
-        CapteurJour_Nuit(double channel);
+        CapteurJour_Nuit(int channel);
 		virtual double readValue();
 		string getUnit();
 

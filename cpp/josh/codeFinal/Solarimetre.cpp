@@ -6,7 +6,7 @@
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 
-Solarimetre::Solarimetre(double channel):Capteur(channel)
+Solarimetre::Solarimetre(int channel):Capteur(channel)
 {
 
 }

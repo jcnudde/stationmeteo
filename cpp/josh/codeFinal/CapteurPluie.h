@@ -24,7 +24,7 @@ class CapteurPluie : public Capteur
 {
 
     public:
-        CapteurPluie(double channel);
+        CapteurPluie(int channel);
 		double readValue();
 		string getUnit();
 

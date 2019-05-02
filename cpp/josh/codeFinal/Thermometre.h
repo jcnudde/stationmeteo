@@ -30,7 +30,7 @@ class Thermometre : public Capteur
 {
 
     public:
-		Thermometre(double channel);
+		Thermometre(int channel);
         double readValue();
 		string getUnit();
 };

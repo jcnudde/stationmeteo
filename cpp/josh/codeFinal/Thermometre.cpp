@@ -6,7 +6,7 @@
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 
-Thermometre::Thermometre(double channel):Capteur(channel)
+Thermometre::Thermometre(int channel):Capteur(channel)
 {
 
 }

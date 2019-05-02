@@ -6,7 +6,7 @@
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 
-Barometre::Barometre(double channel):Capteur(channel)
+Barometre::Barometre(int channel):Capteur(channel)
 {
 
 }

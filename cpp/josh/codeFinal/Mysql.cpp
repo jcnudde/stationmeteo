@@ -78,7 +78,6 @@ std::vector< std::vector<string> > Mysql::select(string requete)
 
 	mysql_query(this->mysql,requete.c_str());
 	res = mysql_store_result(this->mysql);
-	//resultatRequete.resize(mysql_num_rows(res)); //commenter selon Mr Gremont
 	nbColones =  mysql_num_fields(res);
 
 

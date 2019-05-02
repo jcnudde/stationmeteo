@@ -6,7 +6,7 @@
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 
-Anemometre::Anemometre(double channel):Capteur(channel)
+Anemometre::Anemometre(int channel):Capteur(channel)
 {
 
 }

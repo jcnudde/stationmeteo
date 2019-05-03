@@ -18,13 +18,16 @@ RecupDonnerMeteo::RecupDonnerMeteo()
 	this->capteur.hygrometre = new Hygrometre(4);
 	this->capteur.solarimetre = new Solarimetre(6);
 	this->capteur.capteur_JourNuit = new CapteurJour_Nuit(8);
-	this->capteur.capteurPluie = new CapteurPluie(0);
-    this->capteur.pluviometre = new Pluiviometre(5);
+	this->capteur.capteurPluie = new CapteurPluie(10);
+    this->capteur.pluviometre = new Pluiviometre(4);
 
 	//on demare la boucle infini du thread
 	this->boucleThread = true;
 
 	this->mutexNotifiers = CreateMutex(NULL, FALSE, NULL);
+
+	//on instancie notre objet mysql
+    this->mysql = MysqlMeteoManager::getInstance();
 
     //on crée notre thread et on lui envoie en paramettre notre objet this
 	this->Thread=CreateThread(
@@ -34,6 +37,8 @@ RecupDonnerMeteo::RecupDonnerMeteo()
 	this,
 	0,
 	&dwThreadIdArray);
+
+    this->boucleThread=true;
 }
 RecupDonnerMeteo::~RecupDonnerMeteo()
 {
@@ -52,12 +57,12 @@ RecupDonnerMeteo* RecupDonnerMeteo::getInstance()
 }
 DWORD WINAPI RecupDonnerMeteo::ThreadRecupDonnee(LPVOID params)
 {
-    RecupDonnerMeteo * recupDonnerMeteo = (RecupDonnerMeteo*) params;
+	RecupDonnerMeteo * recupDonnerMeteo = (RecupDonnerMeteo*) params;
 
-    while(true)
-    {
-        tabDonnerCapteur donneeMeteoThread;
+	tabDonnerCapteur donneeMeteoThread;
 
+    while(recupDonnerMeteo->boucleThread)
+	{
         donneeMeteoThread.vitesseVent = recupDonnerMeteo->capteur.anemometre->readValue();
         donneeMeteoThread.direction = recupDonnerMeteo->capteur.girouette->readValue();
         donneeMeteoThread.pressionAtmospherique = recupDonnerMeteo->capteur.barometre->readValue();
@@ -70,7 +75,11 @@ DWORD WINAPI RecupDonnerMeteo::ThreadRecupDonnee(LPVOID params)
 
         recupDonnerMeteo->notifyData(donneeMeteoThread);
 
-		//attente classe sqlMeteoManager pour insert les donnée meteo
+		if (true) {
+			//on insert les donnée
+			recupDonnerMeteo->mysql->InsertDonnerCapteur(donneeMeteoThread);
+		}
+
 	}
 	return 0;
 }

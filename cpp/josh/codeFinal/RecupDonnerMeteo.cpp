@@ -57,11 +57,22 @@ RecupDonnerMeteo* RecupDonnerMeteo::getInstance()
 }
 DWORD WINAPI RecupDonnerMeteo::ThreadRecupDonnee(LPVOID params)
 {
+	//on recaste notre parametre en objet RecupDonnerMeteo
 	RecupDonnerMeteo * recupDonnerMeteo = (RecupDonnerMeteo*) params;
 
+	//on declare nos variable pour créer notre timer
+	time_t secondes;
+	struct tm instant[2];
+
+	//on recupere une premiere fois la date
+	time(&secondes);
+	instant[0]=*localtime(&secondes);
+
+	//on declare notre structure qui va contenir les donnée météo
 	tabDonnerCapteur donneeMeteoThread;
 
-    while(recupDonnerMeteo->boucleThread)
+	//la boucle tourne tant que  boucleThread vaut true
+	while(recupDonnerMeteo->boucleThread)
 	{
         donneeMeteoThread.vitesseVent = recupDonnerMeteo->capteur.anemometre->readValue();
         donneeMeteoThread.direction = recupDonnerMeteo->capteur.girouette->readValue();
@@ -73,12 +84,20 @@ DWORD WINAPI RecupDonnerMeteo::ThreadRecupDonnee(LPVOID params)
         donneeMeteoThread.pluie = recupDonnerMeteo->capteur.capteurPluie->readValue();
 		donneeMeteoThread.surfaceDePluie = recupDonnerMeteo->capteur.pluviometre->readValue();
 
+		//on envoie les donnée pour les partager au thread de l'ihm
         recupDonnerMeteo->notifyData(donneeMeteoThread);
 
-		//attente classe sqlMeteoManager pour insert les donnée meteo
-		recupDonnerMeteo->mysql->InsertDonnerCapteur(donneeMeteoThread);
+		//on recupere la date
+		time(&secondes);
+		instant[1]=*localtime(&secondes);
 
-		Sleep(60000);
+        //on teste si 1 min c'est écouler
+		if ((instant[1].tm_min-instant[0].tm_min)>=1) {
+			//on insert les donnée
+			recupDonnerMeteo->mysql->InsertDonnerCapteur(donneeMeteoThread);
+			time(&secondes);
+			instant[0]=*localtime(&secondes);
+		}
 	}
 	return 0;
 }

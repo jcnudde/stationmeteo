@@ -28,7 +28,6 @@
 #include "MysqlMeteoManager.h"
 #include "MeteoDataNotifier.h"
 #include "MeteoStructs.h"
-#include <time.h>
 
 using namespace std;
 

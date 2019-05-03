@@ -52,7 +52,7 @@ MysqlMeteoManager * MysqlMeteoManager::getInstance()
 
 	requete+=this->convertVirguPoint((int)donneeMeteo.vitesseVent*3.6);
 	requete+=",'";
-	requete+=String(convertDegrPointCard((int)donneeMeteo.direction).c_str());
+	requete+=this->convertVirguPoint((int)donneeMeteo.direction);
 	requete+="',";
 	requete+=this->convertVirguPoint(donneeMeteo.pressionAtmospherique);
 	requete+=",";

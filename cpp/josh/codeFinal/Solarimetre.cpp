@@ -14,8 +14,8 @@ Solarimetre::Solarimetre(int channel):Capteur(channel)
 double Solarimetre::readValue()
 {
 	this->PhysicalValue=this->carte->readVoltage(this->channel);
-	//Muliplie la valeur par 1000
-	this->PhysicalValue*=1000;
+	//Muliplie la valeur par 10000
+	this->PhysicalValue*=10000;
 
 	return this->PhysicalValue;
 }

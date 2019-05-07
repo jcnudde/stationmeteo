@@ -25,6 +25,7 @@ RecupDonnerMeteo::RecupDonnerMeteo()
 	this->boucleThread = true;
 
 	this->mutexNotifiers = CreateMutex(NULL, FALSE, NULL);
+	this->mutexCapteurs = CreateMutex(NULL, FALSE, NULL);
 
 	//on instancie notre objet mysql
     this->mysql = MysqlMeteoManager::getInstance();
@@ -74,7 +75,8 @@ DWORD WINAPI RecupDonnerMeteo::ThreadRecupDonnee(LPVOID params)
 	//la boucle tourne tant que  boucleThread vaut true
 	while(recupDonnerMeteo->boucleThread)
 	{
-        donneeMeteoThread.vitesseVent = recupDonnerMeteo->capteur.anemometre->readValue();
+		recupDonnerMeteo->lockCapteurs();
+		donneeMeteoThread.vitesseVent = recupDonnerMeteo->capteur.anemometre->readValue();
         donneeMeteoThread.direction = recupDonnerMeteo->capteur.girouette->readValue();
         donneeMeteoThread.pressionAtmospherique = recupDonnerMeteo->capteur.barometre->readValue();
 		donneeMeteoThread.temperature = recupDonnerMeteo->capteur.thermometre->readValue();
@@ -83,17 +85,18 @@ DWORD WINAPI RecupDonnerMeteo::ThreadRecupDonnee(LPVOID params)
         donneeMeteoThread.jour = recupDonnerMeteo->capteur.capteur_JourNuit->readValue();
         donneeMeteoThread.pluie = recupDonnerMeteo->capteur.capteurPluie->readValue();
 		donneeMeteoThread.surfaceDePluie = recupDonnerMeteo->capteur.pluviometre->readValue();
+        recupDonnerMeteo->unlockCapteurs();
 
 		//on envoie les donnée pour les partager au thread de l'ihm
-        recupDonnerMeteo->notifyData(donneeMeteoThread);
+		recupDonnerMeteo->notifyData(donneeMeteoThread);
 
 		//on recupere la date
 		time(&secondes);
 		instant[1]=*localtime(&secondes);
 
-        //on teste si 1 min c'est écouler
+		//on teste si 1 min c'est écouler
 		if ((instant[1].tm_min-instant[0].tm_min)>=1) {
-			//on insert les donnée
+			//on insert les données
 			recupDonnerMeteo->mysql->InsertDonnerCapteur(donneeMeteoThread);
 			time(&secondes);
 			instant[0]=*localtime(&secondes);
@@ -105,6 +108,7 @@ tabDonnerCapteur RecupDonnerMeteo::getDonner()
 {
     tabDonnerCapteur donneeMeteo;
 
+	lockCapteurs();
 	donneeMeteo.vitesseVent = capteur.anemometre->readValue();
     donneeMeteo.direction = capteur.girouette->readValue();
 	donneeMeteo.pressionAtmospherique = capteur.barometre->readValue();
@@ -115,18 +119,29 @@ tabDonnerCapteur RecupDonnerMeteo::getDonner()
 	donneeMeteo.jour = capteur.capteur_JourNuit->readValue();
 	donneeMeteo.pluie = capteur.capteurPluie->readValue();
     donneeMeteo.surfaceDePluie = capteur.pluviometre->readValue();
+	unlockCapteurs();
 
     return donneeMeteo;
 }
 
 void RecupDonnerMeteo::lockNotifier()
 {
-    WaitForSingleObject(mutexNotifiers, INFINITE);
+	WaitForSingleObject(mutexNotifiers, INFINITE);
 }
 
 void RecupDonnerMeteo::unlockNotifier()
 {
 	ReleaseMutex(mutexNotifiers);
+}
+
+void RecupDonnerMeteo::lockCapteurs()
+{
+	WaitForSingleObject(mutexCapteurs, INFINITE);
+}
+
+void RecupDonnerMeteo::unlockCapteurs()
+{
+    ReleaseMutex(mutexCapteurs);
 }
 
 void RecupDonnerMeteo::notifyData(tabDonnerCapteur data)

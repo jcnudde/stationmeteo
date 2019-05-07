@@ -30,7 +30,14 @@ void MeteoParser::Parse(char * buf, SOCKET sock)
 }
 void MeteoParser::sendPrevisionMeteo(TcpServer * serv,SOCKET client)
 {
-	serv->sendMessage(client,StringUtils::magicConvert(this->previMeteo->previsionMeteo()));
+
+	wchar_t * tmp;
+	tmp = this->previMeteo->previsionMeteo().w_str();
+	int len = wcslen(tmp);
+	char * rep = new char[len+1];
+	wcstombs(rep, tmp, len);
+
+	serv->sendMessage(client,rep);
 }
 void MeteoParser::sendDonnerMeteo(TcpServer *serv,SOCKET client)
 {

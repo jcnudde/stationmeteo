@@ -75,8 +75,6 @@ String PrevisionMeteo::previsionMeteo()
 	{
 		repPrevision+="1";
 	}
-	repPrevision+=";";
-	repPrevision+=String(data[data.size()-1].jour ? 1 : 0);
 	repPrevision+="\n";
 
     return repPrevision;

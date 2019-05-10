@@ -66,7 +66,7 @@ String PrevisionMeteo::previsionMeteo()
 	repPrevision+=";";
 	repPrevision+=String(previValeurViteVent);
 	repPrevision+=";";
-	repPrevision+=String(moyenneDirection);
+	repPrevision+=String((int)moyenneDirection);
 	repPrevision+=";";
 	if (moyennePluie<0.5) {
 		repPrevision+="0";

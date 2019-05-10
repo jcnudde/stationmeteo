@@ -50,7 +50,7 @@ MysqlMeteoManager * MysqlMeteoManager::getInstance()
 	}
 }// insertion en bddbool MysqlMeteoManager::InsertDonnerCapteur(tabDonnerCapteur donneeMeteo){	 string direction = this->convertDegrPointCard((int)donneeMeteo.direction);	 // requete pour inserer données métèo	String requete = "INSERT INTO `meteo`.`donnees_meteo` (`vitesseVent`, `direction`, `pressionAtmospherique`, `temperature`, `humiditeRelative`, `luminosite`, `pluie`, `jour`, `surfaceDePluie`, `date`) VALUES (";
 
-	requete+=this->convertVirguPoint((int)donneeMeteo.vitesseVent*3.6);
+	requete+=this->convertVirguPoint((int)donneeMeteo.vitesseVent);
 	requete+=",'";
 	requete+=this->convertVirguPoint((int)donneeMeteo.direction);
 	requete+="',";

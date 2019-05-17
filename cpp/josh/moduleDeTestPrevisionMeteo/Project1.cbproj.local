@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+  <Transactions>
+    <Transaction>2019/05/17 14:45:24.747,=C:\Users\Admin\Documents\Embarcadero\Studio\Projets\Project1PCH1.h</Transaction>
+    <Transaction>2019/05/17 14:45:24.767,=C:\Users\Admin\Documents\Embarcadero\Studio\Projets\Unit1.cpp</Transaction>
+    <Transaction>2019/05/17 14:45:39.382,C:\Users\Admin\Documents\Embarcadero\Studio\Projets\ihm.cpp=C:\Users\Admin\Documents\Embarcadero\Studio\Projets\Unit1.cpp</Transaction>
+    <Transaction>2019/05/17 14:45:39.382,C:\Users\Admin\Documents\Embarcadero\Studio\Projets\ihm.dfm=C:\Users\Admin\Documents\Embarcadero\Studio\Projets\Unit1.dfm</Transaction>
+    <Transaction>2019/05/17 14:45:39.382,C:\Users\Admin\Documents\Embarcadero\Studio\Projets\ihm.h=C:\Users\Admin\Documents\Embarcadero\Studio\Projets\Unit1.h</Transaction>
+    <Transaction>2019/05/17 14:47:27.904,C:\Users\Admin\Documents\GitHub\stationmeteo\cpp\josh\moduleDeTestPrevisionMeteo\ihm.h=C:\Users\Admin\Documents\Embarcadero\Studio\Projets\ihm.h</Transaction>
+    <Transaction>2019/05/17 14:47:27.904,C:\Users\Admin\Documents\GitHub\stationmeteo\cpp\josh\moduleDeTestPrevisionMeteo\ihm.dfm=C:\Users\Admin\Documents\Embarcadero\Studio\Projets\ihm.dfm</Transaction>
+    <Transaction>2019/05/17 14:47:27.904,C:\Users\Admin\Documents\GitHub\stationmeteo\cpp\josh\moduleDeTestPrevisionMeteo\ihm.cpp=C:\Users\Admin\Documents\Embarcadero\Studio\Projets\ihm.cpp</Transaction>
+    <Transaction>2019/05/17 14:47:32.662,C:\Users\Admin\Documents\GitHub\stationmeteo\cpp\josh\moduleDeTestPrevisionMeteo\Project1PCH1.h=C:\Users\Admin\Documents\Embarcadero\Studio\Projets\Project1PCH1.h</Transaction>
+    <Transaction>2019/05/17 14:47:33.698,C:\Users\Admin\Documents\GitHub\stationmeteo\cpp\josh\moduleDeTestPrevisionMeteo\Project1.cbproj=C:\Users\Admin\Documents\Embarcadero\Studio\Projets\Project1.cbproj</Transaction>
+    <Transaction>2019/05/17 14:50:05.186,=C:\Users\Admin\Documents\GitHub\stationmeteo\cpp\josh\moduleDeTestPrevisionMeteo\Mysql.cpp</Transaction>
+    <Transaction>2019/05/17 14:50:05.195,=C:\Users\Admin\Documents\GitHub\stationmeteo\cpp\josh\moduleDeTestPrevisionMeteo\MysqlMeteoManager.cpp</Transaction>
+    <Transaction>2019/05/17 14:50:05.203,=C:\Users\Admin\Documents\GitHub\stationmeteo\cpp\josh\moduleDeTestPrevisionMeteo\PrevisionMeteo.cpp</Transaction>
+    <Transaction>2019/05/17 14:50:40.102,=C:\Users\Admin\Documents\GitHub\stationmeteo\cpp\josh\moduleDeTestPrevisionMeteo\Bdd.cpp</Transaction>
+    <Transaction>2019/05/17 14:51:39.991,=C:\Users\Admin\Documents\GitHub\stationmeteo\cpp\josh\moduleDeTestPrevisionMeteo\libmysql.lib</Transaction>
+    <Transaction>2019/05/17 14:57:17.402,=C:\Users\Admin\Documents\GitHub\stationmeteo\cpp\josh\moduleDeTestPrevisionMeteo\StringUtils.cpp</Transaction>
+  </Transactions>
+</BorlandProject>

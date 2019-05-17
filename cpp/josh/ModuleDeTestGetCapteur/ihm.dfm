@@ -146,9 +146,9 @@ object Form1: TForm1
   object Label11: TLabel
     Left = 20
     Top = 516
-    Width = 161
+    Width = 179
     Height = 40
-    Caption = 'Pluivimetre'
+    Caption = 'Pluiviometre'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -33

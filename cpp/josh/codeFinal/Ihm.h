@@ -36,6 +36,7 @@ private:	// Déclarations utilisateur
 	MeteoDataNotifier *dataNotifier;
 public:		// Déclarations utilisateur
 	__fastcall TForm2(TComponent* Owner);
+	string convertDegrPointCard(int degree);
 };
 //---------------------------------------------------------------------------
 extern PACKAGE TForm2 *Form2;

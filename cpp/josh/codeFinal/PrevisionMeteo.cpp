@@ -30,8 +30,7 @@ String PrevisionMeteo::previsionMeteo()
 	//on récupére en + les derniéres veleurs à l'instant t
 	data.push_back(this->recDonneeMeteo->getDonner());
 
-	int t = data.size();
-	for (int i = 1; i < data.size(); i++) {
+for (int i = 1; i < data.size(); i++) {
 		//on calcule les tendances Atmosphérique,Humidité, vitesse des vents et Température
 		tendanceAtmospherique+=(data[i].pressionAtmospherique-data[i-1].pressionAtmospherique);
 		tendanceHumidite+=(data[i].hummiditeRelative-data[i-1].hummiditeRelative);
@@ -41,13 +40,13 @@ String PrevisionMeteo::previsionMeteo()
 		moyennePluie+=data[i].pluie;
 		moyenneDirection+=data[i].direction;
 	}
-
+	int t = data[data.size()-1].hummiditeRelative;
 	//prevision des valeur avenir pour la Pression Atmosphérique,L'Humidité,
 	//la vitesse du vent et la Température
 	previValeurAtmo = data[data.size()-1].pressionAtmospherique+tendanceAtmospherique;
 	previValeurHumi = data[data.size()-1].hummiditeRelative+tendanceHumidite;
 	previValeurTemp = data[data.size()-1].temperature+tendanceTemperature;
-	previValeurViteVent = data[data.size()-1].temperature+tendanceTemperature;
+	previValeurViteVent = data[data.size()-1].vitesseVent+tendanceViteVent;
 	//on calcule la moyenne des pluie et de la direction du vent
 	moyennePluie = moyennePluie/(data.size());
 	moyenneDirection = moyenneDirection/(data.size());
@@ -57,16 +56,35 @@ String PrevisionMeteo::previsionMeteo()
 	}
 	else
 	{
-		repPrevision="Nua;";
+		if(moyennePluie> 0.7)
+		{
+            repPrevision="Aver;";
+		}
+		else
+		{
+			repPrevision="Nua;";
+        }
 	}
 
 	repPrevision+=String(previValeurTemp);
 	repPrevision+=";";
-	repPrevision+=String(previValeurHumi);
+	if (previValeurHumi <0){
+		repPrevision+=String(0);
+	}
+	else
+	{
+		repPrevision+=String(previValeurHumi);
+	}
 	repPrevision+=";";
-	repPrevision+=String(previValeurViteVent);
+	if (previValeurViteVent <0){
+        repPrevision+=String(0);
+	}
+	else
+	{
+		repPrevision+=String(previValeurViteVent);
+	}
 	repPrevision+=";";
-	repPrevision+=String((int)moyenneDirection);
+	repPrevision+=moyenneDirectionToDirection(moyenneDirection);
 	repPrevision+=";";
 	if (moyennePluie<0.5) {
 		repPrevision+="0";
@@ -78,4 +96,78 @@ String PrevisionMeteo::previsionMeteo()
 	repPrevision+="\n";
 
     return repPrevision;
+}
+String PrevisionMeteo::moyenneDirectionToDirection(double moyenneDirection)
+{
+	String direction;
+
+	if(moyenneDirection<=360 && moyenneDirection>348.5)
+	{
+		direction = "N";
+	}
+	if(moyenneDirection<=348.5 && moyenneDirection>326)
+	{
+		direction = "NNO";
+	}
+	if(moyenneDirection<=326 && moyenneDirection>303.5)
+	{
+		direction = "NO";
+	}
+	if(moyenneDirection<=303.5 && moyenneDirection>281)
+	{
+		direction = "ONO";
+	}
+	if(moyenneDirection<=281 && moyenneDirection>258.5)
+	{
+		direction = "O";
+	}
+	if(moyenneDirection<=258.5 && moyenneDirection>236)
+	{
+		direction = "OSO";
+	}
+	if(moyenneDirection<=236 && moyenneDirection>213.5)
+	{
+		direction = "SO";
+	}
+	if(moyenneDirection<=213.5 && moyenneDirection>191)
+	{
+		direction = "SSO";
+	}
+	if(moyenneDirection<=191 && moyenneDirection>168.5)
+	{
+		direction = "S";
+	}
+	if(moyenneDirection<=168.5 && moyenneDirection>146)
+	{
+		direction = "SSE";
+	}
+	if(moyenneDirection<=146 && moyenneDirection>123.5)
+	{
+		direction = "SE";
+	}
+	if(moyenneDirection<=123.5 && moyenneDirection>101)
+	{
+		direction = "ESE";
+	}
+	if(moyenneDirection<=101 && moyenneDirection>78.5)
+	{
+		direction = "E";
+	}
+	if(moyenneDirection<=78.5 && moyenneDirection>56)
+	{
+		direction = "ENE";
+	}
+	if(moyenneDirection<=56 && moyenneDirection>33.5)
+	{
+		direction = "NE";
+	}
+	if(moyenneDirection<=33.5 && moyenneDirection>11)
+	{
+		direction = "NNE";
+	}
+	if(moyenneDirection<=11 && moyenneDirection>0)
+	{
+		direction = "N";
+	}
+	return direction;
 }

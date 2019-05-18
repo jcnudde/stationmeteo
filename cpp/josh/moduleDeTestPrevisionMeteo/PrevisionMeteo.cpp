@@ -19,9 +19,11 @@ String PrevisionMeteo::previsionMeteo()
 	int tendanceHumidite=0;
 	int tendanceTemperature=0;
 	int tendanceViteVent=0;
+	int tendanceLux=0;
 	int previValeurAtmo=0;
 	int previValeurHumi=0;
 	int previValeurTemp=0;
+    int previValeurLux=0;
 	int previValeurViteVent=0;
 	float moyennePluie=0;
 	float moyenneDirection=0;
@@ -34,6 +36,7 @@ String PrevisionMeteo::previsionMeteo()
 		tendanceHumidite+=(data[i].hummiditeRelative-data[i-1].hummiditeRelative);
 		tendanceTemperature+=(data[i].temperature-data[i-1].temperature);
 		tendanceViteVent+=(data[i].vitesseVent-data[i-1].vitesseVent);
+		tendanceLux+=(data[i].luminosite-data[i-1].luminosite);
 		//on fait la sommes des pluie et de la direction du vent
 		moyennePluie+=data[i].pluie;
 		moyenneDirection+=data[i].direction;
@@ -41,6 +44,7 @@ String PrevisionMeteo::previsionMeteo()
 
 	//prevision des valeur avenir pour la Pression Atmosphérique,L'Humidité,
 	//la vitesse du vent et la Température
+	previValeurViteVent =  data[data.size()-1].luminosite+tendanceLux;
 	previValeurAtmo = data[data.size()-1].pressionAtmospherique+tendanceAtmospherique;
 	previValeurHumi = data[data.size()-1].hummiditeRelative+tendanceHumidite;
 	previValeurTemp = data[data.size()-1].temperature+tendanceTemperature;
@@ -54,7 +58,14 @@ String PrevisionMeteo::previsionMeteo()
 	}
 	else
 	{
-		repPrevision="Nua;";
+		if(data[data.size()-1].pluie)
+		{
+            repPrevision="Aver;";
+		}
+		else
+		{
+			repPrevision="Nua;";
+        }
 	}
 
 	repPrevision+=String(previValeurTemp);
@@ -75,4 +86,44 @@ String PrevisionMeteo::previsionMeteo()
 	repPrevision+="\n";
 
     return repPrevision;
+}
+String PrevisionMeteo::moyenneDirectionToDirection(double moyenneDirect)
+{
+	String direction;
+
+	if(moyenneDirect<=360 && moyenneDirect>348.5)
+	{
+		direction = "N";
+	}
+	if(moyenneDirect<=348.5 && moyenneDirect>326)
+	{
+		direction = "NNO";
+	}
+	if(moyenneDirect<=326 && moyenneDirect>303.5)
+	{
+		direction = "NO";
+	}
+	if(moyenneDirect<=303.5 && moyenneDirect>281)
+	{
+		direction = "ONO";
+	}
+	if(moyenneDirect<=281 && moyenneDirect>258.5)
+	{
+		direction = "O";
+	}
+	if(moyenneDirect<=258.5 && moyenneDirect>236)
+	{
+		direction = "OSO";
+	}
+	if(moyenneDirect<=236 && moyenneDirect>213.5)
+	{
+		direction = "SO";
+	}
+	if(moyenneDirect<=213.5 && moyenneDirect>191)
+	{
+		direction = "SSO";
+	}
+
+
+	return direction;
 }

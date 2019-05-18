@@ -15,8 +15,8 @@ __fastcall TForm1::TForm1(TComponent* Owner)
 	this->ObjPrevi = new PrevisionMeteo();
 }
 //---------------------------------------------------------------------------
-void __fastcall TForm1::Button1Click(TObject *Sender)
+void __fastcall TForm1::ButtonObtenPreviClick(TObject *Sender)
 {
-	this->Label1->Caption = this->ObjPrevi->previsionMeteo();
+	this->LabelAfficheProtocolePrevi->Caption = this->ObjPrevi->previsionMeteo();
 }
 //---------------------------------------------------------------------------

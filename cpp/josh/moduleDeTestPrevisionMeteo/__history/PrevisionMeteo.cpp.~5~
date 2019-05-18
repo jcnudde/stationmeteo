@@ -9,7 +9,6 @@
 PrevisionMeteo::PrevisionMeteo()
 {
 	this->sqlMeteo = MysqlMeteoManager::getInstance();
-	this->recDonneeMeteo = RecupDonnerMeteo::getInstance();
 }
 String PrevisionMeteo::previsionMeteo()
 {
@@ -20,15 +19,15 @@ String PrevisionMeteo::previsionMeteo()
 	int tendanceHumidite=0;
 	int tendanceTemperature=0;
 	int tendanceViteVent=0;
+	int tendanceLux=0;
 	int previValeurAtmo=0;
 	int previValeurHumi=0;
 	int previValeurTemp=0;
+    int previValeurLux=0;
 	int previValeurViteVent=0;
 	float moyennePluie=0;
 	float moyenneDirection=0;
 
-	//on récupére en + les derniéres veleurs à l'instant t
-	data.push_back(this->recDonneeMeteo->getDonner());
 
 	int t = data.size();
 	for (int i = 1; i < data.size(); i++) {
@@ -37,6 +36,7 @@ String PrevisionMeteo::previsionMeteo()
 		tendanceHumidite+=(data[i].hummiditeRelative-data[i-1].hummiditeRelative);
 		tendanceTemperature+=(data[i].temperature-data[i-1].temperature);
 		tendanceViteVent+=(data[i].vitesseVent-data[i-1].vitesseVent);
+		tendanceLux+=(data[i].luminosite-data[i-1].luminosite);
 		//on fait la sommes des pluie et de la direction du vent
 		moyennePluie+=data[i].pluie;
 		moyenneDirection+=data[i].direction;

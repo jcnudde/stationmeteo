@@ -2,8 +2,8 @@ object Form1: TForm1
   Left = 0
   Top = 0
   Caption = 'ModuledeTestPrevision'
-  ClientHeight = 356
-  ClientWidth = 681
+  ClientHeight = 211
+  ClientWidth = 514
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -13,20 +13,31 @@ object Form1: TForm1
   OldCreateOrder = False
   PixelsPerInch = 96
   TextHeight = 13
-  object Label1: TLabel
-    Left = 56
-    Top = 136
-    Width = 345
-    Height = 49
-    Caption = 'Label1'
+  object LabelAfficheProtocolePrevi: TLabel
+    Left = 8
+    Top = 88
+    Width = 225
+    Height = 19
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
   end
-  object Button1: TButton
-    Left = 456
-    Top = 152
-    Width = 75
-    Height = 25
-    Caption = 'Button1'
+  object ButtonObtenPrevi: TButton
+    Left = 304
+    Top = 72
+    Width = 193
+    Height = 57
+    Caption = 'Obtenir la prevision la m'#233'teo '
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
     TabOrder = 0
-    OnClick = Button1Click
+    OnClick = ButtonObtenPreviClick
   end
 end

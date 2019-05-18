@@ -19,36 +19,31 @@ String PrevisionMeteo::previsionMeteo()
 	int tendanceHumidite=0;
 	int tendanceTemperature=0;
 	int tendanceViteVent=0;
-	int tendanceLux=0;
 	int previValeurAtmo=0;
 	int previValeurHumi=0;
 	int previValeurTemp=0;
-    int previValeurLux=0;
 	int previValeurViteVent=0;
 	float moyennePluie=0;
 	float moyenneDirection=0;
 
 
-	int t = data.size();
 	for (int i = 1; i < data.size(); i++) {
 		//on calcule les tendances Atmosphérique,Humidité, vitesse des vents et Température
 		tendanceAtmospherique+=(data[i].pressionAtmospherique-data[i-1].pressionAtmospherique);
 		tendanceHumidite+=(data[i].hummiditeRelative-data[i-1].hummiditeRelative);
 		tendanceTemperature+=(data[i].temperature-data[i-1].temperature);
 		tendanceViteVent+=(data[i].vitesseVent-data[i-1].vitesseVent);
-		tendanceLux+=(data[i].luminosite-data[i-1].luminosite);
 		//on fait la sommes des pluie et de la direction du vent
 		moyennePluie+=data[i].pluie;
 		moyenneDirection+=data[i].direction;
 	}
-
+	int t = data[data.size()-1].hummiditeRelative;
 	//prevision des valeur avenir pour la Pression Atmosphérique,L'Humidité,
 	//la vitesse du vent et la Température
-	previValeurViteVent =  data[data.size()-1].luminosite+tendanceLux;
 	previValeurAtmo = data[data.size()-1].pressionAtmospherique+tendanceAtmospherique;
 	previValeurHumi = data[data.size()-1].hummiditeRelative+tendanceHumidite;
 	previValeurTemp = data[data.size()-1].temperature+tendanceTemperature;
-	previValeurViteVent = data[data.size()-1].temperature+tendanceTemperature;
+	previValeurViteVent = data[data.size()-1].vitesseVent+tendanceViteVent;
 	//on calcule la moyenne des pluie et de la direction du vent
 	moyennePluie = moyennePluie/(data.size());
 	moyenneDirection = moyenneDirection/(data.size());
@@ -58,7 +53,7 @@ String PrevisionMeteo::previsionMeteo()
 	}
 	else
 	{
-		if(data[data.size()-1].pluie)
+		if(moyennePluie> 0.7)
 		{
             repPrevision="Aver;";
 		}
@@ -70,11 +65,23 @@ String PrevisionMeteo::previsionMeteo()
 
 	repPrevision+=String(previValeurTemp);
 	repPrevision+=";";
-	repPrevision+=String(previValeurHumi);
+	if (previValeurHumi <0){
+		repPrevision+=String(0);
+	}
+	else
+	{
+		repPrevision+=String(previValeurHumi);
+	}
 	repPrevision+=";";
-	repPrevision+=String(previValeurViteVent);
+	if (previValeurViteVent <0){
+        repPrevision+=String(0);
+	}
+	else
+	{
+		repPrevision+=String(previValeurViteVent);
+	}
 	repPrevision+=";";
-	repPrevision+=String((int)moyenneDirection);
+	repPrevision+=moyenneDirectionToDirection(moyenneDirection);
 	repPrevision+=";";
 	if (moyennePluie<0.5) {
 		repPrevision+="0";
@@ -87,43 +94,77 @@ String PrevisionMeteo::previsionMeteo()
 
     return repPrevision;
 }
-String PrevisionMeteo::moyenneDirectionToDirection(double moyenneDirect)
+String PrevisionMeteo::moyenneDirectionToDirection(double moyenneDirection)
 {
 	String direction;
 
-	if(moyenneDirect<=360 && moyenneDirect>348.5)
+	if(moyenneDirection<=360 && moyenneDirection>348.5)
 	{
 		direction = "N";
 	}
-	if(moyenneDirect<=348.5 && moyenneDirect>326)
+	if(moyenneDirection<=348.5 && moyenneDirection>326)
 	{
 		direction = "NNO";
 	}
-	if(moyenneDirect<=326 && moyenneDirect>303.5)
+	if(moyenneDirection<=326 && moyenneDirection>303.5)
 	{
 		direction = "NO";
 	}
-	if(moyenneDirect<=303.5 && moyenneDirect>281)
+	if(moyenneDirection<=303.5 && moyenneDirection>281)
 	{
 		direction = "ONO";
 	}
-	if(moyenneDirect<=281 && moyenneDirect>258.5)
+	if(moyenneDirection<=281 && moyenneDirection>258.5)
 	{
 		direction = "O";
 	}
-	if(moyenneDirect<=258.5 && moyenneDirect>236)
+	if(moyenneDirection<=258.5 && moyenneDirection>236)
 	{
 		direction = "OSO";
 	}
-	if(moyenneDirect<=236 && moyenneDirect>213.5)
+	if(moyenneDirection<=236 && moyenneDirection>213.5)
 	{
 		direction = "SO";
 	}
-	if(moyenneDirect<=213.5 && moyenneDirect>191)
+	if(moyenneDirection<=213.5 && moyenneDirection>191)
 	{
 		direction = "SSO";
 	}
-
-
+	if(moyenneDirection<=191 && moyenneDirection>168.5)
+	{
+		direction = "S";
+	}
+	if(moyenneDirection<=168.5 && moyenneDirection>146)
+	{
+		direction = "SSE";
+	}
+	if(moyenneDirection<=146 && moyenneDirection>123.5)
+	{
+		direction = "SE";
+	}
+	if(moyenneDirection<=123.5 && moyenneDirection>101)
+	{
+		direction = "ESE";
+	}
+	if(moyenneDirection<=101 && moyenneDirection>78.5)
+	{
+		direction = "E";
+	}
+	if(moyenneDirection<=78.5 && moyenneDirection>56)
+	{
+		direction = "ENE";
+	}
+	if(moyenneDirection<=56 && moyenneDirection>33.5)
+	{
+		direction = "NE";
+	}
+	if(moyenneDirection<=33.5 && moyenneDirection>11)
+	{
+		direction = "NNE";
+	}
+	if(moyenneDirection<=11 && moyenneDirection>0)
+	{
+		direction = "N";
+	}
 	return direction;
 }

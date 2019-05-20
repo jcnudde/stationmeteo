@@ -2,8 +2,8 @@ object Form1: TForm1
   Left = 0
   Top = 0
   Caption = 'ModuledeTestPrevision'
-  ClientHeight = 211
-  ClientWidth = 514
+  ClientHeight = 253
+  ClientWidth = 559
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -15,8 +15,8 @@ object Form1: TForm1
   TextHeight = 13
   object LabelAfficheProtocolePrevi: TLabel
     Left = 8
-    Top = 88
-    Width = 225
+    Top = 160
+    Width = 299
     Height = 19
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
@@ -25,12 +25,12 @@ object Form1: TForm1
     Font.Style = []
     ParentFont = False
   end
-  object ButtonObtenPrevi: TButton
-    Left = 304
-    Top = 72
+  object ButtonAffichPrevi: TButton
+    Left = 344
+    Top = 144
     Width = 193
     Height = 57
-    Caption = 'Obtenir la prevision la m'#233'teo '
+    Caption = 'Afficher la pr'#233'vison'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -13
@@ -38,6 +38,47 @@ object Form1: TForm1
     Font.Style = []
     ParentFont = False
     TabOrder = 0
-    OnClick = ButtonObtenPreviClick
+    OnClick = ButtonAffichPreviClick
+  end
+  object GroupBoxTcpServer: TGroupBox
+    Left = 32
+    Top = 8
+    Width = 497
+    Height = 105
+    Caption = 'TcpServer'
+    TabOrder = 1
+    object ShapeEtatServer: TShape
+      Left = 434
+      Top = 24
+      Width = 47
+      Height = 41
+      Brush.Color = clRed
+    end
+    object LabelEtatServeur: TLabel
+      Left = 324
+      Top = 24
+      Width = 104
+      Height = 13
+      Caption = 'Etat du serveur TCP :'
+    end
+    object ButtonStart: TButton
+      Left = 32
+      Top = 19
+      Width = 75
+      Height = 25
+      Caption = 'Start'
+      TabOrder = 0
+      OnClick = ButtonStartClick
+    end
+    object ButtonStop: TButton
+      Left = 32
+      Top = 64
+      Width = 75
+      Height = 25
+      Caption = 'Stop'
+      TabOrder = 1
+      Visible = False
+      OnClick = ButtonStopClick
+    end
   end
 end

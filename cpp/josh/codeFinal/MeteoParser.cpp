@@ -56,7 +56,7 @@ void MeteoParser::sendDonnerMeteo(TcpServer *serv,SOCKET client)
 	answer+=";";
 	answer+= String(this->convertDegrPointCard((int)donner.direction).c_str());
 	answer+=";";
-	answer+= String((int)donner.luminosite);
+	answer+= String((int)donner.luminosite*0.001);
 	answer+=";";
 	answer+= String((int)donner.pressionAtmospherique);
 	answer+=";";

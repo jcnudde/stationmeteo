@@ -1,0 +1,38 @@
+//---------------------------------------------------------------------------
+
+#ifndef ihmH
+#define ihmH
+//---------------------------------------------------------------------------
+#include <System.Classes.hpp>
+#include <Vcl.Controls.hpp>
+#include <Vcl.StdCtrls.hpp>
+#include <Vcl.Forms.hpp>
+#include "PrevisionMeteo.h"
+#include "TcpServer.h"
+#include "MeteoParser.h"
+#include <Vcl.ExtCtrls.hpp>
+//---------------------------------------------------------------------------
+class TForm1 : public TForm
+{
+__published:	// Composants gérés par l'EDI
+	TLabel *LabelAfficheProtocolePrevi;
+	TButton *ButtonAffichPrevi;
+	TShape *ShapeEtatServer;
+	TLabel *LabelEtatServeur;
+	TGroupBox *GroupBoxTcpServer;
+	TButton *ButtonStart;
+	TButton *ButtonStop;
+	void __fastcall ButtonAffichPreviClick(TObject *Sender);
+	void __fastcall ButtonStopClick(TObject *Sender);
+
+private:	// Déclarations utilisateur
+	PrevisionMeteo* ObjPrevi;
+	AbstractParser *meteoParser;
+    Server *tcpServe;
+public:		// Déclarations utilisateur
+	__fastcall TForm1(TComponent* Owner);
+};
+//---------------------------------------------------------------------------
+extern PACKAGE TForm1 *Form1;
+//---------------------------------------------------------------------------
+#endif

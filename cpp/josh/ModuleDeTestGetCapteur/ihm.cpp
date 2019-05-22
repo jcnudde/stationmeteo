@@ -1,4 +1,4 @@
-//---------------------------------------------------------------------------
+﻿//---------------------------------------------------------------------------
 
 #include <vcl.h>
 #pragma hdrstop
@@ -25,10 +25,10 @@ void __fastcall TForm1::Timer1Timer(TObject *Sender)
 		while(true)
 		{
 			tabDonnerCapteur capData = dataNotifier->get();
-			this->LabelAnemo->Caption = UnicodeString((int)capData.vitesseVent)+"m/s";
+			this->LabelAnemo->Caption = UnicodeString((int)capData.vitesseVent)+"km/h";
 			this->LabelGirouette->Caption = UnicodeString((int)capData.direction);
 			this->Labelbarom->Caption = UnicodeString((int)capData.pressionAtmospherique)+"hPa";
-			this->LabelTherm->Caption =  UnicodeString((int)capData.temperature)+"�C";
+			this->LabelTherm->Caption =  UnicodeString((int)capData.temperature)+"°C";
 			this->LabelHumid->Caption = UnicodeString((int)capData.hummiditeRelative)+"%";
 			this->LabelSola->Caption =  UnicodeString((int)capData.luminosite)+"Lux";
 			this->LabelJour->Caption =  UnicodeString((int)capData.jour);
@@ -42,5 +42,6 @@ void __fastcall TForm1::Timer1Timer(TObject *Sender)
     }
 }
 //---------------------------------------------------------------------------
+
 
 

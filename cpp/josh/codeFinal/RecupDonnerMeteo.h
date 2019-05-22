@@ -28,16 +28,16 @@
 #include "MysqlMeteoManager.h"
 #include "MeteoDataNotifier.h"
 #include "MeteoStructs.h"
+#include <time.h>
 
 using namespace std;
-
-
 
 
 class RecupDonnerMeteo
 {
 	private:
 		HANDLE mutexNotifiers;
+		HANDLE mutexCapteurs;
 		std::vector<MeteoDataNotifier *> notifiers;
 
 		//variable meteo
@@ -58,6 +58,9 @@ class RecupDonnerMeteo
 
 		void lockNotifier();
 		void unlockNotifier();
+
+		void lockCapteurs();
+		void unlockCapteurs();
 
 		static DWORD WINAPI ThreadRecupDonnee(LPVOID params);
 

@@ -80,12 +80,12 @@ void __fastcall TForm2::TimerAffichageCapteurTimer(TObject *Sender)
 		while(true)
 		{
 			tabDonnerCapteur capData = dataNotifier->get();
-			this->StringGridCapteur->Cells[1][1] = UnicodeString((int)capData.vitesseVent*3.6)+"km/h";
-			this->StringGridCapteur->Cells[1][2] = UnicodeString((int)capData.direction);
+			this->StringGridCapteur->Cells[1][1] = UnicodeString((int)capData.vitesseVent)+"km/h";
+			this->StringGridCapteur->Cells[1][2] = UnicodeString(convertDegrPointCard((int)capData.direction).c_str());
 			this->StringGridCapteur->Cells[1][3] = UnicodeString((int)capData.pressionAtmospherique)+"hPa";
 			this->StringGridCapteur->Cells[1][4] =  UnicodeString((int)capData.temperature)+"°C";
 			this->StringGridCapteur->Cells[1][5] = UnicodeString((int)capData.hummiditeRelative)+"%";
-			this->StringGridCapteur->Cells[1][6] =  UnicodeString((int)capData.luminosite)+"Lux";
+			this->StringGridCapteur->Cells[1][6] =  UnicodeString((int)(capData.luminosite*0.001))+"KLux";
 			this->StringGridCapteur->Cells[1][7] =  UnicodeString((int)capData.jour);
 			this->StringGridCapteur->Cells[1][8] =   UnicodeString((int)capData.pluie);
 			this->StringGridCapteur->Cells[1][9] = UnicodeString((int)capData.surfaceDePluie);
@@ -97,4 +97,55 @@ void __fastcall TForm2::TimerAffichageCapteurTimer(TObject *Sender)
 	}
 }
 //---------------------------------------------------------------------------
-
+string TForm2::convertDegrPointCard(int degree)
+{    string direction;    switch (degree)	{
+		 case 360:
+			direction ="N";
+			break;
+		 case 337:
+			direction = "NNO";
+			break;
+		 case 315:
+			direction = "NO";
+			break;
+		 case 292:
+			direction = "ONO";
+			break;
+		 case 270:
+			direction = "O";
+			break;
+		 case 247:
+			direction = "OSO";
+			break;
+		 case 225:
+			direction = "SO";
+			break;
+		 case 202:
+			direction = "SSO";
+			break;
+		 case 180:
+			direction = "S";
+			break;
+		 case 157:
+			direction = "SSE";
+			break;
+		 case 135:
+			direction = "SE";
+			break;
+		 case 112:
+			direction = "ESE";
+			break;
+		 case 90:
+			direction = "E";
+			break;
+		 case 67:
+			direction = "ENE";
+			break;
+		 case 45:
+			direction = "NE";
+			break;
+		 case 22:
+			direction = "NNE";
+			break;
+	  }	return direction;
+}

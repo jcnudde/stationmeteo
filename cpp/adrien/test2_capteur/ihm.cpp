@@ -14,8 +14,8 @@ __fastcall TForm1::TForm1(TComponent* Owner)
 {
    	this->carte =new Carte_9111(0);
 	this->capteurjour_nuit = new CapteurJour_Nuit(8);
-	this->capteurpluie = new CapteurPluie(0);
-	this->pluiviometre = new Pluiviometre(5);
+	this->capteurpluie = new CapteurPluie(10);
+	this->pluiviometre = new Pluiviometre(4);
 }
 //---------------------------------------------------------------------------
 
@@ -33,7 +33,7 @@ void __fastcall TForm1::Timer1Timer(TObject *Sender)
 
 
 		chose = this->capteurpluie->readValue();
-		BOOL = chose ? "true" : "false";
+		BOOL = chose ? "false" : "true";
 		this->Editpluie->Text =BOOL;
 
 

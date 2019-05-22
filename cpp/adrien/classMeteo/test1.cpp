@@ -56,9 +56,9 @@ using namespace std;
 		cout<<"insert not good"<<endl;
 	}
 
-    //	MysqlMeteoManager *test3
 	bool value = test1->InsertDonnerCapteur(var1);
-//	cout<<test3<<endl;
+
+    vector<tabDonnerCapteur> t = test1->SelectLastDonnee();
 
 
 	getch();

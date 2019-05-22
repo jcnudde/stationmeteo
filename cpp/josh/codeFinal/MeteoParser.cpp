@@ -25,12 +25,19 @@ void MeteoParser::Parse(char * buf, SOCKET sock)
 	//on test si le message reçue est DONNEDONNER
 	if(strcmp(buf,"PartDonnerMeteo\n") == 0 ){
 		this->sendDonnerMeteo(serv,sock);
-    }
+	}
 
 }
 void MeteoParser::sendPrevisionMeteo(TcpServer * serv,SOCKET client)
 {
-	serv->sendMessage(client,StringUtils::magicConvert(this->previMeteo->previsionMeteo()));
+
+	wchar_t * tmp;
+	tmp = this->previMeteo->previsionMeteo().w_str();
+	int len = wcslen(tmp);
+	char * rep = new char[len+1];
+	wcstombs(rep, tmp, len);
+
+	serv->sendMessage(client,rep);
 }
 void MeteoParser::sendDonnerMeteo(TcpServer *serv,SOCKET client)
 {
@@ -49,7 +56,7 @@ void MeteoParser::sendDonnerMeteo(TcpServer *serv,SOCKET client)
 	answer+=";";
 	answer+= String(this->convertDegrPointCard((int)donner.direction).c_str());
 	answer+=";";
-	answer+= String((int)donner.luminosite);
+	answer+= String((int)donner.luminosite*0.001);
 	answer+=";";
 	answer+= String((int)donner.pressionAtmospherique);
 	answer+=";";

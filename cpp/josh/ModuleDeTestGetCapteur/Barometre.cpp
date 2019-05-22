@@ -12,9 +12,9 @@ Barometre::Barometre(double channel):Capteur(channel)
 }
 double Barometre::readValue()
 {
-	this->carte->readVoltage(this->channel);
-    this->PhysicalValue=1050;
-    return this->PhysicalValue;
+	this->PhysicalValue=this->carte->readVoltage(this->channel);
+	this->PhysicalValue=this->PhysicalValue*43+815.48;
+	return this->PhysicalValue;
 }
 string Barometre::getUnit()
 {

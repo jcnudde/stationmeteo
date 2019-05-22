@@ -15,6 +15,14 @@ double CapteurPluie::readValue()
 {
 	this->PhysicalValue = this->carte->readTOR(this->channel);
 
+	if (	this->PhysicalValue == 0) {
+		this->PhysicalValue =1 ;
+	}
+	else
+	{
+        this->PhysicalValue =0;
+    }
+
 	return  this->PhysicalValue;
 }
 

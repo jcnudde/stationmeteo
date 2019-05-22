@@ -14,15 +14,11 @@ Anemometre::Anemometre(int channel):Capteur(channel)
 double Anemometre::readValue()
 {
 	this->PhysicalValue=this->carte->readVoltage(this->channel);
-	//on enleve -1 pour tomber à 0
-	this->PhysicalValue-=1.17;
-	//premier calcul aproximatif
-	this->PhysicalValue*=12;
-
+	this->PhysicalValue=(8.3*this->PhysicalValue-10)*3.6;
 	return this->PhysicalValue;
 }
 string Anemometre::getUnit()
 {
-    return "m/s";
+    return "km/h";
 }
 

@@ -1,0 +1,17 @@
+//---------------------------------------------------------------------------
+
+#ifndef PrevisionMeteoH
+#define PrevisionMeteoH
+
+
+class PrevisionMeteo
+{
+    private:
+        MysqlMeteoManager* sqlMeteo;
+	public:
+		PrevisionMeteo();
+		String previsionMeteo();
+};
+
+//---------------------------------------------------------------------------
+#endif

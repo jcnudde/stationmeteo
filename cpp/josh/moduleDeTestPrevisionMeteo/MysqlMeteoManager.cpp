@@ -40,7 +40,7 @@ MysqlMeteoManager * MysqlMeteoManager::getInstance()
 	m_instance = NULL;
 	bdd = NULL;
 
-}//connexion a la BDDbool MysqlMeteoManager::connect(){	if(bdd->connecte("127.0.0.1","root","","meteo"))
+}//connexion a la BDDbool MysqlMeteoManager::connect(){	if(bdd->connecte("192.168.65.66","admin","admin","meteo"))
 	{
 		return true;
 	}

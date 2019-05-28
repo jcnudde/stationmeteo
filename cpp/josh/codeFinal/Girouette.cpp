@@ -3,6 +3,7 @@
 #pragma hdrstop
 
 #include "Girouette.h"
+#define SEUIL 10
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 Girouette::Girouette(int channel):Capteur(channel)
@@ -34,82 +35,82 @@ double Girouette::readValue()
 		   voltage*=100;
 
 		   //SUD
-		   if(((int)voltage)-5 <= ((int)S) &&  ((int)voltage)+5 >= ((int)S))
+		   if(((int)voltage)-SEUIL <= ((int)S) &&  ((int)voltage)+SEUIL >= ((int)S))
 		   {
 			   this->PhysicalValue=180;
 		   }
 		   //SUD SUD OUEST
-		   if(((int)voltage)-5 <= ((int)SSO) && ((int)voltage)+5 >= ((int)SSO))
+		   if(((int)voltage)-SEUIL <= ((int)SSO) && ((int)voltage)+SEUIL >= ((int)SSO))
 		   {
 			   this->PhysicalValue=202.5;
 		   }
 		   //SUD OUEST
-		   if(((int)voltage)-5 <= ((int)SO) && ((int)voltage)+5 >= ((int)SO))
+		   if(((int)voltage)-SEUIL <= ((int)SO) && ((int)voltage)+SEUIL >= ((int)SO))
 		   {
 			   this->PhysicalValue=225;
 		   }
 		   //OUEST SUD OUEST
-		   if(((int)voltage)-5 <= ((int)OSO) && ((int)voltage)+5 >= ((int)OSO))
+		   if(((int)voltage)-SEUIL <= ((int)OSO) && ((int)voltage)+SEUIL >= ((int)OSO))
 		   {
 			   this->PhysicalValue=247.5;
 		   }
 		   //OUEST
-		   if(((int)voltage)-5 <=((int)O) && ((int)voltage)+5 >=((int)O) )
+		   if(((int)voltage)-SEUIL <=((int)O) && ((int)voltage)+SEUIL >=((int)O) )
 		   {
 			   this->PhysicalValue=270;
 		   }
 		   //ouest nord ouest
-		   if(((int)voltage)-5 <= ((int)ONO) && ((int)voltage)+5 >= ((int)ONO) )
+		   if(((int)voltage)-SEUIL <= ((int)ONO) && ((int)voltage)+SEUIL >= ((int)ONO) )
 		   {
 			   this->PhysicalValue=292.5;
 		   }
 		   //nord ouest
-		   if(((int)voltage)-5 <= ((int)NO) && ((int)voltage)+5 >= ((int)NO) )
+		   if(((int)voltage)-SEUIL <= ((int)NO) && ((int)voltage)+SEUIL >= ((int)NO) )
 		   {
 			   this->PhysicalValue=315;
 		   }
 		   //nord nord ouest
-		   if(((int)voltage)-5 <= ((int)NNO) && ((int)voltage)+5 >= ((int)NNO))
+		   if(((int)voltage)-SEUIL <= ((int)NNO) && ((int)voltage)+SEUIL >= ((int)NNO))
 		   {
 			   this->PhysicalValue=337;
 		   }
 		   //nord
-		   if(((int)voltage)-5 <= ((int)N) && ((int)voltage)+5 >= ((int)N) )
+		   if(((int)voltage)-SEUIL <= ((int)N) && ((int)voltage)+SEUIL >= ((int)N) )
 		   {
 			   this->PhysicalValue=360;
 		   }
 		   //nord nord est
-		   if(((int)voltage)-5 <= ((int)NNE) && ((int)voltage)+5 >= ((int)NNE) )
+		   if(((int)voltage)-SEUIL <= ((int)NNE) && ((int)voltage)+SEUIL >= ((int)NNE) )
 		   {
 			   this->PhysicalValue=22.5;
 		   }
 		   //nord est
-		   if(((int)voltage)-5 <= ((int)NE) && ((int)voltage)+5 >= ((int)NE) )
+		   if(((int)voltage)-SEUIL <= ((int)NE) && ((int)voltage)+SEUIL >= ((int)NE) )
 		   {
 			   this->PhysicalValue=45;
 		   }
 		   //est nord est
-		   if(((int)voltage)-5 <= ((int)ENE) && ((int)voltage)+5 >= ((int)ENE))
+		   if(((int)voltage)-SEUIL <= ((int)ENE) && ((int)voltage)+SEUIL >= ((int)ENE))
 		   {
 			   this->PhysicalValue=67.5;
 		   }
 		   //est
-		   if(((int)voltage)-5 <= ((int)E) &&  ((int)voltage)+5 >= ((int)E))
+		   if(((int)voltage)-SEUIL <= ((int)E) &&  ((int)voltage)+SEUIL >= ((int)E))
 		   {
 			   this->PhysicalValue=90;
 		   }
 		   //EST SUD EST
-		   if(((int)voltage)-5 <= ((int)ESE) && ((int)voltage)+5 >= ((int)ESE))
+		   if(((int)voltage)-SEUIL <= ((int)ESE) && ((int)voltage)+SEUIL >= ((int)ESE))
 		   {
 			   this->PhysicalValue=112.5;
 		   }
 		   //SUD EST
-		   if(((int)voltage)-5 <= ((int)SE) && ((int)voltage)+5 >= ((int)SE))
+		   if(((int)voltage)-SEUIL <= ((int)SE) && ((int)voltage)+SEUIL >= ((int)SE))
 		   {
 			   this->PhysicalValue=135;
 		   }
 		   //SUD SUD EST
-		   if(((int)voltage)-5 <= ((int)SSE) && ((int)voltage)+5 >= ((int)SSE))
+		   if(((int)voltage)-SEUIL <= ((int)SSE) && ((int)voltage)+SEUIL >= ((int)SSE))
 		   {
 			   this->PhysicalValue=157.5;
 		   }

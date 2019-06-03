@@ -29,16 +29,16 @@ object Form2: TForm2
       Shape = stCircle
     end
     object LabelEtaServ: TLabel
-      Left = 148
+      Left = 142
       Top = 16
-      Width = 82
+      Width = 104
       Height = 13
-      Caption = 'Etat du serveur :'
+      Caption = 'Etat du serveur TCP :'
     end
     object LabelAfficheIp: TLabel
       Left = 145
       Top = 104
-      Width = 3
+      Width = 28
       Height = 13
     end
     object LabelAffichePort: TLabel

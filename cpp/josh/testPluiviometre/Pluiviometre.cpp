@@ -27,10 +27,10 @@ Pluiviometre::Pluiviometre(int channel):Capteur(channel)
 }
 double Pluiviometre::readValue()
 {
-	WaitForSingleObject(this->mutex, INFINITE);
+		WaitForSingleObject(this->mutex, INFINITE);
 		if(this->compteur >0)
 		{
-            time(&secondes);
+			time(&secondes);
 			instant[1]=*localtime(&secondes);
 
 			if((instant[1].tm_min-instant[0].tm_min) >= 5)
@@ -57,7 +57,8 @@ double Pluiviometre::readValue()
 		{
 			this->PhysicalValue = fichier->ReadInteger("Valeur", "surfacePluie",(int)(PhysicalValue))*0.1;
 		}
-	ReleaseMutex(this->mutex);
+		ReleaseMutex(this->mutex);
+
 
 	return  this->PhysicalValue;
 }

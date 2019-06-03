@@ -78,7 +78,7 @@ MysqlMeteoManager * MysqlMeteoManager::getInstance()
 
 	return res;
 
-}// séléctionner les derniéres données en BDDvector<tabDonnerCapteur> MysqlMeteoManager::SelectLastDonnee(){	vector< vector<string> > resultRequete;	vector<tabDonnerCapteur> vectorDonnerCapteur;	string requete = "SELECT`vitesseVent`, `direction`, `pressionAtmospherique`, `temperature`, `humiditeRelative`, `luminosite`, `pluie`, `jour`, `surfaceDePluie` FROM `donnees_meteo` ";	resultRequete=bdd->select(requete);	string test ;	for (int i = 0; i <resultRequete.size(); i++)	{		tabDonnerCapteur donnerCapteur ;		for (int j = 0; j < resultRequete[i].size(); j++)
+}// séléctionner les derniéres données en BDDvector<tabDonnerCapteur> MysqlMeteoManager::SelectLastDonnee(){	vector< vector<string> > resultRequete;	vector<tabDonnerCapteur> vectorDonnerCapteur;	string requete = "SELECT`vitesseVent`, `direction`, `pressionAtmospherique`, `temperature`, `humiditeRelative`, `luminosite`, `pluie`, `jour`, `surfaceDePluie` FROM `donnees_meteo` ORDER BY `donnees_meteo`.`date` DESC LIMIT 50";	resultRequete=bdd->select(requete);	string test ;	for (int i = 0; i <resultRequete.size(); i++)	{		tabDonnerCapteur donnerCapteur ;		for (int j = 0; j < resultRequete[i].size(); j++)
 		{
 			switch(j)
 			{

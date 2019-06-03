@@ -50,6 +50,7 @@ void __fastcall TForm2::startServerClick(TObject *Sender)
 		  struct hostent *host = NULL;
 		  WSADATA WSAData;
 		  WSAStartup(MAKEWORD(2, 0), &WSAData);
+
 		  if (!gethostname(s, 256) && (host = gethostbyname(s)) != NULL)
 		  for (pp = host->h_addr_list ; *pp != NULL ; pp++)
 		  this->LabelAfficheIp->Caption=(inet_ntoa(*( struct in_addr *)*pp));
@@ -62,8 +63,6 @@ void __fastcall TForm2::startServerClick(TObject *Sender)
 		  this->LabelAffichePort->Visible=true;
 		  this->LabelIp->Visible=true;
 		  this->LabelPort->Visible=true;
-
-
 	}
 	else
 	{

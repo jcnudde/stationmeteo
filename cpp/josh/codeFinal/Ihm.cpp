@@ -32,8 +32,6 @@ __fastcall TForm2::TForm2(TComponent* Owner)
 	this->StringGridCapteur->Cells[0][7]="Capteur jour/nuit";
 	this->StringGridCapteur->Cells[0][8]="Capteur Pluie";
 	this->StringGridCapteur->Cells[0][9]="Pluiviomètre";
-
-
 }
 //---------------------------------------------------------------------------
 
@@ -43,10 +41,28 @@ void __fastcall TForm2::startServerClick(TObject *Sender)
 	if(this->tcpServer->start(9013))
 	{
 		//voyant passe au vert
-		this->voyantEtatServer->Brush->Color=clLime;
+		  this->voyantEtatServer->Brush->Color=clLime;
 		//on cache start et on affiche stop
-		this->startServer->Visible=false;
-		this->stopServer->Visible=true;
+		  this->startServer->Visible=false;
+		  this->stopServer->Visible=true;
+		//recupére l'adresse ip du systéme
+		  char s[256] = {0}, **pp = NULL;
+		  struct hostent *host = NULL;
+		  WSADATA WSAData;
+		  WSAStartup(MAKEWORD(2, 0), &WSAData);
+		  if (!gethostname(s, 256) && (host = gethostbyname(s)) != NULL)
+		  for (pp = host->h_addr_list ; *pp != NULL ; pp++)
+		  this->LabelAfficheIp->Caption=(inet_ntoa(*( struct in_addr *)*pp));
+		  WSACleanup();
+		//on recupére le port du serveur
+		  this->LabelAffichePort->Caption=String(this->tcpServer->getPort());
+
+		//on affiche les labels pour le port et l'ip
+		  this->LabelAfficheIp->Visible=true;
+		  this->LabelAffichePort->Visible=true;
+		  this->LabelIp->Visible=true;
+		  this->LabelPort->Visible=true;
+
 
 	}
 	else
@@ -61,12 +77,18 @@ void __fastcall TForm2::startServerClick(TObject *Sender)
 void __fastcall TForm2::stopServerClick(TObject *Sender)
 {
 	//on arrete le server
-	this->tcpServer->stop();
+	  this->tcpServer->stop();
 	//voyant passe au rouge
-	this->voyantEtatServer->Brush->Color=clRed;
+	  this->voyantEtatServer->Brush->Color=clRed;
     //on cache stop et on affiche start
-	this->stopServer->Visible=false;
-	this->startServer->Visible=true;
+	  this->stopServer->Visible=false;
+	  this->startServer->Visible=true;
+
+	//on cacer les labels pour le port et l'ip
+	  this->LabelAfficheIp->Visible=false;
+	  this->LabelAffichePort->Visible=false;
+	  this->LabelIp->Visible=false;
+	  this->LabelPort->Visible=false;
 
 }
 //---------------------------------------------------------------------------
@@ -149,3 +171,6 @@ string TForm2::convertDegrPointCard(int degree)
 			break;
 	  }	return direction;
 }
+
+
+

@@ -25,6 +25,11 @@ __published:	// Composants gérés par l'EDI
 	TGroupBox *GroupBoxCapteur;
 	TStringGrid *StringGridCapteur;
 	TTimer *TimerAffichageCapteur;
+	TLabel *LabelEtaServ;
+	TLabel *LabelAfficheIp;
+	TLabel *LabelAffichePort;
+	TLabel *LabelIp;
+	TLabel *LabelPort;
 	void __fastcall startServerClick(TObject *Sender);
 	void __fastcall stopServerClick(TObject *Sender);
 	void __fastcall TimerAffichageCapteurTimer(TObject *Sender);

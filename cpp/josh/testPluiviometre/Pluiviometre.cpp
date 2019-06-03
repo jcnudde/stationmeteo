@@ -32,9 +32,10 @@ double Pluiviometre::readValue()
 		{
             time(&secondes);
 			instant[1]=*localtime(&secondes);
+
 			if((instant[1].tm_min-instant[0].tm_min) >= 5)
 			{
-				this->PhysicalValue = this->compteur*0.2501+0.4241;
+				this->PhysicalValue = this->compteur*0.2;
 				this->compteur = 0;
 				//conversion 10^-1
 				int convert;
@@ -48,12 +49,13 @@ double Pluiviometre::readValue()
 			}
 			else
 			{
-                this->PhysicalValue = fichier->ReadInteger("Valeur", "surfacePluie",(int)(PhysicalValue));
+				this->PhysicalValue = fichier->ReadInteger("Valeur", "surfacePluie",(int)(PhysicalValue))*0.1;
+
 			}
 		}
 		else
 		{
-			this->PhysicalValue = fichier->ReadInteger("Valeur", "surfacePluie",(int)(PhysicalValue));
+			this->PhysicalValue = fichier->ReadInteger("Valeur", "surfacePluie",(int)(PhysicalValue))*0.1;
 		}
 	ReleaseMutex(this->mutex);
 

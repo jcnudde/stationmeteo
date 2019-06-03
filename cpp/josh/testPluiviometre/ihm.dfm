@@ -27,7 +27,7 @@ object Form1: TForm1
     ParentFont = False
   end
   object Timer1: TTimer
-    Interval = 2000
+    Interval = 10000
     OnTimer = Timer1Timer
     Left = 88
     Top = 32

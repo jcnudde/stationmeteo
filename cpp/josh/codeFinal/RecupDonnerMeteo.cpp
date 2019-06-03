@@ -96,7 +96,7 @@ DWORD WINAPI RecupDonnerMeteo::ThreadRecupDonnee(LPVOID params)
 		Sleep(500);
 
 		//on teste si 1 min s'est écouler
-		if ((instant[1].tm_min-instant[0].tm_min)>=1) {
+		if ((instant[1].tm_min-instant[0].tm_min)>=10) {
 			//on insert les données
 			recupDonnerMeteo->mysql->InsertDonnerCapteur(donneeMeteoThread);
 			time(&secondes);

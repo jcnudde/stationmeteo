@@ -1,0 +1,176 @@
+//---------------------------------------------------------------------------
+
+#include <vcl.h>
+#pragma hdrstop
+
+#include "Ihm.h"
+//---------------------------------------------------------------------------
+#pragma package(smart_init)
+#pragma resource "*.dfm"
+TForm2 *Form2;
+//---------------------------------------------------------------------------
+__fastcall TForm2::TForm2(TComponent* Owner)
+	: TForm(Owner)
+{
+	//allocation des pointeur sur nos classe
+	this->meteoParser = new MeteoParser();
+	this->tcpServer = new TcpServer(meteoParser);
+	//Recupération de l'instance de la Classe RecupDonnerMeteo
+	recupDonnerMeteo = RecupDonnerMeteo::getInstance();
+
+	dataNotifier = new MeteoDataNotifier();
+	recupDonnerMeteo->addNotifier(dataNotifier);
+	//Remplissage du tableau du StringGridCapteur
+	this->StringGridCapteur->Cells[0][0]="Capteurs";
+	this->StringGridCapteur->Cells[1][0]="Valeur Physique";
+	this->StringGridCapteur->Cells[0][1]="Anémomètre";
+	this->StringGridCapteur->Cells[0][2]="Girouette";
+	this->StringGridCapteur->Cells[0][3]="Baromètre";
+	this->StringGridCapteur->Cells[0][4]="Thermomètre";
+	this->StringGridCapteur->Cells[0][5]="Hygromètre";
+	this->StringGridCapteur->Cells[0][6]="Luxmètre";
+	this->StringGridCapteur->Cells[0][7]="Capteur jour/nuit";
+	this->StringGridCapteur->Cells[0][8]="Capteur Pluie";
+	this->StringGridCapteur->Cells[0][9]="Pluiviomètre";
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm2::startServerClick(TObject *Sender)
+{
+	//on demmare notre serveur
+	if(this->tcpServer->start(9013))
+	{
+		//voyant passe au vert
+		  this->voyantEtatServer->Brush->Color=clLime;
+		//on cache start et on affiche stop
+		  this->startServer->Visible=false;
+		  this->stopServer->Visible=true;
+		//recupére l'adresse ip du systéme
+		  char s[256] = {0}, **pp = NULL;
+		  struct hostent *host = NULL;
+		  WSADATA WSAData;
+		  WSAStartup(MAKEWORD(2, 0), &WSAData);
+		  if (!gethostname(s, 256) && (host = gethostbyname(s)) != NULL)
+		  for (pp = host->h_addr_list ; *pp != NULL ; pp++)
+		  this->LabelAffichIp->Caption=(inet_ntoa(*( struct in_addr *)*pp));
+		  WSACleanup();
+		//on recupére le port du serveur
+		  this->LabelAffichePort->Caption=String(this->tcpServer->getPort());
+
+		//on affiche les label pour le port et l'ip
+		  this->LabelAffichePort->Visible=true;
+		  this->LabelAffichePort->Visible=true;
+		  this->LabelIp->Visible=true;
+		  this->LabelPort->Visible=true;
+
+
+	}
+	else
+	{
+        //passe rouge
+		this->voyantEtatServer->Brush->Color=clRed;
+    }
+}
+//---------------------------------------------------------------------------
+
+
+void __fastcall TForm2::stopServerClick(TObject *Sender)
+{
+	//on arrete le server
+	  this->tcpServer->stop();
+	//voyant passe au rouge
+	  this->voyantEtatServer->Brush->Color=clRed;
+    //on cache stop et on affiche start
+	  this->stopServer->Visible=false;
+	  this->startServer->Visible=true;
+
+	//on affiche les label pour le port et l'ip
+	  this->LabelAffichePort->Visible=true;
+	  this->LabelAffichePort->Visible=true;
+	  this->LabelIp->Visible=true;
+	  this->LabelPort->Visible=true;
+
+}
+//---------------------------------------------------------------------------
+
+
+
+void __fastcall TForm2::TimerAffichageCapteurTimer(TObject *Sender)
+{
+    try
+	{
+		while(true)
+		{
+			tabDonnerCapteur capData = dataNotifier->get();
+			this->StringGridCapteur->Cells[1][1] = UnicodeString((int)capData.vitesseVent)+"km/h";
+			this->StringGridCapteur->Cells[1][2] = UnicodeString(convertDegrPointCard((int)capData.direction).c_str());
+			this->StringGridCapteur->Cells[1][3] = UnicodeString((int)capData.pressionAtmospherique)+"hPa";
+			this->StringGridCapteur->Cells[1][4] =  UnicodeString((int)capData.temperature)+"°C";
+			this->StringGridCapteur->Cells[1][5] = UnicodeString((int)capData.hummiditeRelative)+"%";
+			this->StringGridCapteur->Cells[1][6] =  UnicodeString((int)(capData.luminosite*0.001))+"KLux";
+			this->StringGridCapteur->Cells[1][7] =  UnicodeString((int)capData.jour);
+			this->StringGridCapteur->Cells[1][8] =   UnicodeString((int)capData.pluie);
+			this->StringGridCapteur->Cells[1][9] = UnicodeString((int)capData.surfaceDePluie);
+        }
+	}
+	catch(std::string error)
+	{
+
+	}
+}
+//---------------------------------------------------------------------------
+string TForm2::convertDegrPointCard(int degree)
+{    string direction;    switch (degree)	{
+		 case 360:
+			direction ="N";
+			break;
+		 case 337:
+			direction = "NNO";
+			break;
+		 case 315:
+			direction = "NO";
+			break;
+		 case 292:
+			direction = "ONO";
+			break;
+		 case 270:
+			direction = "O";
+			break;
+		 case 247:
+			direction = "OSO";
+			break;
+		 case 225:
+			direction = "SO";
+			break;
+		 case 202:
+			direction = "SSO";
+			break;
+		 case 180:
+			direction = "S";
+			break;
+		 case 157:
+			direction = "SSE";
+			break;
+		 case 135:
+			direction = "SE";
+			break;
+		 case 112:
+			direction = "ESE";
+			break;
+		 case 90:
+			direction = "E";
+			break;
+		 case 67:
+			direction = "ENE";
+			break;
+		 case 45:
+			direction = "NE";
+			break;
+		 case 22:
+			direction = "NNE";
+			break;
+	  }	return direction;
+}
+
+
+

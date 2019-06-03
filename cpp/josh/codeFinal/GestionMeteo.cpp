@@ -4,6 +4,8 @@
 #pragma hdrstop
 #include <tchar.h>
 //---------------------------------------------------------------------------
+#include <Vcl.Styles.hpp>
+#include <Vcl.Themes.hpp>
 USEFORM("Ihm.cpp", Form2);
 //---------------------------------------------------------------------------
 int WINAPI _tWinMain(HINSTANCE, HINSTANCE, LPTSTR, int)

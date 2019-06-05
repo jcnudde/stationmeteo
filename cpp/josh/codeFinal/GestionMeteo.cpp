@@ -6,7 +6,7 @@
 //---------------------------------------------------------------------------
 #include <Vcl.Styles.hpp>
 #include <Vcl.Themes.hpp>
-USEFORM("Ihm.cpp", Form2);
+USEFORM("Ihm.cpp", Tihm);
 //---------------------------------------------------------------------------
 int WINAPI _tWinMain(HINSTANCE, HINSTANCE, LPTSTR, int)
 {
@@ -14,7 +14,7 @@ int WINAPI _tWinMain(HINSTANCE, HINSTANCE, LPTSTR, int)
 	{
 		Application->Initialize();
 		Application->MainFormOnTaskBar = true;
-		Application->CreateForm(__classid(TForm2), &Form2);
+		Application->CreateForm(__classid(TTihm), &Tihm);
 		Application->Run();
 	}
 	catch (Exception &exception)

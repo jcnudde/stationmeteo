@@ -1,10 +1,10 @@
-object Form2: TForm2
+object Tihm: TTihm
   Left = 0
   Top = 0
   Caption = 'GestionMeteo'
   ClientHeight = 541
   ClientWidth = 861
-  Color = clBtnFace
+  Color = clWhite
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
@@ -14,11 +14,11 @@ object Form2: TForm2
   PixelsPerInch = 96
   TextHeight = 13
   object GroupBoxServer: TGroupBox
-    Left = 16
+    Left = 21
     Top = 8
     Width = 249
     Height = 177
-    Caption = 'Server'
+    Caption = 'TcpServeur'
     TabOrder = 0
     object voyantEtatServer: TShape
       Left = 156
@@ -38,29 +38,53 @@ object Form2: TForm2
     object LabelAfficheIp: TLabel
       Left = 145
       Top = 104
-      Width = 28
-      Height = 13
+      Width = 4
+      Height = 16
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
     end
     object LabelAffichePort: TLabel
       Left = 145
       Top = 136
-      Width = 3
-      Height = 13
+      Width = 4
+      Height = 16
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
     end
     object LabelIp: TLabel
       Left = 24
       Top = 104
-      Width = 72
-      Height = 13
+      Width = 85
+      Height = 16
       Caption = 'IP du serveur :'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
       Visible = False
     end
     object LabelPort: TLabel
       Left = 24
       Top = 136
-      Width = 82
-      Height = 13
+      Width = 97
+      Height = 16
       Caption = 'Port du serveur :'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
       Visible = False
     end
     object stopServer: TButton

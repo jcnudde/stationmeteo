@@ -15,7 +15,7 @@
 #include "MeteoDataNotifier.h"
 
 //---------------------------------------------------------------------------
-class TForm2 : public TForm
+class TTihm : public TForm
 {
 __published:	// Composants gérés par l'EDI
 	TButton *startServer;
@@ -40,10 +40,10 @@ private:	// Déclarations utilisateur
 	AbstractParser *meteoParser;
 	MeteoDataNotifier *dataNotifier;
 public:		// Déclarations utilisateur
-	__fastcall TForm2(TComponent* Owner);
+	__fastcall TTihm(TComponent* Owner);
 	string convertDegrPointCard(int degree);
 };
 //---------------------------------------------------------------------------
-extern PACKAGE TForm2 *Form2;
+extern PACKAGE TTihm *Tihm;
 //---------------------------------------------------------------------------
 #endif

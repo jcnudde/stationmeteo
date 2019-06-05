@@ -7,9 +7,9 @@
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma resource "*.dfm"
-TForm2 *Form2;
+TTihm *Tihm;
 //---------------------------------------------------------------------------
-__fastcall TForm2::TForm2(TComponent* Owner)
+__fastcall TTihm::TTihm(TComponent* Owner)
 	: TForm(Owner)
 {
 	//allocation des pointeur sur nos classe
@@ -35,7 +35,7 @@ __fastcall TForm2::TForm2(TComponent* Owner)
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TForm2::startServerClick(TObject *Sender)
+void __fastcall TTihm::startServerClick(TObject *Sender)
 {
 	//on demmare notre serveur
 	if(this->tcpServer->start(9013))
@@ -73,7 +73,7 @@ void __fastcall TForm2::startServerClick(TObject *Sender)
 //---------------------------------------------------------------------------
 
 
-void __fastcall TForm2::stopServerClick(TObject *Sender)
+void __fastcall TTihm::stopServerClick(TObject *Sender)
 {
 	//on arrete le server
 	  this->tcpServer->stop();
@@ -94,7 +94,7 @@ void __fastcall TForm2::stopServerClick(TObject *Sender)
 
 
 
-void __fastcall TForm2::TimerAffichageCapteurTimer(TObject *Sender)
+void __fastcall TTihm::TimerAffichageCapteurTimer(TObject *Sender)
 {
     try
 	{
@@ -107,9 +107,24 @@ void __fastcall TForm2::TimerAffichageCapteurTimer(TObject *Sender)
 			this->StringGridCapteur->Cells[1][4] =  UnicodeString((int)capData.temperature)+"°C";
 			this->StringGridCapteur->Cells[1][5] = UnicodeString((int)capData.hummiditeRelative)+"%";
 			this->StringGridCapteur->Cells[1][6] =  UnicodeString((int)(capData.luminosite*0.001))+"KLux";
-			this->StringGridCapteur->Cells[1][7] =  UnicodeString((int)capData.jour);
-			this->StringGridCapteur->Cells[1][8] =   UnicodeString((int)capData.pluie);
-			this->StringGridCapteur->Cells[1][9] = UnicodeString((int)capData.surfaceDePluie);
+			if((int)capData.jour == 1)
+			{
+                this->StringGridCapteur->Cells[1][7] = "Jour";
+			}
+			else
+			{
+				this->StringGridCapteur->Cells[1][7] = "Nuit";
+			}
+			if((int)capData.pluie == 1)
+			{
+				this->StringGridCapteur->Cells[1][8] = "Précipitation en cour";
+			}
+			else
+			{
+				this->StringGridCapteur->Cells[1][8] = "Pas de précipitation";
+			}
+
+			this->StringGridCapteur->Cells[1][9] = UnicodeString((int)capData.surfaceDePluie)+"mm";
         }
 	}
 	catch(std::string error)
@@ -118,7 +133,7 @@ void __fastcall TForm2::TimerAffichageCapteurTimer(TObject *Sender)
 	}
 }
 //---------------------------------------------------------------------------
-string TForm2::convertDegrPointCard(int degree)
+string TTihm::convertDegrPointCard(int degree)
 {    string direction;    switch (degree)	{
 		 case 360:
 			direction ="N";
@@ -170,6 +185,7 @@ string TForm2::convertDegrPointCard(int degree)
 			break;
 	  }	return direction;
 }
+
 
 
 

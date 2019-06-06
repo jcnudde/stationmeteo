@@ -31,12 +31,6 @@ __published:	// Composants gérés par l'EDI
 	TEdit *Edit_hygrometrie;
 	TEdit *Edit_thermometre;
 	TEdit *Edit_luxmetre;
-	TLabel *Label1;
-	TLabel *Label2;
-	TLabel *Label3;
-	TLabel *Label4;
-	TLabel *Label5;
-	TLabel *Label6;
 	void __fastcall TimerTimer(TObject *Sender);
 private:	// Déclarations utilisateur
 public:		// Déclarations utilisateur

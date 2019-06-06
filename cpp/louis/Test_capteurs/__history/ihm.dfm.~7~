@@ -34,48 +34,6 @@
     Height = 13
     Caption = 'Luminosit'#233
   end
-  object Label1: TLabel
-    Left = 183
-    Top = 43
-    Width = 18
-    Height = 13
-    Caption = 'Volt'
-  end
-  object Label2: TLabel
-    Left = 367
-    Top = 43
-    Width = 18
-    Height = 13
-    Caption = 'Volt'
-  end
-  object Label3: TLabel
-    Left = 599
-    Top = 43
-    Width = 18
-    Height = 13
-    Caption = 'Volt'
-  end
-  object Label4: TLabel
-    Left = 183
-    Top = 70
-    Width = 11
-    Height = 13
-    Caption = '%'
-  end
-  object Label5: TLabel
-    Left = 367
-    Top = 70
-    Width = 10
-    Height = 13
-    Caption = #176'c'
-  end
-  object Label6: TLabel
-    Left = 599
-    Top = 70
-    Width = 19
-    Height = 13
-    Caption = 'klux'
-  end
   object Edit_humidité: TEdit
     Left = 72
     Top = 40

@@ -53,11 +53,17 @@ object Form1: TForm1
     Height = 65
   end
   object Label4: TLabel
-    Left = 240
-    Top = 32
-    Width = 137
-    Height = 13
+    Left = 160
+    Top = 24
+    Width = 336
+    Height = 33
     Caption = 'Module de test Capteur TOR'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -27
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
   end
   object Timer1: TTimer
     Interval = 100

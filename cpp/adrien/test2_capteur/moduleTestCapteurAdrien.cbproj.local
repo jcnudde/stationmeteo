@@ -1,19 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <BorlandProject>
 	<Transactions>
-    <Transaction>2019/04/04 10:46:32.000.195,=C:\Users\Admin\Documents\Embarcadero\Studio\Projets\Project1PCH1.h</Transaction>
     <Transaction>2019/04/04 10:46:32.000.217,=C:\Users\Admin\Documents\Embarcadero\Studio\Projets\Unit1.cpp</Transaction>
-    <Transaction>2019/04/04 10:46:47.000.206,C:\Users\Admin\Desktop\projetmete\cpp\adrien\test2_capteur\ihm.h=C:\Users\Admin\Documents\Embarcadero\Studio\Projets\Unit1.h</Transaction>
-    <Transaction>2019/04/04 10:46:47.000.206,C:\Users\Admin\Desktop\projetmete\cpp\adrien\test2_capteur\ihm.dfm=C:\Users\Admin\Documents\Embarcadero\Studio\Projets\Unit1.dfm</Transaction>
-    <Transaction>2019/04/04 10:46:47.000.206,C:\Users\Admin\Desktop\projetmete\cpp\adrien\test2_capteur\ihm.cpp=C:\Users\Admin\Documents\Embarcadero\Studio\Projets\Unit1.cpp</Transaction>
-    <Transaction>2019/04/04 10:46:48.000.585,C:\Users\Admin\Desktop\projetmete\cpp\adrien\test2_capteur\Project1PCH1.h=C:\Users\Admin\Documents\Embarcadero\Studio\Projets\Project1PCH1.h</Transaction>
-    <Transaction>2019/04/04 10:46:59.000.973,C:\Users\Admin\Desktop\projetmete\cpp\adrien\test2_capteur\moduleTestCapteurAdrien.cbproj=C:\Users\Admin\Documents\Embarcadero\Studio\Projets\Project1.cbproj</Transaction>
-    <Transaction>2019/04/04 10:46:59.000.932,C:\Users\Admin\Desktop\projetmete\cpp\adrien\test2_capteur\moduleTestCapteurAdrienPCH1.h=C:\Users\Admin\Desktop\projetmete\cpp\adrien\test2_capteur\Project1PCH1.h</Transaction>
+    <Transaction>2019/04/04 10:46:32.000.195,=C:\Users\Admin\Documents\Embarcadero\Studio\Projets\Project1PCH1.h</Transaction>
+    <Transaction>2019/04/04 10:46:47.000.206,C:\Users\Admin\Documents\Embarcadero\Studio\Projets\Unit1.h=C:\Users\Admin\Desktop\projetmete\cpp\adrien\test2_capteur\ihm.h</Transaction>
+    <Transaction>2019/04/04 10:46:47.000.206,C:\Users\Admin\Documents\Embarcadero\Studio\Projets\Unit1.cpp=C:\Users\Admin\Desktop\projetmete\cpp\adrien\test2_capteur\ihm.cpp</Transaction>
+    <Transaction>2019/04/04 10:46:47.000.206,C:\Users\Admin\Documents\Embarcadero\Studio\Projets\Unit1.dfm=C:\Users\Admin\Desktop\projetmete\cpp\adrien\test2_capteur\ihm.dfm</Transaction>
+    <Transaction>2019/04/04 10:46:48.000.585,C:\Users\Admin\Documents\Embarcadero\Studio\Projets\Project1PCH1.h=C:\Users\Admin\Desktop\projetmete\cpp\adrien\test2_capteur\Project1PCH1.h</Transaction>
+    <Transaction>2019/04/04 10:46:59.000.973,C:\Users\Admin\Documents\Embarcadero\Studio\Projets\Project1.cbproj=C:\Users\Admin\Desktop\projetmete\cpp\adrien\test2_capteur\moduleTestCapteurAdrien.cbproj</Transaction>
+    <Transaction>2019/04/04 10:46:59.000.932,C:\Users\Admin\Desktop\projetmete\cpp\adrien\test2_capteur\Project1PCH1.h=C:\Users\Admin\Desktop\projetmete\cpp\adrien\test2_capteur\moduleTestCapteurAdrienPCH1.h</Transaction>
     <Transaction>2019/04/04 11:01:33.000.123,=C:\Users\Admin\Desktop\projetmete\cpp\adrien\test2_capteur\Carte_9111.cpp</Transaction>
+    <Transaction>2019/04/04 11:01:33.000.100,=C:\Users\Admin\Desktop\projetmete\cpp\adrien\test2_capteur\CapteurPluie.cpp</Transaction>
     <Transaction>2019/04/04 11:01:33.000.130,=C:\Users\Admin\Desktop\projetmete\cpp\adrien\test2_capteur\CarteE_S.cpp</Transaction>
     <Transaction>2019/04/04 11:01:33.000.083,=C:\Users\Admin\Desktop\projetmete\cpp\adrien\test2_capteur\Capteur.cpp</Transaction>
     <Transaction>2019/04/04 11:01:33.000.093,=C:\Users\Admin\Desktop\projetmete\cpp\adrien\test2_capteur\CapteurJour_Nuit.cpp</Transaction>
-    <Transaction>2019/04/04 11:01:33.000.100,=C:\Users\Admin\Desktop\projetmete\cpp\adrien\test2_capteur\CapteurPluie.cpp</Transaction>
     <Transaction>2019/04/04 11:11:49.000.353,=C:\Users\Admin\Desktop\projetmete\cpp\adrien\test2_capteur\Pluiviometre.cpp</Transaction>
     <Transaction>2019/04/04 11:22:09.000.325,=C:\Users\Admin\Desktop\projetmete\cpp\adrien\test2_capteur\pdask_bc.lib</Transaction>
   </Transactions>

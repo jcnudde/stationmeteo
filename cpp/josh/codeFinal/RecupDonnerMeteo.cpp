@@ -86,17 +86,24 @@ DWORD WINAPI RecupDonnerMeteo::ThreadRecupDonnee(LPVOID params)
         donneeMeteoThread.pluie = recupDonnerMeteo->capteur.capteurPluie->readValue();
 		donneeMeteoThread.surfaceDePluie = recupDonnerMeteo->capteur.pluviometre->readValue();
         recupDonnerMeteo->unlockCapteurs();
-		//on recupere la date
-		time(&secondes);
-		instant[1]=*localtime(&secondes);
+
 
 		//on envoie les donnée pour les partager au thread de l'ihm
 		recupDonnerMeteo->notifyData(donneeMeteoThread);
 
 		Sleep(500);
 
+		//on recupere la date
+		time(&secondes);
+		instant[1]=*localtime(&secondes);
 		//on teste si 1 min s'est écouler
-		if ((instant[1].tm_min-instant[0].tm_min)>=10) {
+		if ((instant[1].tm_min-instant[0].tm_min)>=5) {
+            MessageBox(
+				  NULL,
+				  "test",
+				  NULL,
+				  MB_OK
+				);
 			//on insert les données
 			recupDonnerMeteo->mysql->InsertDonnerCapteur(donneeMeteoThread);
 			time(&secondes);

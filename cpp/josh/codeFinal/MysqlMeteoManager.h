@@ -9,6 +9,7 @@
 #include <iostream>
 #include <sstream>
 #include "MeteoStructs.h"
+#include <IniFiles.hpp>
 
 using namespace std;
 
@@ -18,6 +19,7 @@ class MysqlMeteoManager {
 	  static MysqlMeteoManager *m_instance;
 	  MysqlMeteoManager();
 	  ~MysqlMeteoManager();
+	  TIniFile *fichier;
 
    public:
 

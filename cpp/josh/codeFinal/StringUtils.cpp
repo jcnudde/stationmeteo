@@ -8,7 +8,7 @@
 
 char * StringUtils::magicConvert(UnicodeString src)
 {
-	// Petit code de derrière les fagots :
+
 	wchar_t * tmp;
 	tmp = src.w_str();
 	int len = wcslen(tmp);

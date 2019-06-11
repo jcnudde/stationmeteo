@@ -18,17 +18,19 @@ __published:	// Composants gérés par l'EDI
 	TLabel *Label1;
 	TLabel *Label2;
 	TLabel *Label3;
-	TEdit *Edit_jn;
-	TEdit *Editpluie;
-	TEdit *Editpluiviometre;
 	TTimer *Timer1;
+	TShape *Shape_pluiv;
+	TShape *Shape_jn;
+	TShape *Shape_pluie;
+	TLabel *Label4;
 	void __fastcall Timer1Timer(TObject *Sender);
 private:	// Déclarations utilisateur
 	CarteE_S *carte;
 	Capteur *capteurjour_nuit;
 	Capteur *capteurpluie;
 	Capteur *pluiviometre;
-public:		// Déclarations utilisateur
+public:
+		// Déclarations utilisateur
 	__fastcall TForm1(TComponent* Owner);
 };
 //---------------------------------------------------------------------------

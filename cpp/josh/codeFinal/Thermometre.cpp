@@ -23,5 +23,5 @@ double Thermometre::readValue()
 
 string Thermometre::getUnit()
 {
-    return "Oc";
+    return "°C";
 }

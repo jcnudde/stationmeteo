@@ -2,8 +2,8 @@ object Tihm: TTihm
   Left = 0
   Top = 0
   Caption = 'GestionMeteo'
-  ClientHeight = 541
-  ClientWidth = 861
+  ClientHeight = 528
+  ClientWidth = 864
   Color = clWhite
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -115,12 +115,12 @@ object Tihm: TTihm
     Caption = 'Capteurs'
     TabOrder = 1
     object StringGridCapteur: TStringGrid
-      Left = 72
-      Top = 23
-      Width = 401
+      Left = 24
+      Top = 35
+      Width = 513
       Height = 466
       ColCount = 2
-      DefaultColWidth = 200
+      DefaultColWidth = 250
       DefaultRowHeight = 45
       RowCount = 10
       Font.Charset = DEFAULT_CHARSET

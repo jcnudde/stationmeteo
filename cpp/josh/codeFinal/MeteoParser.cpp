@@ -22,7 +22,7 @@ void MeteoParser::Parse(char * buf, SOCKET sock)
 	if(strcmp(buf,"PreviMeteo\n") == 0 ) {
 		this->sendPrevisionMeteo(serv,sock);
 	}
-	//on test si le message reçue est DONNEDONNER
+	//on test si le message reçue est PartDonnerMeteo
 	if(strcmp(buf,"PartDonnerMeteo\n") == 0 ){
 		this->sendDonnerMeteo(serv,sock);
 	}

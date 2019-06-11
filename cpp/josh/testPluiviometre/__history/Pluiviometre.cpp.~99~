@@ -1,0 +1,83 @@
+//---------------------------------------------------------------------------
+
+#pragma hdrstop
+
+#include "Pluiviometre.h"
+//---------------------------------------------------------------------------
+#pragma package(smart_init)
+
+Pluiviometre::Pluiviometre(int channel):Capteur(channel)
+{
+	this->fichier = new TIniFile("C:\\Users\\Admin\\Documents\\GitHub\\stationmeteo\\cpp\\josh\\testPluiviometre\\Pluviometre.ini");
+	this->compteur=0;
+	//on recupére le nouveau temp de reference
+	time(&secondes);
+	instant[0]=*localtime(&secondes);
+
+	this->mutex = CreateMutex(NULL,FALSE,NULL);
+	this->thread =  CreateThread(
+					NULL,
+					0,
+					threadCompteurPluivio,
+					this,
+					0,
+					&dwThreadIdArray);
+
+
+}
+double Pluiviometre::readValue()
+{
+	WaitForSingleObject(this->mutex, INFINITE);
+		if(this->compteur >0)
+		{
+            time(&secondes);
+			instant[1]=*localtime(&secondes);
+			if((instant[1].tm_min-instant[0].tm_min) >= 10)
+			{
+				this->PhysicalValue = this->compteur*0.2501+0.4241;
+				this->compteur = 0;
+				//conversion 10^-1
+				int convert;
+				this->PhysicalValue *=10;
+				convert = this->PhysicalValue;
+				this->PhysicalValue = convert*0.1;
+				fichier->WriteInteger("Valeur", "surfacePluie",(int)(PhysicalValue*10));
+				//on recupére le nouveau temp de reference
+				time(&secondes);
+				instant[0]=*localtime(&secondes);
+			}
+			else
+			{
+                this->PhysicalValue = fichier->ReadInteger("Valeur", "surfacePluie",(int)(PhysicalValue));
+            }
+		}
+		else
+		{
+			this->PhysicalValue = fichier->ReadInteger("Valeur", "surfacePluie",(int)(PhysicalValue));
+		}
+	ReleaseMutex(this->mutex);
+
+	return  this->PhysicalValue;
+}
+
+string Pluiviometre::getUnit()
+{
+    return "mm";
+}
+DWORD WINAPI Pluiviometre::threadCompteurPluivio(LPVOID params)
+{
+	Pluiviometre * threadPluivio = (Pluiviometre*) params;
+	while (true)
+	{
+		if (threadPluivio->carte->readTOR(threadPluivio->channel)) {
+			WaitForSingleObject(threadPluivio->mutex, INFINITE);
+			threadPluivio->compteur++;
+			ReleaseMutex(threadPluivio->mutex);
+			Sleep(50);
+			while(threadPluivio->carte->readTOR(threadPluivio->channel)){}
+		}
+	}
+
+
+    return 0;
+}

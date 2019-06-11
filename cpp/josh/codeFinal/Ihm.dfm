@@ -1,10 +1,10 @@
-object Form2: TForm2
+object Tihm: TTihm
   Left = 0
   Top = 0
   Caption = 'GestionMeteo'
-  ClientHeight = 541
-  ClientWidth = 861
-  Color = clBtnFace
+  ClientHeight = 528
+  ClientWidth = 864
+  Color = clWhite
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
@@ -14,19 +14,78 @@ object Form2: TForm2
   PixelsPerInch = 96
   TextHeight = 13
   object GroupBoxServer: TGroupBox
-    Left = 16
+    Left = 21
     Top = 8
-    Width = 233
-    Height = 89
-    Caption = 'Server'
+    Width = 249
+    Height = 177
+    Caption = 'TcpServeur'
     TabOrder = 0
     object voyantEtatServer: TShape
-      Left = 152
-      Top = 16
-      Width = 65
-      Height = 56
+      Left = 156
+      Top = 35
+      Width = 61
+      Height = 54
       Brush.Color = clRed
       Shape = stCircle
+    end
+    object LabelEtaServ: TLabel
+      Left = 142
+      Top = 16
+      Width = 104
+      Height = 13
+      Caption = 'Etat du serveur TCP :'
+    end
+    object LabelAfficheIp: TLabel
+      Left = 145
+      Top = 104
+      Width = 4
+      Height = 16
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+    end
+    object LabelAffichePort: TLabel
+      Left = 145
+      Top = 136
+      Width = 4
+      Height = 16
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+    end
+    object LabelIp: TLabel
+      Left = 24
+      Top = 104
+      Width = 85
+      Height = 16
+      Caption = 'IP du serveur :'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+      Visible = False
+    end
+    object LabelPort: TLabel
+      Left = 24
+      Top = 136
+      Width = 97
+      Height = 16
+      Caption = 'Port du serveur :'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+      Visible = False
     end
     object stopServer: TButton
       Left = 16
@@ -56,12 +115,12 @@ object Form2: TForm2
     Caption = 'Capteurs'
     TabOrder = 1
     object StringGridCapteur: TStringGrid
-      Left = 72
-      Top = 23
-      Width = 417
+      Left = 24
+      Top = 35
+      Width = 513
       Height = 466
       ColCount = 2
-      DefaultColWidth = 200
+      DefaultColWidth = 250
       DefaultRowHeight = 45
       RowCount = 10
       Font.Charset = DEFAULT_CHARSET

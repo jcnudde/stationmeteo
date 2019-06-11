@@ -7,9 +7,9 @@
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma resource "*.dfm"
-TForm2 *Form2;
+TTihm *Tihm;
 //---------------------------------------------------------------------------
-__fastcall TForm2::TForm2(TComponent* Owner)
+__fastcall TTihm::TTihm(TComponent* Owner)
 	: TForm(Owner)
 {
 	//allocation des pointeur sur nos classe
@@ -21,33 +21,48 @@ __fastcall TForm2::TForm2(TComponent* Owner)
 	dataNotifier = new MeteoDataNotifier();
 	recupDonnerMeteo->addNotifier(dataNotifier);
 	//Remplissage du tableau du StringGridCapteur
-	this->StringGridCapteur->Cells[0][0]="Capteurs";
+	this->StringGridCapteur->Cells[0][0]="Données";
 	this->StringGridCapteur->Cells[1][0]="Valeur Physique";
-	this->StringGridCapteur->Cells[0][1]="Anémomètre";
-	this->StringGridCapteur->Cells[0][2]="Girouette";
-	this->StringGridCapteur->Cells[0][3]="Baromètre";
-	this->StringGridCapteur->Cells[0][4]="Thermomètre";
-	this->StringGridCapteur->Cells[0][5]="Hygromètre";
-	this->StringGridCapteur->Cells[0][6]="Luxmètre";
-	this->StringGridCapteur->Cells[0][7]="Capteur jour/nuit";
-	this->StringGridCapteur->Cells[0][8]="Capteur Pluie";
-	this->StringGridCapteur->Cells[0][9]="Pluiviomètre";
-
-
+	this->StringGridCapteur->Cells[0][1]="Vitesse du vent";
+	this->StringGridCapteur->Cells[0][2]="Direction du vent";
+	this->StringGridCapteur->Cells[0][3]="Pression atmosphérique";
+	this->StringGridCapteur->Cells[0][4]="Température";
+	this->StringGridCapteur->Cells[0][5]="Hygrométrie";
+	this->StringGridCapteur->Cells[0][6]="Eclairement lumineux";
+	this->StringGridCapteur->Cells[0][7]="Jour/Nuit";
+	this->StringGridCapteur->Cells[0][8]="Précipitation";
+	this->StringGridCapteur->Cells[0][9]="Quantité de précipitation";
 }
 //---------------------------------------------------------------------------
 
-void __fastcall TForm2::startServerClick(TObject *Sender)
+void __fastcall TTihm::startServerClick(TObject *Sender)
 {
 	//on demmare notre serveur
 	if(this->tcpServer->start(9013))
 	{
 		//voyant passe au vert
-		this->voyantEtatServer->Brush->Color=clLime;
+		  this->voyantEtatServer->Brush->Color=clLime;
 		//on cache start et on affiche stop
-		this->startServer->Visible=false;
-		this->stopServer->Visible=true;
+		  this->startServer->Visible=false;
+		  this->stopServer->Visible=true;
+		//recupére l'adresse ip du systéme
+		  char s[256] = {0}, **pp = NULL;
+		  struct hostent *host = NULL;
+		  WSADATA WSAData;
+		  WSAStartup(MAKEWORD(2, 0), &WSAData);
 
+		  if (!gethostname(s, 256) && (host = gethostbyname(s)) != NULL)
+		  for (pp = host->h_addr_list ; *pp != NULL ; pp++)
+		  this->LabelAfficheIp->Caption=(inet_ntoa(*( struct in_addr *)*pp));
+		  WSACleanup();
+		//on recupére le port du serveur
+		  this->LabelAffichePort->Caption=String(this->tcpServer->getPort());
+
+		//on affiche les labels pour le port et l'ip
+		  this->LabelAfficheIp->Visible=true;
+		  this->LabelAffichePort->Visible=true;
+		  this->LabelIp->Visible=true;
+		  this->LabelPort->Visible=true;
 	}
 	else
 	{
@@ -58,22 +73,28 @@ void __fastcall TForm2::startServerClick(TObject *Sender)
 //---------------------------------------------------------------------------
 
 
-void __fastcall TForm2::stopServerClick(TObject *Sender)
+void __fastcall TTihm::stopServerClick(TObject *Sender)
 {
 	//on arrete le server
-	this->tcpServer->stop();
+	  this->tcpServer->stop();
 	//voyant passe au rouge
-	this->voyantEtatServer->Brush->Color=clRed;
+	  this->voyantEtatServer->Brush->Color=clRed;
     //on cache stop et on affiche start
-	this->stopServer->Visible=false;
-	this->startServer->Visible=true;
+	  this->stopServer->Visible=false;
+	  this->startServer->Visible=true;
+
+	//on cacer les labels pour le port et l'ip
+	  this->LabelAfficheIp->Visible=false;
+	  this->LabelAffichePort->Visible=false;
+	  this->LabelIp->Visible=false;
+	  this->LabelPort->Visible=false;
 
 }
 //---------------------------------------------------------------------------
 
 
 
-void __fastcall TForm2::TimerAffichageCapteurTimer(TObject *Sender)
+void __fastcall TTihm::TimerAffichageCapteurTimer(TObject *Sender)
 {
     try
 	{
@@ -86,9 +107,24 @@ void __fastcall TForm2::TimerAffichageCapteurTimer(TObject *Sender)
 			this->StringGridCapteur->Cells[1][4] =  UnicodeString((int)capData.temperature)+"°C";
 			this->StringGridCapteur->Cells[1][5] = UnicodeString((int)capData.hummiditeRelative)+"%";
 			this->StringGridCapteur->Cells[1][6] =  UnicodeString((int)(capData.luminosite*0.001))+"KLux";
-			this->StringGridCapteur->Cells[1][7] =  UnicodeString((int)capData.jour);
-			this->StringGridCapteur->Cells[1][8] =   UnicodeString((int)capData.pluie);
-			this->StringGridCapteur->Cells[1][9] = UnicodeString((int)capData.surfaceDePluie);
+			if((int)capData.jour == 1)
+			{
+                this->StringGridCapteur->Cells[1][7] = "Jour";
+			}
+			else
+			{
+				this->StringGridCapteur->Cells[1][7] = "Nuit";
+			}
+			if((int)capData.pluie == 1)
+			{
+				this->StringGridCapteur->Cells[1][8] = "Précipitation en cour";
+			}
+			else
+			{
+				this->StringGridCapteur->Cells[1][8] = "Pas de précipitation";
+			}
+
+			this->StringGridCapteur->Cells[1][9] = UnicodeString((int)capData.surfaceDePluie)+"mm";
         }
 	}
 	catch(std::string error)
@@ -97,7 +133,7 @@ void __fastcall TForm2::TimerAffichageCapteurTimer(TObject *Sender)
 	}
 }
 //---------------------------------------------------------------------------
-string TForm2::convertDegrPointCard(int degree)
+string TTihm::convertDegrPointCard(int degree)
 {    string direction;    switch (degree)	{
 		 case 360:
 			direction ="N";
@@ -149,3 +185,7 @@ string TForm2::convertDegrPointCard(int degree)
 			break;
 	  }	return direction;
 }
+
+
+
+

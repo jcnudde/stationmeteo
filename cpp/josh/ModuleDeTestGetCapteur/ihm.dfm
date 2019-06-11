@@ -40,8 +40,8 @@ object Form1: TForm1
     ParentFont = False
   end
   object Label3: TLabel
-    Left = 16
-    Top = 40
+    Left = 20
+    Top = 32
     Width = 186
     Height = 40
     Caption = 'Anemometre'
@@ -92,7 +92,7 @@ object Form1: TForm1
     ParentFont = False
   end
   object Label7: TLabel
-    Left = 15
+    Left = 20
     Top = 266
     Width = 171
     Height = 40
@@ -119,7 +119,7 @@ object Form1: TForm1
   end
   object Label9: TLabel
     Left = 20
-    Top = 394
+    Top = 386
     Width = 252
     Height = 40
     Caption = 'CapteurJour_Nuit'
@@ -236,7 +236,7 @@ object Form1: TForm1
   end
   object LabelPluiviometre: TLabel
     Left = 376
-    Top = 516
+    Top = 508
     Width = 255
     Height = 40
     Caption = 'LabelPluiviometre'

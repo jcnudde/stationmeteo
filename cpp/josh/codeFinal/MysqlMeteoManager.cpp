@@ -15,8 +15,7 @@ Bdd* MysqlMeteoManager::bdd =NULL;
 // constructeur MysqlMeteoManagers
 MysqlMeteoManager::MysqlMeteoManager()
 {
-
-
+	this->fichier = new TIniFile("C:\\Program Files (x86)\\GestionMeteo\\Config.ini");
 }
 
 // destruction constructeur MysqlMeteoManager
@@ -32,15 +31,13 @@ MysqlMeteoManager * MysqlMeteoManager::getInstance()
 		bdd = new Mysql();
 		m_instance->connect();
 
-    }
+	}
     return m_instance;
-}// delete bdd et instancevoid MysqlMeteoManager::stopInstance(){
-	delete bdd;
+}// delete bdd et instancevoid MysqlMeteoManager::stopInstance(){	delete bdd;
 	delete m_instance;
 	m_instance = NULL;
 	bdd = NULL;
-
-}//connexion a la BDDbool MysqlMeteoManager::connect(){	if(bdd->connecte("192.168.65.66","admin","admin","meteo"))
+}//connexion a la BDDbool MysqlMeteoManager::connect(){	AnsiString ip = this->fichier->ReadString("ConfigurationMysql","ip","192.168.65.66");	AnsiString user = this->fichier->ReadString("ConfigurationMysql","user","admin");	AnsiString password = this->fichier->ReadString("ConfigurationMysql","password","admin");	AnsiString dbname =  this->fichier->ReadString("ConfigurationMysql","dbname","meteo");	if(bdd->connecte(ip.c_str(),user.c_str(),password.c_str(),dbname.c_str()))
 	{
 		return true;
 	}
@@ -48,7 +45,7 @@ MysqlMeteoManager * MysqlMeteoManager::getInstance()
 	{
 		return false;
 	}
-}// insertion en bddbool MysqlMeteoManager::InsertDonnerCapteur(tabDonnerCapteur donneeMeteo){	 string direction = this->convertDegrPointCard((int)donneeMeteo.direction);	 // requete pour inserer données métèo	String requete = "INSERT INTO `meteo`.`donnees_meteo` (`vitesseVent`, `direction`, `pressionAtmospherique`, `temperature`, `humiditeRelative`, `luminosite`, `pluie`, `jour`, `surfaceDePluie`, `date`) VALUES (";
+}// insertion en bddbool MysqlMeteoManager::InsertDonnerCapteur(tabDonnerCapteur donneeMeteo){	 string direction = this->convertDegrPointCard((int)donneeMeteo.direction);	 // requete pour inserer données métèo	String requete = "INSERT INTO `meteo`.`donnees_meteo` (`vitesseVent`, `direction`, `pressionAtmospherique`, `temperature`, `humiditeRelative`, `luminosite`, `pluie`, `jour`, `surfaceDePluie`, `date`) VALUES (";
 
 	requete+=this->convertVirguPoint((int)donneeMeteo.vitesseVent);
 	requete+=",'";
@@ -78,7 +75,7 @@ MysqlMeteoManager * MysqlMeteoManager::getInstance()
 
 	return res;
 
-}// séléctionner les derniéres données en BDDvector<tabDonnerCapteur> MysqlMeteoManager::SelectLastDonnee(){	vector< vector<string> > resultRequete;	vector<tabDonnerCapteur> vectorDonnerCapteur;	string requete = "SELECT`vitesseVent`, `direction`, `pressionAtmospherique`, `temperature`, `humiditeRelative`, `luminosite`, `pluie`, `jour`, `surfaceDePluie` FROM `donnees_meteo` ";	resultRequete=bdd->select(requete);	string test ;	for (int i = 0; i <resultRequete.size(); i++)	{		tabDonnerCapteur donnerCapteur ;		for (int j = 0; j < resultRequete[i].size(); j++)
+}// séléctionner les derniéres données en BDDvector<tabDonnerCapteur> MysqlMeteoManager::SelectLastDonnee(){	vector< vector<string> > resultRequete;	vector<tabDonnerCapteur> vectorDonnerCapteur;	string requete = "SELECT`vitesseVent`, `direction`, `pressionAtmospherique`, `temperature`, `humiditeRelative`, `luminosite`, `pluie`, `jour`, `surfaceDePluie` FROM `donnees_meteo` ORDER BY `donnees_meteo`.`date` DESC LIMIT 50";	resultRequete=bdd->select(requete);	string test ;	for (int i = 0; i <resultRequete.size(); i++)	{		tabDonnerCapteur donnerCapteur ;		for (int j = 0; j < resultRequete[i].size(); j++)
 		{
 			switch(j)
 			{

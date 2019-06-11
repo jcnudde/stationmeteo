@@ -1,0 +1,49 @@
+//---------------------------------------------------------------------------
+
+#include <vcl.h>
+#pragma hdrstop
+
+#include "ihm.h"
+//---------------------------------------------------------------------------
+#pragma package(smart_init)
+#pragma resource "*.dfm"
+TForm1 *Form1;
+//---------------------------------------------------------------------------
+__fastcall TForm1::TForm1(TComponent* Owner)
+	: TForm(Owner)
+{
+   	this->carte =new Carte_9111(0);
+	this->capteurjour_nuit = new CapteurJour_Nuit(8);
+	this->capteurpluie = new CapteurPluie(10);
+	this->pluiviometre = new Pluiviometre(4);
+}
+//---------------------------------------------------------------------------
+
+
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::Timer1Timer(TObject *Sender)
+{
+    bool chose = false;
+	char * BOOL;
+	  chose = this->capteurpluie->readValue();
+	if(chose  == false)
+	{
+		this->Shape_pluie->Brush->Color = clLime;
+	}
+	else {
+		this->Shape_pluie->Brush->Color = clRed;
+	}
+
+
+
+//		chose = this->capteurjour_nuit->readValue();
+
+
+//		chose = this->pluiviometre->readValue();
+
+
+}
+//---------------------------------------------------------------------------
+
+

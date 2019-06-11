@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2019/05/27 09:31:49.000.757,=C:\Users\Admin\Documents\Embarcadero\Studio\Projets\Unit1.cpp</Transaction>
+    <Transaction>2019/05/27 09:31:49.000.711,=C:\Users\Admin\Documents\Embarcadero\Studio\Projets\Project1PCH1.h</Transaction>
+    <Transaction>2019/05/27 09:53:35.000.258,C:\Users\Admin\Documents\Embarcadero\Studio\Projets\Unit1.h=C:\Users\Admin\Desktop\testPluiviometre\ihm.h</Transaction>
+    <Transaction>2019/05/27 09:53:35.000.258,C:\Users\Admin\Documents\Embarcadero\Studio\Projets\Unit1.cpp=C:\Users\Admin\Desktop\testPluiviometre\ihm.cpp</Transaction>
+    <Transaction>2019/05/27 09:53:35.000.258,C:\Users\Admin\Documents\Embarcadero\Studio\Projets\Unit1.dfm=C:\Users\Admin\Desktop\testPluiviometre\ihm.dfm</Transaction>
+    <Transaction>2019/05/27 09:53:38.000.602,C:\Users\Admin\Documents\Embarcadero\Studio\Projets\Project1PCH1.h=C:\Users\Admin\Desktop\testPluiviometre\Project1PCH1.h</Transaction>
+    <Transaction>2019/05/27 09:53:49.000.258,C:\Users\Admin\Desktop\testPluiviometre\Project1PCH1.h=C:\Users\Admin\Desktop\testPluiviometre\TestPluivioPCH1.h</Transaction>
+    <Transaction>2019/05/27 09:53:49.000.283,C:\Users\Admin\Documents\Embarcadero\Studio\Projets\Project1.cbproj=C:\Users\Admin\Desktop\testPluiviometre\TestPluivio.cbproj</Transaction>
+    <Transaction>2019/05/27 09:54:27.000.685,C:\Users\Admin\Desktop\testPluiviometre\TestPluivio.cbproj=C:\Users\Admin\Desktop\testPluiviometre\TestPluivio.cbproj</Transaction>
+    <Transaction>2019/05/27 09:54:33.000.814,C:\Users\Admin\Desktop\testPluiviometre\TestPluivio.cbproj=C:\Users\Admin\Desktop\testPluiviometre\TestPluivio.cbproj</Transaction>
+    <Transaction>2019/05/27 10:35:15.000.698,=C:\Users\Admin\Desktop\testPluiviometre\Carte_9111.cpp</Transaction>
+    <Transaction>2019/05/27 10:35:15.000.687,=C:\Users\Admin\Desktop\testPluiviometre\Capteur.cpp</Transaction>
+    <Transaction>2019/05/27 10:35:15.000.705,=C:\Users\Admin\Desktop\testPluiviometre\CarteE_S.cpp</Transaction>
+    <Transaction>2019/05/27 10:35:15.000.715,=C:\Users\Admin\Desktop\testPluiviometre\Pluiviometre.cpp</Transaction>
+    <Transaction>2019/05/27 10:45:38.000.576,=C:\Users\Admin\Desktop\testPluiviometre\pdask_bc.lib</Transaction>
+  </Transactions>
+</BorlandProject>

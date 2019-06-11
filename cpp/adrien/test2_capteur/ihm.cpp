@@ -24,24 +24,41 @@ __fastcall TForm1::TForm1(TComponent* Owner)
 
 void __fastcall TForm1::Timer1Timer(TObject *Sender)
 {
-	bool chose;
+    bool chose = false;
 	char * BOOL;
+	  chose = this->capteurpluie->readValue();
+	if(chose  == false)
+	{
+		this->Shape_pluie->Brush->Color = clLime;
+	}
+	else {
+		this->Shape_pluie->Brush->Color = clRed;
+	}
+
+
 
 		chose = this->capteurjour_nuit->readValue();
-		BOOL = chose ? "true" : "false";
-		this->Edit_jn->Text = BOOL;
-
-
-		chose = this->capteurpluie->readValue();
-		BOOL = chose ? "false" : "true";
-		this->Editpluie->Text =BOOL;
+	if(chose  == false)
+	{
+		this->Shape_jn->Brush->Color = clRed;
+	}
+	else {
+		this->Shape_jn->Brush->Color = clLime;
+	}
 
 
 		chose = this->pluiviometre->readValue();
-		BOOL = chose ? "true" : "false";
-		this->Editpluiviometre->Text =BOOL;
+	if(chose  == false)
+	{
+		this->Shape_pluiv->Brush->Color = clRed;
+	}
+	else {
+		this->Shape_pluiv->Brush->Color = clLime;
+	}
 
 
 }
 //---------------------------------------------------------------------------
+
+
 

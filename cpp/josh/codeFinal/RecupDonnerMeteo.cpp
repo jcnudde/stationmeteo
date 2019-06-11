@@ -12,14 +12,14 @@ RecupDonnerMeteo::RecupDonnerMeteo()
 {
     //on instancie chaque capteur
 	this->capteur.anemometre = new Anemometre(0);
-    this->capteur.girouette = new Girouette(1);
-    this->capteur.barometre = new Barometre(2);
+	this->capteur.girouette = new Girouette(1);
+	this->capteur.barometre = new Barometre(2);
 	this->capteur.thermometre = new Thermometre(3);
 	this->capteur.hygrometre = new Hygrometre(4);
 	this->capteur.solarimetre = new Solarimetre(6);
 	this->capteur.capteur_JourNuit = new CapteurJour_Nuit(8);
 	this->capteur.capteurPluie = new CapteurPluie(10);
-    this->capteur.pluviometre = new Pluiviometre(4);
+	this->capteur.pluviometre = new Pluiviometre(4);
 
 	//on demare la boucle infini du thread
 	this->boucleThread = true;
@@ -87,15 +87,23 @@ DWORD WINAPI RecupDonnerMeteo::ThreadRecupDonnee(LPVOID params)
 		donneeMeteoThread.surfaceDePluie = recupDonnerMeteo->capteur.pluviometre->readValue();
         recupDonnerMeteo->unlockCapteurs();
 
+
 		//on envoie les donnée pour les partager au thread de l'ihm
 		recupDonnerMeteo->notifyData(donneeMeteoThread);
+
+		Sleep(500);
 
 		//on recupere la date
 		time(&secondes);
 		instant[1]=*localtime(&secondes);
-
-		//on teste si 1 min c'est écouler
-		if ((instant[1].tm_min-instant[0].tm_min)>=1) {
+		//on teste si 1 min s'est écouler
+		if ((instant[1].tm_min-instant[0].tm_min)>=5) {
+            MessageBox(
+				  NULL,
+				  "test",
+				  NULL,
+				  MB_OK
+				);
 			//on insert les données
 			recupDonnerMeteo->mysql->InsertDonnerCapteur(donneeMeteoThread);
 			time(&secondes);

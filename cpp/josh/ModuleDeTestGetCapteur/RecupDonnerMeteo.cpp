@@ -68,7 +68,8 @@ DWORD WINAPI RecupDonnerMeteo::ThreadRecupDonnee(LPVOID params)
         donneeMeteoThread.pluie = recupDonnerMeteo->capteur.capteurPluie->readValue();
 		donneeMeteoThread.surfaceDePluie = recupDonnerMeteo->capteur.pluviometre->readValue();
 
-        recupDonnerMeteo->notifyData(donneeMeteoThread);
+		recupDonnerMeteo->notifyData(donneeMeteoThread);
+        Sleep(500);
 
 		//attente classe sqlMeteoManager pour insert les donnée meteo
 	}

@@ -19,6 +19,7 @@ __published:	// Composants gérés par l'EDI
 	TMemo *Memo1;
 	void __fastcall ButtonInsertDonnerCapteurClick(TObject *Sender);
 	void __fastcall ButtonSelectDonnerClick(TObject *Sender);
+
 private:	// Déclarations utilisateur
 	MysqlMeteoManager *bddManager;
 public:		// Déclarations utilisateur

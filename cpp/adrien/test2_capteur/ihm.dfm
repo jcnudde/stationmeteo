@@ -53,8 +53,8 @@ object Form1: TForm1
     Height = 65
   end
   object Label4: TLabel
-    Left = 144
-    Top = 32
+    Left = 160
+    Top = 24
     Width = 336
     Height = 33
     Caption = 'Module de test Capteur TOR'

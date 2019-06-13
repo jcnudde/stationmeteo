@@ -18,7 +18,10 @@ __fastcall TForm1::TForm1(TComponent* Owner)
 	if(this->bddManager->connect())
 	{
 		this->ShapeEtatServeurSQL->Brush->Color = clLime;
-    }
+	}
+	else {
+		this->ShapeEtatServeurSQL->Brush->Color = clRed;
+	}
 }
 //---------------------------------------------------------------------------
 void __fastcall TForm1::ButtonInsertDonnerCapteurClick(TObject *Sender)
@@ -55,3 +58,7 @@ void __fastcall TForm1::ButtonSelectDonnerClick(TObject *Sender)
 	}
 }
 //---------------------------------------------------------------------------
+
+
+
+

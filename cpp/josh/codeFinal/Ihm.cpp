@@ -117,7 +117,7 @@ void __fastcall TTihm::TimerAffichageCapteurTimer(TObject *Sender)
 			}
 			if((int)capData.pluie == 1)
 			{
-				this->StringGridCapteur->Cells[1][8] = "Précipitation en cour";
+				this->StringGridCapteur->Cells[1][8] = "Précipitation en cours";
 			}
 			else
 			{

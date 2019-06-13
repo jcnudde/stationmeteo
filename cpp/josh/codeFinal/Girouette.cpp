@@ -3,7 +3,7 @@
 #pragma hdrstop
 
 #include "Girouette.h"
-#define SEUIL 10
+#define SEUIL 7
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 Girouette::Girouette(int channel):Capteur(channel)

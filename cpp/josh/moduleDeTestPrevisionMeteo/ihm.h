@@ -11,20 +11,22 @@
 #include "TcpServer.h"
 #include "MeteoParser.h"
 #include <Vcl.ExtCtrls.hpp>
+#include <Vcl.Grids.hpp>
 //---------------------------------------------------------------------------
 class TForm1 : public TForm
 {
 __published:	// Composants gérés par l'EDI
-	TLabel *LabelAfficheProtocolePrevi;
 	TButton *ButtonAffichPrevi;
 	TShape *ShapeEtatServer;
 	TLabel *LabelEtatServeur;
 	TGroupBox *GroupBoxTcpServer;
 	TButton *ButtonStart;
 	TButton *ButtonStop;
+	TStringGrid *StringGridAffichePrevi;
 	void __fastcall ButtonAffichPreviClick(TObject *Sender);
 	void __fastcall ButtonStopClick(TObject *Sender);
 	void __fastcall ButtonStartClick(TObject *Sender);
+
 
 private:	// Déclarations utilisateur
 	PrevisionMeteo* ObjPrevi;

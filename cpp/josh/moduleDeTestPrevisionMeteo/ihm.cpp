@@ -33,7 +33,12 @@ __fastcall TForm1::TForm1(TComponent* Owner)
 //---------------------------------------------------------------------------
 void __fastcall TForm1::ButtonAffichPreviClick(TObject *Sender)
 {
-	this->LabelAfficheProtocolePrevi->Caption = this->ObjPrevi->previsionMeteo();
+	this->StringGridAffichePrevi->Cells[0][0]="Etat du climat";
+	this->StringGridAffichePrevi->Cells[1][0]="Température";
+	this->StringGridAffichePrevi->Cells[0][0]=
+
+
+	this->ObjPrevi->previsionMeteo();
 }
 //---------------------------------------------------------------------------
 
@@ -56,4 +61,6 @@ void __fastcall TForm1::ButtonStartClick(TObject *Sender)
     }
 }
 //---------------------------------------------------------------------------
+
+
 

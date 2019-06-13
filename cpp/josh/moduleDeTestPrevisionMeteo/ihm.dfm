@@ -2,8 +2,8 @@ object Form1: TForm1
   Left = 0
   Top = 0
   Caption = 'ModuledeTestPrevision'
-  ClientHeight = 253
-  ClientWidth = 559
+  ClientHeight = 287
+  ClientWidth = 695
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -13,20 +13,8 @@ object Form1: TForm1
   OldCreateOrder = False
   PixelsPerInch = 96
   TextHeight = 13
-  object LabelAfficheProtocolePrevi: TLabel
-    Left = 8
-    Top = 160
-    Width = 299
-    Height = 19
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -16
-    Font.Name = 'Tahoma'
-    Font.Style = []
-    ParentFont = False
-  end
   object ButtonAffichPrevi: TButton
-    Left = 344
+    Left = 494
     Top = 144
     Width = 193
     Height = 57
@@ -41,22 +29,22 @@ object Form1: TForm1
     OnClick = ButtonAffichPreviClick
   end
   object GroupBoxTcpServer: TGroupBox
-    Left = 32
+    Left = 8
     Top = 8
-    Width = 497
+    Width = 655
     Height = 105
     Caption = 'TcpServer'
     TabOrder = 1
     object ShapeEtatServer: TShape
-      Left = 434
-      Top = 24
+      Left = 594
+      Top = 19
       Width = 47
       Height = 41
       Brush.Color = clRed
     end
     object LabelEtatServeur: TLabel
-      Left = 324
-      Top = 24
+      Left = 468
+      Top = 19
       Width = 104
       Height = 13
       Caption = 'Etat du serveur TCP :'
@@ -80,5 +68,15 @@ object Form1: TForm1
       Visible = False
       OnClick = ButtonStopClick
     end
+  end
+  object StringGridAffichePrevi: TStringGrid
+    Left = 8
+    Top = 144
+    Width = 469
+    Height = 65
+    ColCount = 6
+    DefaultColWidth = 75
+    RowCount = 2
+    TabOrder = 2
   end
 end

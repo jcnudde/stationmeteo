@@ -28,7 +28,7 @@
 #include "MysqlMeteoManager.h"
 #include "MeteoDataNotifier.h"
 #include "MeteoStructs.h"
-#include <time.h>
+#include <ctime>
 
 using namespace std;
 
@@ -48,7 +48,7 @@ class RecupDonnerMeteo
 		DWORD dwThreadIdArray;
 		bool boucleThread;
 		//Variable pour la bdd
-		MysqlMeteoManager *mysql;
+		//MysqlMeteoManager *mysql;
 		//constructeur
 		RecupDonnerMeteo();
 		//destructeur

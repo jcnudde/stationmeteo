@@ -28,7 +28,7 @@ RecupDonnerMeteo::RecupDonnerMeteo()
 	this->mutexCapteurs = CreateMutex(NULL, FALSE, NULL);
 
 	//on instancie notre objet mysql
-    this->mysql = MysqlMeteoManager::getInstance();
+	//this->mysql = MysqlMeteoManager::getInstance();
 
     //on crée notre thread et on lui envoie en paramettre notre objet this
 	this->Thread=CreateThread(
@@ -61,13 +61,18 @@ DWORD WINAPI RecupDonnerMeteo::ThreadRecupDonnee(LPVOID params)
 	//on recaste notre parametre en objet RecupDonnerMeteo
 	RecupDonnerMeteo * recupDonnerMeteo = (RecupDonnerMeteo*) params;
 
-	//on declare nos variable pour créer notre timer
-	time_t secondes;
-	struct tm instant[2];
-
-	//on recupere une premiere fois la date
-	time(&secondes);
-	instant[0]=*localtime(&secondes);
+//	//on declare nos variable pour créer notre timer
+//	time_t secondes;
+//	struct tm instant[2];
+//
+//	//on recupere une premiere fois la date
+//	time(&secondes);
+//	instant[0]=*localtime(&secondes);
+	//on declare nos variable pour le minuteur
+    std::clock_t start;
+	double duration;
+	//on intitialise la variable de depart
+	start = clock();
 
 	//on declare notre structure qui va contenir les donnée météo
 	tabDonnerCapteur donneeMeteoThread;
@@ -77,7 +82,7 @@ DWORD WINAPI RecupDonnerMeteo::ThreadRecupDonnee(LPVOID params)
 	{
 		recupDonnerMeteo->lockCapteurs();
 		donneeMeteoThread.vitesseVent = recupDonnerMeteo->capteur.anemometre->readValue();
-        donneeMeteoThread.direction = recupDonnerMeteo->capteur.girouette->readValue();
+		donneeMeteoThread.direction = recupDonnerMeteo->capteur.girouette->readValue();
         donneeMeteoThread.pressionAtmospherique = recupDonnerMeteo->capteur.barometre->readValue();
 		donneeMeteoThread.temperature = recupDonnerMeteo->capteur.thermometre->readValue();
 		donneeMeteoThread.hummiditeRelative = recupDonnerMeteo->capteur.hygrometre->readValue();
@@ -94,20 +99,22 @@ DWORD WINAPI RecupDonnerMeteo::ThreadRecupDonnee(LPVOID params)
 		Sleep(500);
 
 		//on recupere la date
-		time(&secondes);
-		instant[1]=*localtime(&secondes);
-		//on teste si 1 min s'est écouler
-		if ((instant[1].tm_min-instant[0].tm_min)>=5) {
-            MessageBox(
-				  NULL,
-				  "test",
-				  NULL,
-				  MB_OK
-				);
+//		secondes =0;
+//		time(&secondes);
+//		instant[1]=*localtime(&secondes);
+//
+//		on teste si 5 min s'est écouler
+//		if ((instant[1].tm_min-instant[0].tm_min)>=5) {
+		duration =  (clock() - start ) / (double) CLOCKS_PER_SEC;
+		if(duration >= 300)
+		{
+			start = clock();
 			//on insert les données
-			recupDonnerMeteo->mysql->InsertDonnerCapteur(donneeMeteoThread);
-			time(&secondes);
-			instant[0]=*localtime(&secondes);
+			MysqlMeteoManager::getInstance()->InsertDonnerCapteur(donneeMeteoThread);
+			MysqlMeteoManager::releaseInstance();
+//			secondes=0;
+//			time(&secondes);
+//			instant[0]=*localtime(&secondes);
 		}
 	}
 	return 0;

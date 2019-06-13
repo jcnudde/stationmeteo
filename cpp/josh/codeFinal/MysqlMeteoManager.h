@@ -10,6 +10,7 @@
 #include <sstream>
 #include "MeteoStructs.h"
 #include <IniFiles.hpp>
+#include <Windows.h>
 
 using namespace std;
 
@@ -17,6 +18,7 @@ class MysqlMeteoManager {
    private:
 	  static Bdd* bdd;
 	  static MysqlMeteoManager *m_instance;
+	  static HANDLE mutex;
 	  MysqlMeteoManager();
 	  ~MysqlMeteoManager();
 	  TIniFile *fichier;
@@ -24,6 +26,7 @@ class MysqlMeteoManager {
    public:
 
 		static MysqlMeteoManager * getInstance();
+		static void releaseInstance();
 		static void stopInstance();
         MysqlMeteoManager * operator=(MysqlMeteoManager* o1);
         bool connect();

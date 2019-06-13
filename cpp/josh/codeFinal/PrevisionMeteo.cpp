@@ -8,13 +8,14 @@
 
 PrevisionMeteo::PrevisionMeteo()
 {
-	this->sqlMeteo = MysqlMeteoManager::getInstance();
+	//this->sqlMeteo = MysqlMeteoManager::getInstance();
 	this->recDonneeMeteo = RecupDonnerMeteo::getInstance();
 }
 String PrevisionMeteo::previsionMeteo()
 {
 	String repPrevision;
-	vector<tabDonnerCapteur> data = this->sqlMeteo->SelectLastDonnee();
+	vector<tabDonnerCapteur> data = MysqlMeteoManager::getInstance()->SelectLastDonnee();
+    MysqlMeteoManager::releaseInstance();
 	//variable pour calculer les tendances
 	int tendanceAtmospherique=0;
 	int tendanceHumidite=0;
@@ -30,7 +31,7 @@ String PrevisionMeteo::previsionMeteo()
 	//on récupére en + les derniéres veleurs à l'instant t
 	data.push_back(this->recDonneeMeteo->getDonner());
 
-for (int i = 1; i < data.size(); i++) {
+	for (int i = 1; i < data.size(); i++) {
 		//on calcule les tendances Atmosphérique,Humidité, vitesse des vents et Température
 		tendanceAtmospherique+=(data[i].pressionAtmospherique-data[i-1].pressionAtmospherique);
 		tendanceHumidite+=(data[i].hummiditeRelative-data[i-1].hummiditeRelative);
@@ -40,7 +41,6 @@ for (int i = 1; i < data.size(); i++) {
 		moyennePluie+=data[i].pluie;
 		moyenneDirection+=data[i].direction;
 	}
-	int t = data[data.size()-1].hummiditeRelative;
 	//prevision des valeur avenir pour la Pression Atmosphérique,L'Humidité,
 	//la vitesse du vent et la Température
 	previValeurAtmo = data[data.size()-1].pressionAtmospherique+tendanceAtmospherique;

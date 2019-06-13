@@ -11,6 +11,7 @@
 
 MysqlMeteoManager* MysqlMeteoManager::m_instance = NULL;
 Bdd* MysqlMeteoManager::bdd =NULL;
+HANDLE MysqlMeteoManager::mutex;
 
 // constructeur MysqlMeteoManagers
 MysqlMeteoManager::MysqlMeteoManager()
@@ -27,17 +28,19 @@ MysqlMeteoManager * MysqlMeteoManager::getInstance()
 {
     if(m_instance == NULL)
 	{
+		mutex = CreateMutex(NULL, FALSE, NULL);
 		m_instance = new MysqlMeteoManager();
 		bdd = new Mysql();
 		m_instance->connect();
-
 	}
-    return m_instance;
-}// delete bdd et instancevoid MysqlMeteoManager::stopInstance(){	delete bdd;
+	WaitForSingleObject(mutex, INFINITE);
+	return m_instance;
+}void MysqlMeteoManager::releaseInstance(){    ReleaseMutex(mutex);
+}// delete bdd et instancevoid MysqlMeteoManager::stopInstance(){	delete bdd;
 	delete m_instance;
 	m_instance = NULL;
 	bdd = NULL;
-}//connexion a la BDDbool MysqlMeteoManager::connect(){	AnsiString ip = this->fichier->ReadString("ConfigurationMysql","ip","192.168.65.66");	AnsiString user = this->fichier->ReadString("ConfigurationMysql","user","admin");	AnsiString password = this->fichier->ReadString("ConfigurationMysql","password","admin");	AnsiString dbname =  this->fichier->ReadString("ConfigurationMysql","dbname","meteo");	if(bdd->connecte(ip.c_str(),user.c_str(),password.c_str(),dbname.c_str()))
+}//connexion a la BDDbool MysqlMeteoManager::connect(){	AnsiString ip = this->fichier->ReadString("ConfigurationMysql","ip","192.168.65.66");	AnsiString user = this->fichier->ReadString("ConfigurationMysql","user","admin");	AnsiString password = this->fichier->ReadString("ConfigurationMysql","password","");	AnsiString dbname =  this->fichier->ReadString("ConfigurationMysql","dbname","meteo");	if(bdd->connecte(ip.c_str(),user.c_str(),password.c_str(),dbname.c_str()))
 	{
 		return true;
 	}
@@ -68,7 +71,6 @@ MysqlMeteoManager * MysqlMeteoManager::getInstance()
 	requete+="NOW());";
 
 	char * req = StringUtils::magicConvert(requete.c_str());
-
 
 	bool res = bdd->insert(req);
     delete req;
